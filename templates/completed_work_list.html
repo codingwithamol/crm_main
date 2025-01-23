@@ -1,0 +1,124 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Completed Work List</title>
+    <style>
+        body {
+            display: flex;
+            background-color: #f8f9fa;
+        }
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            display: block;
+        }
+        .sidebar a:hover {
+            background-color: #85a3c1;
+        }
+        .work1-container{
+            margin-left: 290px; /* Offset for sidebar */
+            max-width: calc(100% - 250px); /* Account for sidebar */
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+            font-family: 'Playfair Display', serif;
+        }
+        table {
+            margin-top: 20px;
+        }
+        th, td {
+            text-align: center;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+        }
+        .btn-secondary {
+            background-color: #6c757d;
+            border-color: #6c757d;
+        }
+        .btn-secondary:hover {
+            background-color: #5a6268;
+            border-color: #545b62;
+        }
+        .logo {
+            text-align: center;
+            margin-bottom: 10px; /* Reduced bottom margin */
+            padding: 0; /* Remove any padding */
+        }
+
+        .logo img {
+            max-width: 70%; /* Ensure the logo size is consistent */
+            height: auto;
+            display: block;
+            margin: 0 auto; /* Center the logo horizontally */
+        }
+
+        @media (max-width: 768px) {
+            .work1-container{
+                margin-top: 30px;
+                margin-left: 0px;
+                max-width: 100%;
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    {% include 'sidebar.html' %}
+    <div class="sidebar">
+        <div class="logo">
+            <img src="{% static 'images/logo.png' %}" alt="Logo">
+        </div>
+        <a href="{% url 'technician_dashboard' %}">Dashboard</a>
+        <!-- <a href="{% url 'pending_work' %}">Pending Work</a> -->
+        <a href="{% url 'work_list' %}">Work List</a>
+        <a href="{% url 'completed_work_list' %}"> Completed Work List</a>
+        <button type="submit" class="logout-button" style="margin-left: 30px">
+            <a href="/logout" style="text-decoration: none; color: black; margin-left: 30px; margin-right: 30px"><i class="fa-sharp fa-solid fa-right-from-bracket fa-flip-horizontal" style="color: #fa0000;"></i> Logout</a>
+        </button>
+    </div>
+    <div class="work1-container">
+        <h1 class="my-4 text-center">Completed Work List</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Work ID</th>
+                    <th>Customer Name</th>
+                    <th>Completion Date & Time</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for work in completed_works %}
+                <tr>
+                    <td>{{ work.id }}</td>
+                    <td>{{ work.work.customer_fname }} {{ work.work.customer_lname }}</td>
+                    <td>{{ work.completion_datetime|date:"d-F-Y / H:i" }}</td>
+                    <td><a href="{% url 'work_details' work.id %}" class="btn btn-primary">View Work Details</a></td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="4">No completed work available.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{% url 'work_list' %}" class="btn btn-secondary">Back to Work List</a>
+    </div>
+</body>
+</html>

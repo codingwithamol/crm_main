@@ -1,0 +1,180 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"> <!-- Optional custom styles -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Technician Dashboard</title>
+    <style>
+        .profile-card, .chartcontainer {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 600px;
+        }
+        .profile-card h2 {
+            margin-top: 0;
+        }
+        .profile-card p {
+            margin: 10px 0;
+        }
+        .profile-card .card-header {
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #ddd;
+            padding: 10px 15px;
+            border-radius: 8px 8px 0 0;
+        }
+        /* .sidebar {
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 150px;
+            background-color: #343a40;
+            padding-top: 20px;
+        } */
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            display: block;
+        }
+        .sidebar a:hover {
+            background-color: #575d63;
+        }
+        .content {
+            margin-left: 300px;
+            padding: 20px;
+        }
+        .logo {
+            text-align: center;
+            margin-bottom: 10px; /* Reduced bottom margin */
+            padding: 0; /* Remove any padding */
+        }
+
+        .logo img {
+            max-width: 70%; /* Ensure the logo size is consistent */
+            height: auto;
+            display: block;
+            margin: 0 auto; /* Center the logo horizontally */
+        }
+
+        .buttoncontainer{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .buttoncontainer span{
+            width: 33%;
+            flex-grow: 1;
+            text-align: center;
+        }
+        .buttoncontainer button{
+            width: 30%;
+        }
+        @media (max-width: 768px) {
+            .content{
+                margin-top: 30px;
+                margin-left: 0;
+                max-width: 100%;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+
+    {% include 'sidebar.html' %}
+    <div class="sidebar">
+
+        <div class="logo">
+            <img src="{% static 'images/logo.png' %}" alt="Logo">
+        </div>
+        <a href="{% url 'technician_dashboard' %}">Dashboard</a>
+        <!-- <a href="{% url 'pending_work' %}">Pending Work</a> -->
+        <a href="{% url 'work_list' %}"> Work List</a>
+        <a href="{% url 'completed_work_list' %}"> Completed Work List</a>
+        
+        <button type="submit" class="logout-button" style="margin-left: 30px">
+            <a href="/logout" style="text-decoration: none; color: black; margin-left: 30px; margin-right: 30px"><i class="fa-sharp fa-solid fa-right-from-bracket fa-flip-horizontal" style="color: #fa0000;"></i> Logout</a>
+        </button>
+        <!-- <a href="/index">Home</a> -->
+    </div>
+    <div class="content">
+        <h1 style="font-family: 'Playfair Display', serif;font-size: 50px;font-weight: 900;" class="my-4">Hello, {{ technician_profile.first_name }}</h1>
+        
+        {% if technician_profile %}
+        <div class="profile-card">
+            <div class="card-header">
+                <h2>{{ technician_profile.first_name }} {{ technician_profile.last_name }}</h2>
+            </div>
+            <p><strong>Email:</strong> {{ technician_profile.email }}</p>
+            <p><strong>Contact Number:</strong> {{ technician_profile.contact_number }}</p>
+            <p><strong>Address:</strong> {{ technician_profile.address }}</p>
+            <p><strong>City:</strong> {{ technician_profile.city }}</p>
+            <p><strong>State:</strong> {{ technician_profile.state }}</p>
+            <p><strong>Postal Code:</strong> {{ technician_profile.postal_code }}</p>
+            <p><strong>Date of Joining:</strong> {{ technician_profile.date_of_joining }}</p>
+        </div>
+        {% else %}
+        <p>No profile information available.</p>
+        {% endif %}
+
+        <div class="chartcontainer">
+            <div class="buttoncontainer">
+                <button class="btn btn-outline-primary my-2 my-sm-0" onclick="changeMonth('{{ previous_month.month }}', '{{ previous_month.year }}')">Previous Month</button>
+                <span>{{ selected_month }}/{{ selected_year }}</span>
+                <button class="btn btn-outline-primary my-2 my-sm-0" onclick="changeMonth('{{ next_month.month }}', '{{ next_month.year }}')">Next Month</button>
+            </div>
+            <canvas id="weeklyChart"></canvas>
+        </div>
+        
+        <script>
+            function changeMonth(month, year) {
+                // Update the URL with the new month and year
+                const currentUrl = new URL(window.location.href);
+                currentUrl.searchParams.set('month', month);
+                currentUrl.searchParams.set('year', year);
+                window.location.href = currentUrl.href; // Redirect to the new URL
+            }
+        </script>
+        
+        
+
+        <script>
+            const chartData = JSON.parse('{{ chart_data_json|escapejs }}');
+    
+            const ctx = document.getElementById('weeklyChart').getContext('2d');
+            const chart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: chartData.labels,
+                    datasets: [{
+                        label: 'Completed Works',
+                        data: chartData.data,
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        </script>
+
+    </div>
+
+</body>
+</html>
