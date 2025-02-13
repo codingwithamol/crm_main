@@ -5,34 +5,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Landing Page</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <style>
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            font-family: Verdana, sans-serif;
+
             text-align: center;
             background-color: #f4f4f4;
         }
 
         .background-image {
-            background-image: url("{% static 'images/landing_background.jpg' %}");
+            background-image: url("{% static 'images/landing_background.jpeg' %}");
             background-repeat: no-repeat;
             background-position: center center;
             background-size: cover;
             height: 100%;
             width: 100%;
-            position: absolute;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            padding: 10px;
+            margin-top: 90px;
+            
+         
+          
+
+          
+            
         }
+        
 
         .heading {
             font-size: 28px;
@@ -42,9 +48,11 @@
             white-space: nowrap;
             overflow: hidden;
             border-right: 3px solid white;
-            width: 20ch;
-            animation: typing 3s steps(20) 1s infinite alternate, 
-                       erase 3s steps(20) 4s infinite alternate;
+            width: 27ch;
+            animation: typing 3s steps(27) 1s infinite alternate, 
+                       erase 3s steps(27) 4s infinite alternate;
+                       box-shadow: 0px 2px 10px rgb(0, 0, 0), inset 0px 4px 80px rgba(0, 0, 0, 0.3);
+
         }
 
         @keyframes typing {
@@ -65,25 +73,7 @@
             max-width: 250px;
         }
 
-        .btn {
-            text-decoration: none;
-            padding: 12px 20px;
-            margin: 10px 0;
-            background-color: #007BFF;
-            color: white;
-            border-radius: 25px;
-            text-align: center;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            box-shadow: 0px 8px 12px rgba(0, 123, 255, 0.3);
-            width: 100%;
-        }
-
-        .btn:hover {
-            background-color: #0056b3;
-            transform: translateY(-3px);
-            box-shadow: 0px 12px 18px rgba(0, 123, 255, 0.4);
-        }
+        
 
         .left-side, .right-side {
             display: flex;
@@ -95,17 +85,17 @@
         /* Media query for mobile devices with a max-width of 480px */
         @media (max-width: 480px) {
             .background-image {
-                padding: 15px;
+               
                 background-size: cover;
             }
 
             .heading {
-                font-size: 14px;
+                font-size: 24px;
                 margin-bottom: 20px;
-                width: 40ch;
+                width: 28ch;
                 border-right: 2px solid white;
-                animation: typing 3s steps(40) 1s infinite alternate, 
-                           erase 3s steps(40) 4s infinite alternate;
+                animation: typing 3s steps(28) 1s infinite alternate, 
+                           erase 3s steps(28) 4s infinite alternate;
             }
 
             .btn {
@@ -118,20 +108,131 @@
                 max-width: 90%;
             }
         }
+         /* Navbar Css Start */
+         .navbar {
+            background-color: #F4F4F5;  /* Baby Pink */
+            box-shadow: 0px 5px 10px rgb(0, 0, 0);
+            padding: 33px;
+            width: 100%;
+            position: fixed;
+            top: 0%;
+            z-index: 1000;
+
+
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            padding: 0px;
+        }
+
+        .navbar-toggle {
+            border: none;
+        }
+
+
+        .tem {
+            position: absolute;
+            right: 25px;
+            top: 0px;
+        }
+
+       
+
+        .navbar-header_logo {
+            position: absolute;
+            left: 10px;
+            top: 0px;
+        }
+
+      
+
+
+        /*Navbar Css End */
+         /* Button styling */
+         .btn {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 900;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1.5em;
+            width: 100%;
+        }
+
+        .btn:hover {
+            background: linear-gradient(to right, #2575fc, #6a11cb);
+            transform: scale(1.05);
+            color: #fff;
+        }
+
+       
     </style>
 </head>
-<body>
-    <div class="background-image">
-        <div class="heading">Seva Facility Services PVT LTD</div>
-        <div class="button-container">
-            <div class="left-side">
-                <a href="/technician_login" class="btn">Login as Technician</a>
+<body >
+  
+    <nav class="navbar navbar-default">
+        <div class="container-fluid navbarr">
+            <div class="navbar-header ">
+                <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>                        
+                </button> -->
+                <a class="navbar-brand " href="https://profitmaxacademy.com/">
+                    <img src="{% static 'images/Logo.png' %}" alt="Logo"
+                        style="height: 120px;   margin-bottom: 10px; " class="navbar-header_logo">
+                </a>
             </div>
-            <div class="right-side">
-                <a href="/user_login" class="btn">Login as Admin</a>
-                <a href="/user_login" class="btn">Login as Employee</a>
+
+           
+            <div class="navbar-header tem">
+                <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>                        
+                </button> -->
+                <a class="navbar-brand mt-3" href="#">
+                    <img src="{% static 'images/crono.png' %}" alt="Logo"
+                        style="height: 70px;   margin-bottom: 10px; ">
+                </a>
             </div>
+            <!-- <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+            </div> -->
         </div>
-    </div>
+    </nav>
+
+       <div class="container-fluid background-image" >
+        <div class="row">
+            <div class="col-md-3 mt-5"></div>
+            <div class="col-md-6 mt-5 col-12" style="width: 100%;">
+                <center>              
+                      <div class="heading p-3  style=" 
+ ">Seva Facility Services Pvt Ltd</div>
+
+                <div class="button-container">
+                    <div class="left-side">
+                        <a href="/technician_login" class="btn">Login as Technician</a>
+                    </div>
+                    <div class="right-side">
+                        <a href="/user_login" class="btn">Login as Admin</a>
+                        <a href="/user_login" class="btn">Login as Employee</a>
+                    </div>
+                </div>
+                </center>
+            </div>
+            <div class="col-md-3 mt-5"></div>
+
+        </div>
+       </div>
+
 </body>
 </html>
