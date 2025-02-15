@@ -29,10 +29,10 @@
             background-image: url("{% static 'images/login-background.jpg' %}");
             background-repeat: no-repeat;
             background-size: cover;
-            height: 100%;
+        
             width: 100%;
             margin-top: 90px;
-            padding-bottom: 20PX;
+            padding-bottom: 30PX !important;
             box-shadow: 0PX;
 
  }
@@ -260,6 +260,7 @@
         }
 
         .footer {
+        
 
             width: 100%;
             font-size: 20px;
@@ -279,7 +280,6 @@
         max-width: 400px;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         text-align: center;
-        font-family: 'Arial', sans-serif;
     }
     .login :hover{
         transform: scale(1.01);
@@ -423,6 +423,7 @@
                     <img src="{% static 'images/crono.png' %}" alt="Logo" style="height: 70px;   margin-bottom: 10px; ">
                 </a>
             </div>
+
             <!-- <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -437,12 +438,11 @@
     <div class="container-fluid background-image">
         <div class="row" >
             <div class="col-md-3 mt-5"></div>
-            <div class="col-md-6 mt-5 col-12 login" style="width: 100%;">
+            <div class="col-md-6 mt-5 col-12 login " style="width: 100%;">
                 <center>
-                    <form method="POST" class="login-form">
+                    <form method="POST" class="login-form ">
                         {% csrf_token %}
                         <h1 class="login-title">Sign Up</h1>
-                        <p class="login-description">Please enter your <span class="highlight-text">Details</span></p>
                         <input type="text" placeholder="Username" class="input-field" name="uname">
                         <input type="email" placeholder="Email" class="input-field" name="uemail">
                         <input type="password" placeholder="Password" class="input-field" name="upass">
@@ -476,7 +476,7 @@
             <!-- Footer Content -->
             <p style="margin: 0; font-weight: 600; word-wrap: break-word;">
                 © 2025. Powered by
-                <img src="../static/images/logoweb.png" alt="Chronoanalytics Logo"
+                <img src="{% static 'images/crono.png' %}" alt="Chronoanalytics Logo"
                     style="height: 20px; vertical-align: middle;">
                 <a href="http://www.chronoanalytics.in/"
                     style="text-decoration: none;  background: linear-gradient(to right, #2575fc, #6a11cb);-webkit-background-clip: text;-webkit-text-fill-color: transparent; font-size: 1.1rem;">Chronoanalytics
@@ -485,7 +485,7 @@
             </p>
             <p style="font-weight: 600; word-wrap: break-word; ">
                 © 2025. Marketed by
-                <img src="../static/images/TeimLogo.png" alt="Teim Logo" style="height: 20px; vertical-align: middle;">
+                <img src="{% static 'images/TeimLogo.png' %}" alt="Teim Logo" style="height: 20px; vertical-align: middle;">
                 <a href="http://teim.in/" style="text-decoration: none;  background: linear-gradient(to right, #2575fc, #6a11cb); /* Gradient definition */
        -webkit-background-clip: text; 
        -webkit-text-fill-color: transparent; font-size: 1.1rem;">TEIM</a>
