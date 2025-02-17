@@ -23,18 +23,20 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px;
 
+        }
+        body{
+            background-color: rgb(0, 0, 0) !important;
         }
         .container {
             font-family: "Cardo", serif;
             font-weight: 400;
             font-size: 16px;
-            margin: 0 auto;
-            padding: 20px;
+            margin-top: 10%;
+            padding: 0px;
             display: grid;
             grid-template-columns: repeat(2, 1fr); /* 2 columns */
-            grid-gap: 20px;  /* Space between charts */
+            grid-gap: 10px;  /* Space between charts */
             max-width: 1200px;  /* Adjust width */
             justify-content: center;
         }
@@ -46,8 +48,8 @@
             padding: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             width: 80%; 
-            max-width: 700px;
-            margin-left: auto;
+            margin-left: 50px;
+            box-shadow: 0px 0px 10px rgb(196, 179, 179);
         }
 
         .date-filter-container label {
@@ -67,6 +69,8 @@
         border: none;
         border-radius: 5px;
         cursor: pointer;
+        width: 150px;
+       justify-content: center;
     }
         
         body {
@@ -86,10 +90,13 @@
             align-items: center;
             background-color: #f8f9fa;
             color: rgb(0, 0, 0);
-            padding: 10px 20px;
             position: fixed;
             width: 100%;
             z-index: 1000;
+            position: fixed;
+            top: 0%;
+            box-shadow: 0px 5px 10px rgb(0, 0, 0);
+            padding: 25px;
         }
 
         .header .hamburger {
@@ -103,14 +110,34 @@
             position: fixed;
             top: 0;
             left: -300px; /* Hidden by default */
-            background-color: #3c3c3e;
+            background-color: #F4F4F5;
             padding: 20px 0 0 0; /* Only padding on the top for space */
             overflow-y: auto;
+            color: black !important;
             transition: left 0.3s ease-in-out;
             z-index: 2000; /* Ensure sidebar is above overlay */
             border-top-right-radius: 15px; /* Curved top-right corner */
             border-bottom-right-radius: 15px; /* Curved bottom-right corner */
             box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.5); /* Optional for better aesthetics */
+        }
+         .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4); /* Adjust opacity */
+            backdrop-filter: blur(5px); /* Blurred effect for overlay */
+            z-index: 1500; /* Should cover page content but not sidebar */
+        }
+
+        .open-sidebar .sidebar {
+            left: 0; /* Slide sidebar into view */
+        }
+
+        .open-sidebar .overlay {
+            display: block; /* Show the overlay */
         }
 
         .sidebar .logo img {
@@ -125,7 +152,7 @@
         }
 
         .sidebar ul li {
-            color: #f8f9fa; /* Light shade for better contrast */
+            color: #000000; /* Light shade for better contrast */
             font-family: "Cardo", serif;
             font-weight: 400;
             font-size: 18px;
@@ -160,7 +187,7 @@
 
         .submenu {
             display: none;
-            background-color: #525354; /* Submenu background adjusted */
+            background-color: #ffffff; /* Submenu background adjusted */
             position: absolute;
             top: 100%;
             left: 0;
@@ -185,12 +212,12 @@
             font-size: 16px;
             padding: 2px 0;
             margin: 7px 0;
-            color: #f8f9fa; /* Submenu text updated */
+            color: #000000; /* Submenu text updated */
             cursor: pointer;
         }
 
         .submenu ul li:hover {
-            background-color: #636465; /* Slightly darker shade for hover */
+            background-color: #fdfdfd; /* Slightly darker shade for hover */
         }
 
         .arrow-down {
@@ -234,28 +261,12 @@
             font-family: "Cardo", serif;
             font-weight: 400;
             font-size: 16px;
-            margin-left: 250px;
-            padding: 20px;
             flex: 1;
             align-self: center;
-            overflow: auto;
             transition: margin-left 0.3s;
         }
-        .main-container h1{
-            margin-left: 280px;
-        }
+       
 
-        .overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.4); /* Adjust opacity */
-            backdrop-filter: blur(5px); /* Blurred effect for overlay */
-            z-index: 1500; /* Should cover page content but not sidebar */
-        }
 
         .open-sidebar .sidebar {
             left: 0; /* Slide sidebar into view */
@@ -266,6 +277,48 @@
         }
 
         @media (max-width: 768px) {
+            .teimlms {
+                display: inline-block;
+                position: absolute;
+                left: 44% !important;
+                top: 45px !important;
+                font-weight: bold;
+                font-size: 10px !important;
+              
+            }
+              .open-sidebar .overlay {
+                display: block; /* Show overlay when sidebar is open */
+            }
+            .header{
+                padding: 13px;
+            }
+
+            .navbar-header_logo{
+                height: 80px !important;
+
+                
+            }
+            .tem {
+                position: absolute !important;
+                right: 0px !important;
+                top: 5px !important;
+              
+                    }
+                    .imgg{
+                        height: 58px !important;   
+
+                    }
+            .container {
+                grid-template-columns: 1fr; /* 1 column for small devices */
+                padding: 20% !important;
+
+            }
+            .classs{
+                padding: auto !important;
+                margin-top: 10% !important;
+
+            }
+        
             .sidebar {
                 left: -300px; /* Sidebar hidden by default on smaller screens */
             }
@@ -281,19 +334,28 @@
             .open-sidebar .overlay {
                 display: block; /* Show overlay when sidebar is open */
             }
+            .close-button {
+                display: block; /* Show the button on small screens */
+            }
         }
 
         @media (min-width: 769px) {
             .sidebar {
-                left: 0; /* Sidebar always visible on larger screens */
+                left: -300px; /* Sidebar always visible on larger screens */
+            }
+ .overlay {
+                display: none; /* No overlay needed on larger screens */
             }
 
             .header .hamburger {
-                display: none; /* Hide hamburger icon on larger screens */
+                display: inline-block; /* Hide hamburger icon on larger screens */
             }
 
-            .overlay {
-                display: none; /* No overlay needed on larger screens */
+            .open-sidebar .open-sidebar  {
+                display: block; /* No overlay needed on larger screens */
+            }
+            .close-button {
+                display: block; /* Show the button on small screens */
             }
 
             
@@ -340,9 +402,9 @@
         }
 
         .close-button {
-            display: none; /* Hidden by default */
+            display: block; /* Hidden by default */
             font-size: 24px;
-            color: white;
+            color: rgb(0, 0, 0);
             position: absolute;
             top: 10px;
             right: 15px;
@@ -467,14 +529,144 @@
         max-height: 500px;
         margin: 0 auto; /* Center the chart */
         }
+        .tem {
+            position: absolute;
+            right: 10px;
+            top: 15px !important;
+        }
 
+
+
+        .navbar-header_logo {
+            position: absolute;
+            left: 50px;
+            top: 0px;
+        }
+        .tem {
+            position: absolute;
+            right: 10px;
+            top: 5px;
+        }
+
+        .teimlms {
+            display: inline-block;
+            position: absolute;
+            left: 47%;
+            top: 35px;
+            font-weight: bold;
+            font-size: 20px;
+         
+        }
+        .container{
+            transition: transform 0.5s ease-in;
+            cursor: pointer;
+
+        }
+.container :hover{
+   
+    transform: scale(1.01);
+
+}
         
+/* From Uiverse.io by satyamchaudharydev */ 
+button {
+    --primary-color: #b4b4b8;
+    --secondary-color: #fff;
+    --hover-color: #111;
+    --arrow-width: 10px;
+    --arrow-stroke: 2px;
+    box-sizing: border-box;
+    border: 0;
+    border-radius: 20px;
+    color: var(--secondary-color);
+    padding: 0.7em 1.6em;
+    background: var(--primary-color);
+    display: flex;
+    transition: 0.2s background;
+    align-items: center;
+    gap: 0.6em;
+    font-weight: bold;
+    background-color: #2e2c2c;
+  }
+  button a{
+    list-style-type: none;
+    text-decoration: none;
+    color:white;
+  }
+  
+  button .arrow-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  button .arrow {
+    margin-top: 1px;
+    width: var(--arrow-width);
+    background: var(--primary-color);
+    height: var(--arrow-stroke);
+    position: relative;
+    transition: 0.2s;
+  }
+  
+  button .arrow::before {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    border: solid var(--secondary-color);
+    border-width: 0 var(--arrow-stroke) var(--arrow-stroke) 0;
+    display: inline-block;
+    top: -3px;
+    right: 3px;
+    transition: 0.2s;
+    padding: 3px;
+    transform: rotate(-45deg);
+  }
+  
+  button:hover {
+    background-color: var(--hover-color);
+  }
+  
+  button:hover .arrow {
+    background: var(--secondary-color);
+  }
+  
+  button:hover .arrow:before {
+    right: 0;
+  }
     </style>
 </head>
 <body>
     <div class="header">
+        
         <div class="hamburger" id="hamburger">
             <i class="fas fa-bars"></i>
+           
+        </div>
+        <div class="navbar-header ">
+            <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>                        
+            </button> -->
+            <a class="navbar-brand " href="#">
+                <img src="{% static 'images/Logo.png' %}" alt="Logo" style="height: 120px;   margin-bottom: 10px; "
+                    class="navbar-header_logo">
+            </a>
+        </div>
+        <div class="teimlms">
+            <span>Dashboard</span>
+        </div>
+
+        <div class="navbar-header tem">
+            <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>                        
+            </button> -->
+            <a class="navbar-brand mt-3" href="https://chronoanalytics.in/">
+                <img src="{% static 'images/crono.png' %}" alt="Logo" style="height: 70px;   margin-bottom: 10px; " class="imgg">
+            </a>
         </div>
     </div>
 
@@ -578,13 +770,20 @@
         </script>
     
         <!-- 
-        
-        
-        -->
         <div class="logout-container">
             <button style="transform: scale(1.0); max-width: 200px" type="submit" class="logout-button">
                 <a href="/logout" style="text-decoration: none; color: black;;"><i class="fa-sharp fa-solid fa-right-from-bracket fa-flip-horizontal" style="color: #fa0000;"></i> Logout</a>
             </button>
+        
+        -->
+       
+           <center> <button class="mb-5 mt-3">
+            <a href="/logout">Logout</a>
+              <div class="arrow-wrapper">
+                  <div class="arrow"></div>
+          
+              </div>
+          </button></center>
         </div>
         
         
@@ -606,7 +805,6 @@
         </script>
     
         {% endif %}
-        <h1 style="font-size: 40px; margin-top: 5px;font-family: 'Playfair Display', serif;">Dashboard</h1>
     </div>
 
     <script>
@@ -634,9 +832,9 @@
     
     <!-- Flexbox container to hold both calendar and pie chart -->
     <div class="container">
-        <div class="pie-chart-container" >
+        <div class="pie-chart-container classs" >
             <!-- Pie Chart for Lead Distribution -->
-            <h3>Lead Distribution</h3>
+            <h3 class="ml-5">Lead Distribution</h3>
             <!-- Date Range Filter with Styling -->
             <div class="date-filter-container" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
                 <div style="display: flex; align-items: center; gap: 10px;">
@@ -737,7 +935,7 @@
         </div>
 
 
-        <div class="followupchart-container">
+        <div class="followupchart-container classs">
             <h3>Follow-Up Stage Distribution</h3>
             <!-- Date Range Filter -->
             <div class="date-filter-container" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; margin-bottom: 15px;">
@@ -843,7 +1041,7 @@
 
 
 
-            <div class="quote-vs-order-container">
+            <div class="quote-vs-order-container classs">
                 <h3>Quotation vs Order Chart</h3>
                 <!-- Date Range Filter -->
                 <div class="date-filter-container" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; margin-bottom: 15px;">
@@ -982,7 +1180,7 @@
             </div>
 
 
-            <div class="contractTypeChart-container">
+            <div class="contractTypeChart-container classs">
                 <h3>Contract Type Distribution</h3>
                 <!-- Date Range Filter -->
                 <div class="date-filter-container" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; margin-bottom: 15px;">
@@ -1098,7 +1296,7 @@
 
 
             
-        <div class="bar-chart-container">
+        <div class="bar-chart-container classs">
             <!-- Bar Chart for Product Categories -->
             <h3>Products by Category</h3>
             <canvas id="barChart"></canvas>
@@ -1173,6 +1371,29 @@
             document.body.classList.remove('open-sidebar');
         });
     </script>
+
+    <div class="container-fluid footer  mt-5" style="background-color: #f7f7f7; width:100%;">
+        <div class="row p-3">
+            <div class="col-md-12 text-center"> <p style="margin: 0; font-weight: 600; word-wrap: break-word;">
+                © 2025. Powered by
+                <img src="{% static 'images/crono.png' %}" alt="Chronoanalytics Logo"
+                    style="height: 20px; vertical-align: middle;">
+                <a href="http://www.chronoanalytics.in/"
+                    style="text-decoration: none;  background: linear-gradient(to right, #2575fc, #6a11cb);-webkit-background-clip: text;-webkit-text-fill-color: transparent; font-size: 1.1rem;">Chronoanalytics
+                    Solution</a>
+                All Rights Reserved.
+            </p>
+          </div>
+            <div class="col-md-12 text-center">  <p style="font-weight: 600; word-wrap: break-word; ">
+                © 2025. Marketed by
+                <img src="{% static 'images/TeimLogo.png' %}" alt="Teim Logo" style="height: 20px; vertical-align: middle;">
+                <a href="http://teim.in/" style="text-decoration: none;  background: linear-gradient(to right, #2575fc, #6a11cb); /* Gradient definition */
+        -webkit-background-clip: text; 
+        -webkit-text-fill-color: transparent; font-size: 1.1rem;">TEIM</a>
+                All Rights Reserved.
+            </p></div>
+        </div>
+    </div>
 
 </body>
 </html>
