@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,79 +11,31 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Cardo:ital@0;1&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Cardo:ital@0;1&display=swap"
+        rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Cardo:ital@0;1&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Cardo:ital@0;1&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Outfit:wght@100..900&display=swap"
+        rel="stylesheet">
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Sidebar</title>
     <style>
-
-        .main-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-        }
-        body{
-            background-color: rgb(0, 0, 0) !important;
-        }
-        .container {
-            font-family: "Cardo", serif;
-            font-weight: 400;
-            font-size: 16px;
-            margin-top: 10%;
-            padding: 0px;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr); /* 2 columns */
-            grid-gap: 10px;  /* Space between charts */
-            max-width: 1200px;  /* Adjust width */
-            justify-content: center;
-        }
-        /* Style for the pie chart container */
-        .pie-chart-container, .bar-chart-container , .quote-vs-order-container, .contractTypeChart-container, .followupchart-container{
-            background: #ffffff;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 80%; 
-            margin-left: 50px;
-            box-shadow: 0px 0px 10px rgb(196, 179, 179);
-        }
-
-        .date-filter-container label {
-        font-weight: bold;
-    }
-
-    .date-filter-container input[type="date"] {
-        padding: 5px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-    }
-
-    #filter_button {
-        padding: 7px 15px;
-        background-color: #36A2EB;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        width: 150px;
-       justify-content: center;
-    }
-        
         body {
-            margin: 0;
-            padding: 0;
-            font-family: "Outfit", sans-serif;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            overflow: auto;
-            background-color: #f8f9fa;
+            background-color: rgba(0, 0, 0, 0.8) !important;
+            color: #F4F4F5 !important;
+
         }
+
+        .hamburger:hover{
+
+            color: #6a11cb;
+            text-shadow: 0px 0px 5px rgb(0, 0, 27);
+          }
+
+
 
         .header {
             display: flex;
@@ -109,35 +62,47 @@
             width: 290px;
             position: fixed;
             top: 0;
-            left: -300px; /* Hidden by default */
+            left: -300px;
+            /* Hidden by default */
             background-color: #F4F4F5;
-            padding: 20px 0 0 0; /* Only padding on the top for space */
+            padding: 20px 0 0 0;
+            /* Only padding on the top for space */
             overflow-y: auto;
             color: black !important;
             transition: left 0.3s ease-in-out;
-            z-index: 2000; /* Ensure sidebar is above overlay */
-            border-top-right-radius: 15px; /* Curved top-right corner */
-            border-bottom-right-radius: 15px; /* Curved bottom-right corner */
-            box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.5); /* Optional for better aesthetics */
+            z-index: 2000;
+            /* Ensure sidebar is above overlay */
+            border-top-right-radius: 15px;
+            /* Curved top-right corner */
+            border-bottom-right-radius: 15px;
+            /* Curved bottom-right corner */
+            box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.5);
+            /* Optional for better aesthetics */
         }
-         .overlay {
+
+        .overlay {
             display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.4); /* Adjust opacity */
-            backdrop-filter: blur(5px); /* Blurred effect for overlay */
-            z-index: 1500; /* Should cover page content but not sidebar */
+            background-color: rgba(0, 0, 0, 0.4);
+            /* Adjust opacity */
+            backdrop-filter: blur(5px);
+            /* Blurred effect for overlay */
+            z-index: 1500;
+            /* Should cover page content but not sidebar */
         }
 
         .open-sidebar .sidebar {
-            left: 0; /* Slide sidebar into view */
+            left: 0;
+            /* Slide sidebar into view */
         }
 
         .open-sidebar .overlay {
-            display: block; /* Show the overlay */
+            display: block;
+            /* Show the overlay */
         }
 
         .sidebar .logo img {
@@ -152,7 +117,8 @@
         }
 
         .sidebar ul li {
-            color: #000000; /* Light shade for better contrast */
+            color: #000000;
+            /* Light shade for better contrast */
             font-family: "Cardo", serif;
             font-weight: 400;
             font-size: 18px;
@@ -165,7 +131,8 @@
         }
 
         .sidebar ul li:hover {
-            background-color: #525354; /* Slightly lighter shade for hover */
+            background-color: #525354;
+            /* Slightly lighter shade for hover */
             color: white;
         }
 
@@ -187,7 +154,8 @@
 
         .submenu {
             display: none;
-            background-color: #ffffff; /* Submenu background adjusted */
+            background-color: #ffffff;
+            /* Submenu background adjusted */
             position: absolute;
             top: 100%;
             left: 0;
@@ -198,9 +166,7 @@
             border-radius: 5px;
         }
 
-        .has-submenu:hover .submenu {
-            display: block;
-        }
+      
 
         .submenu ul {
             list-style-type: none;
@@ -212,12 +178,16 @@
             font-size: 16px;
             padding: 2px 0;
             margin: 7px 0;
-            color: #000000; /* Submenu text updated */
+            color: #000000;
+            /* Submenu text updated */
             cursor: pointer;
         }
 
         .submenu ul li:hover {
-            background-color: #fdfdfd; /* Slightly darker shade for hover */
+            background-color: #fdfdfd;
+            color: black;
+box-shadow: 0px 0px 1px rgb(57, 54, 54);            padding: 5px;
+            /* Slightly darker shade for hover */
         }
 
         .arrow-down {
@@ -229,9 +199,16 @@
             height: 0;
             border-left: 6px solid transparent;
             border-right: 6px solid transparent;
-            border-top: 10px solid #f8f9fa; /* Adjusted arrow color */
+            border-top: 10px solid #acabab;
+            /* Adjusted arrow color */
         }
-
+        .arrow-down:hover {
+          color: rgb(255, 255, 255);
+        }
+            
+        .arrow-up:hover {
+            color: rgb(255, 255, 255);
+          }
         .arrow-up {
             position: absolute;
             right: 10px;
@@ -241,39 +218,38 @@
             height: 0;
             border-left: 6px solid transparent;
             border-right: 6px solid transparent;
-            border-top: 6px solid #f8f9fa;
+            border-top: 6px solid#acabab;
         }
 
         .logo {
             text-align: center;
-            margin-bottom: 10px; /* Reduced bottom margin */
-            padding: 0; /* Remove any padding */
+            margin-bottom: 10px;
+            /* Reduced bottom margin */
+            padding: 0;
+            /* Remove any padding */
         }
 
         .logo img {
-            max-width: 70%; /* Ensure the logo size is consistent */
+            max-width: 70%;
+            /* Ensure the logo size is consistent */
             height: auto;
             display: block;
-            margin: 0 auto; /* Center the logo horizontally */
+            margin: 0 auto;
+            /* Center the logo horizontally */
         }
 
-        .container {
-            font-family: "Cardo", serif;
-            font-weight: 400;
-            font-size: 16px;
-            flex: 1;
-            align-self: center;
-            transition: margin-left 0.3s;
-        }
-       
+
+
 
 
         .open-sidebar .sidebar {
-            left: 0; /* Slide sidebar into view */
+            left: 0;
+            /* Slide sidebar into view */
         }
 
         .open-sidebar .overlay {
-            display: block; /* Show the overlay */
+            display: block;
+            /* Show the overlay */
         }
 
         @media (max-width: 768px) {
@@ -281,92 +257,106 @@
                 display: inline-block;
                 position: absolute;
                 left: 44% !important;
-                top: 45px !important;
+                top: 30px !important;
                 font-weight: bold;
-                font-size: 10px !important;
-              
-            }
-              .open-sidebar .overlay {
-                display: block; /* Show overlay when sidebar is open */
-            }
-            .header{
-                padding: 13px;
-            }
+                font-size: 15px !important;
 
-            .navbar-header_logo{
-                height: 80px !important;
-
-                
-            }
-            .tem {
-                position: absolute !important;
-                right: 0px !important;
-                top: 5px !important;
-              
-                    }
-                    .imgg{
-                        height: 58px !important;   
-
-                    }
-            .container {
-                grid-template-columns: 1fr; /* 1 column for small devices */
-                padding: 20% !important;
-
-            }
-            .classs{
-                padding: auto !important;
-                margin-top: 10% !important;
-
-            }
-        
-            .sidebar {
-                left: -300px; /* Sidebar hidden by default on smaller screens */
-            }
-
-            .header .hamburger {
-                display: block; /* Show hamburger icon on smaller screens */
-            }
-
-            .open-sidebar .sidebar {
-                left: 0; /* Slide sidebar into view when toggled */
             }
 
             .open-sidebar .overlay {
-                display: block; /* Show overlay when sidebar is open */
+                display: block;
+                /* Show overlay when sidebar is open */
             }
-            .close-button {
-                display: block; /* Show the button on small screens */
-            }
-        }
 
-        @media (min-width: 769px) {
-            .sidebar {
-                left: -300px; /* Sidebar always visible on larger screens */
+            .header {
+                padding: 13px;
             }
- .overlay {
-                display: none; /* No overlay needed on larger screens */
+
+            .navbar-header_logo {
+                height: 80px !important;
+
+
+            }
+
+            .tem {
+                position: absolute !important;
+                right: 10px !important;
+                top: 0px !important;
+
+            }
+
+            .imgg {
+                height: 47px !important;
+
+            }
+
+
+            .sidebar {
+                left: -300px;
+                /* Sidebar hidden by default on smaller screens */
             }
 
             .header .hamburger {
-                display: inline-block; /* Hide hamburger icon on larger screens */
+                display: block;
+                /* Show hamburger icon on smaller screens */
             }
 
-            .open-sidebar .open-sidebar  {
-                display: block; /* No overlay needed on larger screens */
+            .open-sidebar .sidebar {
+                left: 0;
+                /* Slide sidebar into view when toggled */
             }
+
+            .open-sidebar .overlay {
+                display: block;
+                /* Show overlay when sidebar is open */
+            }
+
             .close-button {
-                display: block; /* Show the button on small screens */
+                display: block;
+                /* Show the button on small screens */
+            }
+        }
+        
+
+        @media (min-width: 769px) {
+            .sidebar {
+                left: -300px;
+                /* Sidebar always visible on larger screens */
             }
 
-            
+            .overlay {
+                display: none;
+                /* No overlay needed on larger screens */
+            }
+
+            .header .hamburger {
+                display: inline-block;
+                /* Hide hamburger icon on larger screens */
+            }
+
+            .open-sidebar .open-sidebar {
+                display: block;
+                /* No overlay needed on larger screens */
+            }
+
+            .close-button {
+                display: block;
+                /* Show the button on small screens */
+            }
+
+
         }
 
         .logout-container {
             display: flex;
-            flex-direction: column; /* Arrange buttons vertically */
-            align-items: center;   /* Center buttons horizontally */
-            gap: 15px; /* Space between buttons */
-            margin-top: auto; /* Push buttons to the bottom */
+            flex-direction: column;
+            /* Arrange buttons vertically */
+            align-items: center;
+            /* Center buttons horizontally */
+            gap: 15px;
+            /* Space between buttons */
+            margin-top: auto;
+            /* Push buttons to the bottom */
         }
 
         .logout-button {
@@ -376,7 +366,8 @@
             margin-left: 0px;
             margin-top: 20px;
             margin-bottom: 10px;
-            background-color: #ffffff; /* Updated to a red shade for logout */
+            background-color: #ffffff;
+            /* Updated to a red shade for logout */
             border: none;
             border-radius: 5px;
             color: white;
@@ -385,7 +376,7 @@
             text-decoration: none;
         }
 
-        
+
 
         .logout-button i {
             margin-right: 10px;
@@ -398,23 +389,33 @@
         }
 
         .logout-button:hover {
-            background-color: #a2a2a2; /* Slightly darker shade for hover */
+            background-color: #a2a2a2;
+            /* Slightly darker shade for hover */
         }
 
         .close-button {
-            display: block; /* Hidden by default */
+            display: block;
+            /* Hidden by default */
             font-size: 24px;
-            color: rgb(0, 0, 0);
+            color: rgb(244, 80, 80);
             position: absolute;
             top: 10px;
             right: 15px;
             cursor: pointer;
-            z-index: 2100; /* Ensure it's above the sidebar content */
+            z-index: 2100;
+            /* Ensure it's above the sidebar content */
+        }
+        .close-button :hover{
+            color: rgb(255, 0, 0);
+            text-shadow: 0px 0px 5px rgb(255, 2, 2);
+            z-index: 1;
+
         }
 
         @media (max-width: 768px) {
             .close-button {
-                display: block; /* Show the button on small screens */
+                display: block;
+                /* Show the button on small screens */
             }
         }
 
@@ -438,46 +439,61 @@
 
         .button-container {
             display: flex;
-            flex-direction: column; /* Arrange buttons vertically */
-            align-items: center;   /* Center buttons horizontally */
+            flex-direction: column;
+            /* Arrange buttons vertically */
+            align-items: center;
+            /* Center buttons horizontally */
             padding: 5px;
-            gap: 15px; /* Space between buttons */
-            margin-top: auto; /* Push buttons to the bottom */
+            gap: 15px;
+            /* Space between buttons */
+            margin-top: auto;
+            /* Push buttons to the bottom */
         }
 
         .btn-custom {
             display: flex;
-            align-items: center; /* Center icon and text vertically */
-            justify-content: center; /* Center content horizontally */
+            align-items: center;
+            /* Center icon and text vertically */
+            justify-content: center;
+            /* Center content horizontally */
             padding: 10px 20px;
             font-size: 16px;
             font-family: "Outfit", sans-serif;
-            background-color: #000000; /* Green color for buttons */
+            background-color: #000000;
+            /* Green color for buttons */
             color: white;
             border: none;
-            border-radius: 25px; /* Rounded edges */
+            border-radius: 25px;
+            /* Rounded edges */
             cursor: pointer;
             transition: all 0.3s ease-in-out;
             text-align: center;
-            width: 80%; /* Ensure consistent width for all buttons */
+            width: 80%;
+            /* Ensure consistent width for all buttons */
             max-width: 180px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            /* Subtle shadow for depth */
         }
 
         .btn-custom:hover {
-            background-color: #1a1a1a; /* Darker green on hover */
-            transform: translateY(-3px); /* Lift effect on hover */
-            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+            background-color: #1a1a1a;
+            /* Darker green on hover */
+            transform: translateY(-3px);
+            /* Lift effect on hover */
+            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
+            /* Enhanced shadow */
         }
 
         .btn-custom i {
-            margin-right: 8px; /* Space between icon and text */
+            margin-right: 8px;
+            /* Space between icon and text */
             font-size: 18px;
         }
 
         @media (max-width: 768px) {
             .btn-custom {
-                width: 90%; /* Adjust width for smaller screens */
+                width: 90%;
+                /* Adjust width for smaller screens */
             }
         }
 
@@ -494,41 +510,30 @@
 
         /* Make it responsive for smaller screens */
         @media (max-width: 768px) {
-            .main-container {
-                margin-top: 25px;
-                margin-left: 0;
-                text-align: center;
-            }
-            .main-container h1 {
-                margin-left: 0;
-            }
-            .pie-chart-container, .bar-chart-container, .quote-vs-order-container, .contractTypeChart-container, .followupchart-container {
-                width: 100%; /* Take full width of the screen */
-                margin-left: 0; /* Remove left margin */
-                align-items: center;
-            }
-            
-            .container {
-                align-items: center;
-                margin-left: 0;
-                padding: 10px; /* Reduce padding for smaller screens */
-                width: 100%; /* Ensure the container takes up full width */
-            }
+
+
+
+
+
 
             .open-sidebar .pie-chart-container {
-                margin-left: 300px; /* Adjust content when sidebar is open */
+                margin-left: 300px;
+                /* Adjust content when sidebar is open */
             }
 
             .open-sidebar .bar-chart-container {
-                margin-left: 300px; /* Adjust content when sidebar is open */
+                margin-left: 300px;
+                /* Adjust content when sidebar is open */
             }
         }
-          
+
         #contractTypeChart {
-        max-width: 500px;
-        max-height: 500px;
-        margin: 0 auto; /* Center the chart */
+            max-width: 500px;
+            max-height: 500px;
+            margin: 0 auto;
+            /* Center the chart */
         }
+
         .tem {
             position: absolute;
             right: 10px;
@@ -542,6 +547,7 @@
             left: 50px;
             top: 0px;
         }
+
         .tem {
             position: absolute;
             right: 10px;
@@ -555,21 +561,38 @@
             top: 35px;
             font-weight: bold;
             font-size: 20px;
-         
-        }
-        .container{
-            transition: transform 0.5s ease-in;
-            cursor: pointer;
 
         }
-.container :hover{
-   
-    transform: scale(1.01);
 
+        /* Cards Style*/
+
+        .cards{
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgb(125, 93, 93);
+            box-shadow: inset 0px 0px 3px rgb(28, 17, 239);
+          
+
+        }
+        .cardsmaincontainer{
+            margin-bottom: 200px;
+        }
+ h3{
+    background: linear-gradient(to right, #2575fc, #6a11cb);
+    /* Gradient definition */
+    -webkit-background-clip: text;
+    /* Clip the gradient to the text boundaries */
+    -webkit-text-fill-color: transparent;
+    border-bottom: 1px solid rgb(80, 16, 177);
+    /*Script MT */
+    font-weight: 400;
 }
-        
-/* From Uiverse.io by satyamchaudharydev */ 
-button {
+label{
+    margin-top: 20px;
+    color: #3498db;
+   
+}/* From Uiverse.io by satyamchaudharydev */ 
+.logoutbtn {
     --primary-color: #b4b4b8;
     --secondary-color: #fff;
     --hover-color: #111;
@@ -579,28 +602,29 @@ button {
     border: 0;
     border-radius: 20px;
     color: var(--secondary-color);
-    padding: 0.7em 1.6em;
+    padding: 0.5em 1.3em;
     background: var(--primary-color);
     display: flex;
     transition: 0.2s background;
     align-items: center;
     gap: 0.6em;
     font-weight: bold;
-    background-color: #2e2c2c;
+    background-color: #ff4646;
+    margin-top: 50px !important;
   }
-  button a{
+  .logoutbtn a{
     list-style-type: none;
     text-decoration: none;
     color:white;
   }
   
-  button .arrow-wrapper {
+  .logoutbtn .arrow-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
   }
   
-  button .arrow {
+  .logoutbtn .arrow {
     margin-top: 1px;
     width: var(--arrow-width);
     background: var(--primary-color);
@@ -609,7 +633,7 @@ button {
     transition: 0.2s;
   }
   
-  button .arrow::before {
+  .logoutbtn .arrow::before {
     content: "";
     box-sizing: border-box;
     position: absolute;
@@ -617,31 +641,33 @@ button {
     border-width: 0 var(--arrow-stroke) var(--arrow-stroke) 0;
     display: inline-block;
     top: -3px;
-    right: 3px;
+    right: 2px;
     transition: 0.2s;
     padding: 3px;
     transform: rotate(-45deg);
   }
   
-  button:hover {
-    background-color: var(--hover-color);
+  .logoutbtn:hover {
+    background-color:red;
+    box-shadow:0px 10px 10px red;
   }
   
-  button:hover .arrow {
+  .logoutbtn:hover .arrow {
     background: var(--secondary-color);
   }
   
-  button:hover .arrow:before {
+  .logoutbtn:hover .arrow:before {
     right: 0;
   }
     </style>
 </head>
+
 <body>
     <div class="header">
-        
+
         <div class="hamburger" id="hamburger">
             <i class="fas fa-bars"></i>
-           
+
         </div>
         <div class="navbar-header ">
             <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -665,7 +691,8 @@ button {
                 <span class="icon-bar"></span>                        
             </button> -->
             <a class="navbar-brand mt-3" href="https://chronoanalytics.in/">
-                <img src="{% static 'images/crono.png' %}" alt="Logo" style="height: 70px;   margin-bottom: 10px; " class="imgg">
+                <img src="{% static 'images/crono.png' %}" alt="Logo" style="height: 70px;   margin-bottom: 10px; "
+                    class="imgg">
             </a>
         </div>
     </div>
@@ -673,70 +700,120 @@ button {
     <div class="sidebar">
 
         <div class="close-button" id="closeButton">
-            <i class="fas fa-times"></i>
+            <i class="fas fa-times" ></i>
         </div>
 
         <div class="logo">
             <img src="{% static 'images/logo.png' %}" alt="Logo">
         </div>
         <ul>
-            <a href="/index" style="text-decoration: none;"><li><i class="fas fa-home"></i> Dashboard</li></a>
-            <li class="has-submenu"><i class="fas fa-info-circle"></i> Display Information <span class="arrow-down"></span>
+            <a href="/index" style="text-decoration: none;">
+                <li><i class="fas fa-home"></i> Dashboard</li>
+            </a>
+            <li class="has-submenu"><i class="fas fa-info-circle"></i> Display Information <span
+                    class="arrow-down"></span>
                 <div class="submenu">
                     <ul>
-                        <a href="/display_customer"><li>1. Customer Details</li></a>
-                        <a href="/display_service_management"><li>2. Service Management</li></a>
-                        <a href="/display_quotation"><li>3. Quotation</li></a>
-                        <a href="/display_invoice"><li>4. Invoice</li></a>
-                        <a href="/display_lead_management"><li>5. Lead Management</li></a>
-                        <a href="/display_followup"><li>6. List of Follow ups</li></a>
-                        <a href="/display_reschedule"><li>7. Reschedule log</li></a>
-                        <a href="/schedule_meetings/display_meeting"><li>8. Meeting Records Log</li></a>
+                        <a href="/display_customer">
+                            <li>1. Customer Details</li>
+                        </a>
+                        <a href="/display_service_management">
+                            <li>2. Service Management</li>
+                        </a>
+                        <a href="/display_quotation">
+                            <li>3. Quotation</li>
+                        </a>
+                        <a href="/display_invoice">
+                            <li>4. Invoice</li>
+                        </a>
+                        <a href="/display_lead_management">
+                            <li>5. Lead Management</li>
+                        </a>
+                        <a href="/display_followup">
+                            <li>6. List of Follow ups</li>
+                        </a>
+                        <a href="/display_reschedule">
+                            <li>7. Reschedule log</li>
+                        </a>
+                        <a href="/schedule_meetings/display_meeting">
+                            <li>8. Meeting Records Log</li>
+                        </a>
                     </ul>
                 </div>
             </li>
             <li class="has-submenu"><i class="fas fa-folder-open"></i> Master<span class="arrow-down"></span>
                 <div class="submenu">
                     <ul>
-                        <a href="/customer_details_create"><li>1. Customer Details</li></a>
-                        <a href="/service_management_create"><li>2. Service Management</li></a>
-                        <a href="/quotation_create"><li>3. Quotation</li></a>
-                        <a href="/invoice_create"><li>4. Invoice</li></a>
-                        <a href="/lead_management_create"><li>5. Lead Management</li></a>
+                        <a href="/customer_details_create">
+                            <li>1. Customer Details</li>
+                        </a>
+                        <a href="/service_management_create">
+                            <li>2. Service Management</li>
+                        </a>
+                        <a href="/quotation_create">
+                            <li>3. Quotation</li>
+                        </a>
+                        <a href="/invoice_create">
+                            <li>4. Invoice</li>
+                        </a>
+                        <a href="/lead_management_create">
+                            <li>5. Lead Management</li>
+                        </a>
                     </ul>
                 </div>
             </li>
             <li class="has-submenu"><i class="fas fa-box"></i> Products<span class="arrow-down"></span>
                 <div class="submenu">
                     <ul>
-                        <a href="/add_product"><li>1. Add Products</li></a>
-                        <a href="/update_product"><li>2. Update Products</li></a>
-                        <a href="/products"><li>3. All Products</li></a>
+                        <a href="/add_product">
+                            <li>1. Add Products</li>
+                        </a>
+                        <a href="/update_product">
+                            <li>2. Update Products</li>
+                        </a>
+                        <a href="/products">
+                            <li>3. All Products</li>
+                        </a>
                     </ul>
                 </div>
             </li>
             <li class="has-submenu"><i class="fas fa-cogs"></i> Services<span class="arrow-down"></span>
                 <div class="submenu">
                     <ul>
-                        <a href="/inventory_service"><li>1. Inventory Service</li></a>
-                        <a href="/inventory_summary"><li>2. Inventory Summary / History</li></a>
+                        <a href="/inventory_service">
+                            <li>1. Inventory Service</li>
+                        </a>
+                        <a href="/inventory_summary">
+                            <li>2. Inventory Summary / History</li>
+                        </a>
                     </ul>
                 </div>
             </li>
             <li class="has-submenu"><i class="fas fa-user-cog"></i> Technicians<span class="arrow-down"></span>
                 <div class="submenu">
                     <ul>
-                        <a href="/create"><li>1. Create Technician</li></a>
-                        <a href="/technician_work_list"><li>2. Work History</li></a>
-                        <a href="/completed_work"><li>3. Completed Work List</li></a>
+                        <a href="/create">
+                            <li>1. Create Technician</li>
+                        </a>
+                        <a href="/technician_work_list">
+                            <li>2. Work History</li>
+                        </a>
+                        <a href="/completed_work">
+                            <li>3. Completed Work List</li>
+                        </a>
                     </ul>
                 </div>
             </li>
-            <li class="has-submenu" onclick="window.location.href='/display_allocation'"><i class="fas fa-tasks"></i> Allocate Work</li>
-            <li class="has-submenu" onclick="window.location.href='/ocrapp/scan/'"><i class="fas fa-id-card"></i> Scan Card</li>
-            <li class="has-submenu" onclick="window.location.href='/schedule_meetings/schedule/'"><i class="fas fa-calendar-plus"></i> Schedule Meet</li>
-            <li class="has-submenu" onclick="window.location.href='/schedule_meetings/meeting_list/'"><i class="fas fa-book"></i> Meet Notes</li>
-            <li class="has-submenu" onclick="window.location.href='/open_ai/chatbot/'"><i class="fas fa-book"></i> Chat Bot</li>
+            <li class="has-submenu" onclick="window.location.href='/display_allocation'"><i class="fas fa-tasks"></i>
+                Allocate Work</li>
+            <li class="has-submenu" onclick="window.location.href='/ocrapp/scan/'"><i class="fas fa-id-card"></i> Scan
+                Card</li>
+            <li class="has-submenu" onclick="window.location.href='/schedule_meetings/schedule/'"><i
+                    class="fas fa-calendar-plus"></i> Schedule Meet</li>
+            <li class="has-submenu" onclick="window.location.href='/schedule_meetings/meeting_list/'"><i
+                    class="fas fa-book"></i> Meet Notes</li>
+            <li class="has-submenu" onclick="window.location.href='/open_ai/chatbot/'"><i class="fas fa-book"></i> Chat
+                Bot</li>
         </ul>
 
         <!-- <div class="button-container">
@@ -750,7 +827,7 @@ button {
                 <i class="fas fa-book"></i> Meet Notes
             </button>
         </div> -->
-   
+
         <div class="notification" id="notification">
             Meeting successfully scheduled!
         </div>
@@ -768,7 +845,7 @@ button {
                 }, 3000); // Hide after 3 seconds
             }
         </script>
-    
+
         <!-- 
         <div class="logout-container">
             <button style="transform: scale(1.0); max-width: 200px" type="submit" class="logout-button">
@@ -776,17 +853,17 @@ button {
             </button>
         
         -->
-       
-           <center> <button class="mb-5 mt-3">
-            <a href="/logout">Logout</a>
-              <div class="arrow-wrapper">
-                  <div class="arrow"></div>
-          
-              </div>
-          </button></center>
-        </div>
-        
-        
+
+        <center> <button class="mb-5 mt-3 logoutbtn">
+                <a href="/logout">Logout</a>
+                <div class="arrow-wrapper">
+                    <div class="arrow"></div>
+
+                </div>
+            </button></center>
+    </div>
+
+
     </div>
 
     <div class="main-container">
@@ -794,24 +871,24 @@ button {
         <div class="alert alert-success" id="success-message">
             {{ success_message }}
         </div>
-    
+
         <script>
-            setTimeout(function() {
+            setTimeout(function () {
                 var message = document.getElementById('success-message');
                 if (message) {
                     message.style.display = 'none';
                 }
             }, 3000);  // Hide after 3 seconds
         </script>
-    
+
         {% endif %}
     </div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             const menuItems = document.querySelectorAll('.has-submenu');
             menuItems.forEach(item => {
-                item.addEventListener('click', function() {
+                item.addEventListener('click', function () {
                     const submenu = this.querySelector('.submenu');
                     const arrow = this.querySelector('.arrow-down');
                     if (submenu.style.display === 'block') {
@@ -827,526 +904,545 @@ button {
             });
         });
     </script>
-    
-    
-    
+
+
+
     <!-- Flexbox container to hold both calendar and pie chart -->
-    <div class="container">
-        <div class="pie-chart-container classs" >
-            <!-- Pie Chart for Lead Distribution -->
-            <h3 class="ml-5">Lead Distribution</h3>
-            <!-- Date Range Filter with Styling -->
-            <div class="date-filter-container" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                <div style="display: flex; align-items: center; gap: 10px;">
-                    <label for="start_date" style="font-weight: bold;font-size: 11px;">Start Date:</label>
-                    <input 
-                        type="date" 
-                        id="start_date" 
-                        name="start_date" 
-                        style="padding: 2px; border: 1px solid #ccc; border-radius: 5px;">
-                    
-                    <label for="end_date" style="font-weight: bold;font-size: 11px;">End Date:</label>
-                    <input 
-                        type="date" 
-                        id="end_date" 
-                        name="end_date" 
-                        style="padding: 2px; border: 1px solid #ccc; border-radius: 5px;">
-                </div>
-            </div>
-            <div style="text-align: center; margin-bottom: 15px;">
-                <button 
-                    id="filter_button" 
-                    onclick="filterLeads()" 
-                    style="padding: 7px 15px; background-color: #36A2EB; color: white; border: none; border-radius: 5px; cursor: pointer;">
-                    Filter
-                </button>
-            </div>
-        
-            <!-- Display Selected Date Range -->
-            <div id="selected-range" style="text-align: center; margin-bottom: 20px; font-weight: bold; color: #4BC0C0;">
-                <!-- Date range will be dynamically added here -->
-            </div>
-            <canvas id="leadChart"></canvas>
-            <script>
-                // Lead Distribution Pie Chart
-                let leadChart; // Reference to the chart instance
 
-                function renderLeadChart(data) {
-                    const ctx = document.getElementById('leadChart').getContext('2d');
-                    if (leadChart) {
-                        leadChart.destroy(); // Destroy existing chart before re-rendering
-                    }
-                    leadChart = new Chart(ctx, {
-                        type: 'pie',
-                        data: data,
-                        options: {
-                            responsive: true,
-                            plugins: {
-                                legend: {
-                                    position: 'top',
-                                },
-                            },
-                            onClick: (event, elements) => {
-                            if (elements.length > 0) {
-                                const index = elements[0].index;
-                                const leadType = data.labels[index].replace(' ', '').replace('Not Interested', 'NotInterested').replace('Loss of Order', 'LossOfOrder'); // Normalize labels
-                                window.location.href = `/display_lead_management?type_of_lead=${encodeURIComponent(leadType)}`;
+    <div class="container cardsmaincontainer " style="margin-top: 80px;">
+        <div class="row">
+            <div class="col-md-6 col-12 col-sm-12 mt-5 ">
+                <div class="pie-chart-container bg-light cards">
+                    <!-- Pie Chart for Lead Distribution -->
+                    <h3 class="ml-5">Lead Status</h3>
+                    <!-- Date Range Filter with Styling -->
+                    <div class="date-filter-container">
+
+
+
+                        <div class="row">
+                            <div class="col-md-6 col-6">
+                                <label for="start_date">Start Date:</label>
+                                <input type="date" id="start_date" name="start_date" >
+
+                            </div>
+                            <div class="col-md-6 col-6">
+                                <label for="end_date">End Date:</label>
+                                <input type="date" id="end_date" name="end_date">
+                            </div>
+                        </div>
+                    </div>
+                    <div style="text-align: center; margin-bottom: 15px; ">
+                        <button id="filter_button" onclick="filterLeads()" class="mt-4"
+                            style="padding: 7px 15px; background-color: #36A2EB; color: white; border: none; border-radius: 5px; cursor: pointer; width:150px !important; font-waight:700 !important;">
+                            Filter
+                        </button>
+                    </div>
+
+                    <!-- Display Selected Date Range -->
+                    <div id="selected-range"
+                        style="text-align: center; margin-bottom: 20px; font-weight: bold; color: #4BC0C0;">
+                        <!-- Date range will be dynamically added here -->
+                    </div>
+                    <canvas id="leadChart"></canvas>
+                    <script>
+                        // Lead Distribution Pie Chart
+                        let leadChart; // Reference to the chart instance
+
+                        function renderLeadChart(data) {
+                            const ctx = document.getElementById('leadChart').getContext('2d');
+                            if (leadChart) {
+                                leadChart.destroy(); // Destroy existing chart before re-rendering
                             }
-                    }
-                        },
-                    });
-                }
-
-                function filterLeads() {
-                    const startDate = document.getElementById('start_date').value;
-                    const endDate = document.getElementById('end_date').value;
-
-                    if (!startDate || !endDate) {
-                        alert("Please select both start and end dates.");
-                        return;
-                    }
-
-                    // Reload the page with the date range as query parameters
-                    window.location.href = `?start_date=${startDate}&end_date=${endDate}`;
-                }
-
-                // Function to display the current selected date range
-                function displaySelectedDateRange() {
-                    const urlParams = new URLSearchParams(window.location.search);
-                    const startDate = urlParams.get('start_date');
-                    const endDate = urlParams.get('end_date');
-
-                    const rangeElement = document.getElementById('selected-range');
-                    if (startDate && endDate) {
-                        rangeElement.textContent = `Showing lead distribution for enquiry date from ${startDate} to ${endDate}`;
-                    } else {
-                        rangeElement.textContent = "Showing lead distribution for all enquiry dates";
-                    }
-                }
-
-                // Initialize the chart and display the selected range on page load
-                document.addEventListener("DOMContentLoaded", () => {
-                    const initialLeadData = JSON.parse('{{ lead_data|safe }}');
-                    renderLeadChart(initialLeadData);
-                    displaySelectedDateRange();
-                });
-
-            </script>
-        </div>
-
-
-        <div class="followupchart-container classs">
-            <h3>Follow-Up Stage Distribution</h3>
-            <!-- Date Range Filter -->
-            <div class="date-filter-container" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; margin-bottom: 15px;">
-                <div style="display: flex; align-items: center; gap: 10px; flex-grow: 1;">
-                    <label for="start_date_followup" style="font-weight: bold;font-size: 11px;">Start Date:</label>
-                    <input type="date" id="start_date_followup" name="start_date_followup" style="padding: 2px; border: 1px solid #ccc; border-radius: 5px;">
-                    <label for="end_date_followup" style="font-weight: bold;font-size: 11px;">End Date:</label>
-                    <input type="date" id="end_date_followup" name="end_date_followup" style="padding: 2px; border: 1px solid #ccc; border-radius: 5px;">
-                </div>
-            </div>
-            <div style="text-align: center; margin-bottom: 15px;">
-                <button 
-                    id="filter_follow_up_button" 
-                    onclick="filterByFollowUpDate()" 
-                    style="padding: 7px 15px; background-color: #3498db; color: white; border: none; border-radius: 5px; cursor: pointer;">
-                    Filter by Enquiry Date
-                </button>
-            </div>
-            <!-- Display Selected Date Range -->
-            <div id="selected-followup-range" style="margin-bottom: 20px; font-weight: bold; text-align: center; color: #4BC0C0;">
-                <!-- Date range will be dynamically added here -->
-            </div>
-            
-            <canvas id="followUpPolarAreaChart"></canvas>
-        
-            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-            <script>
-                // Function to apply the date range filter for follow-up stages
-                function filterByFollowUpDate() {
-                    const startDate = document.getElementById('start_date_followup').value;
-                    const endDate = document.getElementById('end_date_followup').value;
-
-                    if (!startDate || !endDate) {
-                        alert("Please select both start and end dates.");
-                        return;
-                    }
-
-                    // Redirect with the selected date range for follow-up stage filtering
-                    window.location.href = `?start_date_followup=${startDate}&end_date_followup=${endDate}`;
-                }
-
-                // Function to display the selected date range
-                function displaySelectedFollowUpDateRange() {
-                    const urlParams = new URLSearchParams(window.location.search);
-                    const startDate = urlParams.get('start_date_followup');
-                    const endDate = urlParams.get('end_date_followup');
-
-                    const rangeElement = document.getElementById('selected-followup-range');
-                    if (startDate && endDate) {
-                        rangeElement.textContent = `Showing Follow-Up data from ${startDate} to ${endDate}`;
-                    } else {
-                        rangeElement.textContent = "Showing Follow-Up data for all dates";
-                    }
-                }
-
-                // Initialize chart and display the selected range
-                document.addEventListener("DOMContentLoaded", () => {
-                    displaySelectedFollowUpDateRange();
-
-                    const followUpData = JSON.parse('{{ follow_up_data|safe }}');
-                    renderFollowUpChart(followUpData);
-                });
-
-                let followUpChart;
-                function renderFollowUpChart(data) {
-                    const ctx = document.getElementById('followUpPolarAreaChart').getContext('2d');
-                    if (followUpChart) {
-                        followUpChart.destroy();
-                    }
-                    followUpChart = new Chart(ctx, {
-                        type: 'polarArea',
-                        data: {
-                            labels: JSON.parse('{{ follow_up_labels|escapejs }}'),
-                            datasets: [{
+                            leadChart = new Chart(ctx, {
+                                type: 'pie',
                                 data: data,
-                                backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF'],
-                            }]
-                        },
-                        options: {
-                            responsive: true,
-                            plugins: {
-                                legend: {
-                                    position: 'top',
+                                options: {
+                                    responsive: true,
+                                    plugins: {
+                                        legend: {
+                                            position: 'top',
+                                        },
+                                    },
+                                    onClick: (event, elements) => {
+                                        if (elements.length > 0) {
+                                            const index = elements[0].index;
+                                            const leadType = data.labels[index].replace(' ', '').replace('Not Interested', 'NotInterested').replace('Loss of Order', 'LossOfOrder'); // Normalize labels
+                                            window.location.href = `/display_lead_management?type_of_lead=${encodeURIComponent(leadType)}`;
+                                        }
+                                    }
                                 },
-                                title: {
-                                    display: true,
-                                    text: 'Follow-Up Stages Polar Area Distribution'
-                                },
-                            },
-
-                            onClick: (event, elements) => {
-                            if (elements.length > 0) {
-                                const index = elements[0].index;
-                                // const leadType = leadData.labels[index].replace(' ', '').replace('Not Interested', 'NotInterested').replace('Loss of Order', 'LossOfOrder'); // Normalize labels
-                                window.location.href = `/display_followup`;
-                            }
-                    }
+                            });
                         }
-                    });
-                }
-            </script>
-        </div>
 
+                        function filterLeads() {
+                            const startDate = document.getElementById('start_date').value;
+                            const endDate = document.getElementById('end_date').value;
 
+                            if (!startDate || !endDate) {
+                                alert("Please select both start and end dates.");
+                                return;
+                            }
 
-            <div class="quote-vs-order-container classs">
-                <h3>Quotation vs Order Chart</h3>
-                <!-- Date Range Filter -->
-                <div class="date-filter-container" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; margin-bottom: 15px;">
-                    <div style="display: flex; align-items: center; gap: 10px; flex-grow: 1;">
-                        <label for="start_date_qo" style="font-weight: bold;font-size: 11px;">Start Date:</label>
-                        <input 
-                            type="date" 
-                            id="start_date_qo" 
-                            name="start_date_qo" 
-                            style="padding: 2px; border: 1px solid #ccc; border-radius: 5px;">
-                        
-                        <label for="end_date_qo" style="font-weight: bold;font-size: 11px;">End Date:</label>
-                        <input 
-                            type="date" 
-                            id="end_date_qo" 
-                            name="end_date_qo" 
-                            style="padding: 2px; border: 1px solid #ccc; border-radius: 5px;">
+                            // Reload the page with the date range as query parameters
+                            window.location.href = `?start_date=${startDate}&end_date=${endDate}`;
+                        }
+
+                        // Function to display the current selected date range
+                        function displaySelectedDateRange() {
+                            const urlParams = new URLSearchParams(window.location.search);
+                            const startDate = urlParams.get('start_date');
+                            const endDate = urlParams.get('end_date');
+
+                            const rangeElement = document.getElementById('selected-range');
+                            if (startDate && endDate) {
+                                rangeElement.textContent = `Showing lead distribution for enquiry date from ${startDate} to ${endDate}`;
+                            } else {
+                                rangeElement.textContent = "Showing lead distribution for all enquiry dates";
+                            }
+                        }
+
+                        // Initialize the chart and display the selected range on page load
+                        document.addEventListener("DOMContentLoaded", () => {
+                            const initialLeadData = JSON.parse('{{ lead_data|safe }}');
+                            renderLeadChart(initialLeadData);
+                            displaySelectedDateRange();
+                        });
+
+                    </script>
+                </div>
+            </div>
+            <div class="col-md-6 col-12 col-sm-12 mt-5">
+                <div class="followupchart-container bg-light cards">
+                    <h3>Follow-Up Status</h3>
+                    <!-- Date Range Filter -->
+                    <div class="date-filter-container">
+
+                        <div class="row">
+                            <div class="col-md-6 col-6">
+                                <label for="start_date_followup">Start Date:</label>
+                                <input type="date" id="start_date_followup" name="start_date_followup">
+                            </div>
+
+                            <div class="col-md-6 col-6">
+                                <label for="end_date_followup">End Date:</label>
+                                <input type="date" id="end_date_followup" name="end_date_followup">
+                            </div>
+                        </div>
                     </div>
-                    <div style="display: flex; gap: 10px; margin-top: 10px; flex-grow: 0;">
-                        <button 
-                            id="filter_quotation_button" 
-                            onclick="filterByQuotationDate()" 
+                    <div style="text-align: center; margin-bottom: 15px;">
+                        <button id="filter_follow_up_button" onclick="filterByFollowUpDate()" class="mt-4"
                             style="padding: 7px 15px; background-color: #3498db; color: white; border: none; border-radius: 5px; cursor: pointer;">
-                            Filter by Quotation Date
-                        </button>
-                        <button 
-                            id="filter_invoice_button" 
-                            onclick="filterByInvoiceDate()" 
-                            style="padding: 7px 15px; background-color: #2ecc71; color: white; border: none; border-radius: 5px; cursor: pointer;">
-                            Filter by Invoice Date
+                            Filter by Enquiry Date
                         </button>
                     </div>
-                </div>
+                    <!-- Display Selected Date Range -->
+                    <div id="selected-followup-range"
+                        style="margin-bottom: 20px; font-weight: bold; text-align: center; color: #4BC0C0;">
+                        <!-- Date range will be dynamically added here -->
+                    </div>
 
-                <!-- Display Selected Date Range -->
-                <div id="selected-quotation-range" style="margin-bottom: 20px; font-weight: bold; text-align: center; color: #4BC0C0;">
-                    <!-- Date range will be dynamically added here -->
-                </div>
+                    <canvas id="followUpPolarAreaChart"></canvas>
 
-                
-                <canvas id="quotationOrderChart"></canvas>
+                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                    <script>
+                        // Function to apply the date range filter for follow-up stages
+                        function filterByFollowUpDate() {
+                            const startDate = document.getElementById('start_date_followup').value;
+                            const endDate = document.getElementById('end_date_followup').value;
 
-                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-                <script>
-                    function filterByQuotationDate() {
-                    const startDate = document.getElementById('start_date_qo').value;
-                    const endDate = document.getElementById('end_date_qo').value;
+                            if (!startDate || !endDate) {
+                                alert("Please select both start and end dates.");
+                                return;
+                            }
 
-                    if (!startDate || !endDate) {
-                        alert("Please select both start and end dates.");
-                        return;
-                    }
+                            // Redirect with the selected date range for follow-up stage filtering
+                            window.location.href = `?start_date_followup=${startDate}&end_date_followup=${endDate}`;
+                        }
 
-                    // Redirect with selected date range and filter type
-                    window.location.href = `?start_date_qo=${startDate}&end_date_qo=${endDate}&filter_type=quotation`;
-                }
+                        // Function to display the selected date range
+                        function displaySelectedFollowUpDateRange() {
+                            const urlParams = new URLSearchParams(window.location.search);
+                            const startDate = urlParams.get('start_date_followup');
+                            const endDate = urlParams.get('end_date_followup');
 
-                function filterByInvoiceDate() {
-                    const startDate = document.getElementById('start_date_qo').value;
-                    const endDate = document.getElementById('end_date_qo').value;
+                            const rangeElement = document.getElementById('selected-followup-range');
+                            if (startDate && endDate) {
+                                rangeElement.textContent = `Showing Follow-Up data from ${startDate} to ${endDate}`;
+                            } else {
+                                rangeElement.textContent = "Showing Follow-Up data for all dates";
+                            }
+                        }
 
-                    if (!startDate || !endDate) {
-                        alert("Please select both start and end dates.");
-                        return;
-                    }
+                        // Initialize chart and display the selected range
+                        document.addEventListener("DOMContentLoaded", () => {
+                            displaySelectedFollowUpDateRange();
 
-                    // Redirect with selected date range and filter type
-                    window.location.href = `?start_date_qo=${startDate}&end_date_qo=${endDate}&filter_type=invoice`;
-                }
+                            const followUpData = JSON.parse('{{ follow_up_data|safe }}');
+                            renderFollowUpChart(followUpData);
+                        });
 
-                function displaySelectedQuotationDateRange() {
-                    const urlParams = new URLSearchParams(window.location.search);
-                    const startDate = urlParams.get('start_date_qo');
-                    const endDate = urlParams.get('end_date_qo');
-                    const filterType = urlParams.get('filter_type');
+                        let followUpChart;
+                        function renderFollowUpChart(data) {
+                            const ctx = document.getElementById('followUpPolarAreaChart').getContext('2d');
+                            if (followUpChart) {
+                                followUpChart.destroy();
+                            }
+                            followUpChart = new Chart(ctx, {
+                                type: 'polarArea',
+                                data: {
+                                    labels: JSON.parse('{{ follow_up_labels|escapejs }}'),
+                                    datasets: [{
+                                        data: data,
+                                        backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF'],
+                                    }]
+                                },
+                                options: {
+                                    responsive: true,
+                                    plugins: {
+                                        legend: {
+                                            position: 'top',
+                                        },
+                                        title: {
+                                            display: true,
+                                            text: 'Follow-Up Stages Polar Area Distribution'
+                                        },
+                                    },
 
-                    const rangeElement = document.getElementById('selected-quotation-range');
-                    if (startDate && endDate) {
-                        rangeElement.textContent = `Showing ${filterType} data from ${startDate} to ${endDate}`;
-                    } else {
-                        rangeElement.textContent = "Showing data for all dates";
-                    }
-                }
-
-                // Initialize chart and display the selected range
-                document.addEventListener("DOMContentLoaded", () => {
-                    displaySelectedQuotationDateRange();
-
-                    const quotationData = JSON.parse('{{ order|safe }}');
-                    renderQuotationOrderChart(quotationData);
-                });
-
-                let quotationOrderChart;
-                function renderQuotationOrderChart(data) {
-                    const ctx = document.getElementById('quotationOrderChart').getContext('2d');
-                    if (quotationOrderChart) {
-                        quotationOrderChart.destroy();
-                    }
-                    quotationOrderChart = new Chart(ctx, {
-                        type: 'bar',
-                        data: {
-                            labels: JSON.parse('{{ quotationlist|escapejs }}'),
-                            datasets: [{
-                                label: 'Count',
-                                data: data,
-                                backgroundColor: ['#3498db', '#2ecc71'],
-                                borderWidth: 1
-                            }]
-                        },
-                        options: {
-                            responsive: true,
-                            scales: {
-                                y: {
-                                    beginAtZero: true
+                                    onClick: (event, elements) => {
+                                        if (elements.length > 0) {
+                                            const index = elements[0].index;
+                                            // const leadType = leadData.labels[index].replace(' ', '').replace('Not Interested', 'NotInterested').replace('Loss of Order', 'LossOfOrder'); // Normalize labels
+                                            window.location.href = `/display_followup`;
+                                        }
+                                    }
                                 }
-                            },
+                            });
+                        }
+                    </script>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-12 col-sm-12 mt-5">
+                <div class="quote-vs-order-container cards bg-light">
+                    <h3>Quotation vs Order </h3>
+                    <!-- Date Range Filter -->
+                    <div class="date-filter-container " >
+                       
+                        <div class="row">
+                            <div class="col-md-6 col-6">
+                                <label for="start_date_qo" >Start Date:</label>
+                                <input 
+                                    type="date" 
+                                    id="start_date_qo" 
+                                    name="start_date_qo" 
+                                   >
 
-                            onClick: function (evt, elements) {
-                                if (elements.length > 0) {
-                                    var index = elements[0].index;
-                                    var label = this.data.labels[index];
-            
-                                    if (label === 'Quotations') {
-                                        window.location.href = "/display_quotation";
-                                    } else if (label === 'Orders') {
-                                        window.location.href = "/display_invoice";
+                            </div>
+                            <div class="col-md-6 col-6">
+                                <label for="end_date_qo" >End Date:</label>
+                                <input 
+                                    type="date" 
+                                    id="end_date_qo" 
+                                    name="end_date_qo" 
+                                   >
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 10px; margin-top: 10px; flex-grow: 0;" class="mb-4">
+                            <button 
+                                id="filter_quotation_button" 
+                                onclick="filterByQuotationDate()" class="mt-4"
+                                style="padding: 7px 15px; background-color: #3498db; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                                Filter by Quotation Date
+                            </button>
+                            <button 
+                                id="filter_invoice_button" 
+                                onclick="filterByInvoiceDate()" 
+                                style="padding: 7px ; background-color: #2ecc71; color: white; border: none; border-radius: 5px; cursor: pointer; height:50px" class="mt-4">
+                                Filter by Invoice Date
+                            </button>
+                        </div>
+                    </div>
+    
+                    <!-- Display Selected Date Range -->
+                    <div id="selected-quotation-range" style="margin-bottom: 20px; font-weight: bold; text-align: center; color: #4BC0C0;">
+                        <!-- Date range will be dynamically added here -->
+                    </div>
+    
+                    
+                    <canvas id="quotationOrderChart"></canvas>
+    
+                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                    <script>
+                        function filterByQuotationDate() {
+                        const startDate = document.getElementById('start_date_qo').value;
+                        const endDate = document.getElementById('end_date_qo').value;
+    
+                        if (!startDate || !endDate) {
+                            alert("Please select both start and end dates.");
+                            return;
+                        }
+    
+                        // Redirect with selected date range and filter type
+                        window.location.href = `?start_date_qo=${startDate}&end_date_qo=${endDate}&filter_type=quotation`;
+                    }
+    
+                    function filterByInvoiceDate() {
+                        const startDate = document.getElementById('start_date_qo').value;
+                        const endDate = document.getElementById('end_date_qo').value;
+    
+                        if (!startDate || !endDate) {
+                            alert("Please select both start and end dates.");
+                            return;
+                        }
+    
+                        // Redirect with selected date range and filter type
+                        window.location.href = `?start_date_qo=${startDate}&end_date_qo=${endDate}&filter_type=invoice`;
+                    }
+    
+                    function displaySelectedQuotationDateRange() {
+                        const urlParams = new URLSearchParams(window.location.search);
+                        const startDate = urlParams.get('start_date_qo');
+                        const endDate = urlParams.get('end_date_qo');
+                        const filterType = urlParams.get('filter_type');
+    
+                        const rangeElement = document.getElementById('selected-quotation-range');
+                        if (startDate && endDate) {
+                            rangeElement.textContent = `Showing ${filterType} data from ${startDate} to ${endDate}`;
+                        } else {
+                            rangeElement.textContent = "Showing data for all dates";
+                        }
+                    }
+    
+                    // Initialize chart and display the selected range
+                    document.addEventListener("DOMContentLoaded", () => {
+                        displaySelectedQuotationDateRange();
+    
+                        const quotationData = JSON.parse('{{ order|safe }}');
+                        renderQuotationOrderChart(quotationData);
+                    });
+    
+                    let quotationOrderChart;
+                    function renderQuotationOrderChart(data) {
+                        const ctx = document.getElementById('quotationOrderChart').getContext('2d');
+                        if (quotationOrderChart) {
+                            quotationOrderChart.destroy();
+                        }
+                        quotationOrderChart = new Chart(ctx, {
+                            type: 'bar',
+                            data: {
+                                labels: JSON.parse('{{ quotationlist|escapejs }}'),
+                                datasets: [{
+                                    label: 'Count',
+                                    data: data,
+                                    backgroundColor: ['#3498db', '#2ecc71'],
+                                    borderWidth: 1
+                                }]
+                            },
+                            options: {
+                                responsive: true,
+                                scales: {
+                                    y: {
+                                        beginAtZero: true
+                                    }
+                                },
+    
+                                onClick: function (evt, elements) {
+                                    if (elements.length > 0) {
+                                        var index = elements[0].index;
+                                        var label = this.data.labels[index];
+                
+                                        if (label === 'Quotations') {
+                                            window.location.href = "/display_quotation";
+                                        } else if (label === 'Orders') {
+                                            window.location.href = "/display_invoice";
+                                        }
+                                    }
+                                }
+                                
+                            }
+                        });
+                    }
+                    </script>
+    
+                </div>
+    
+            </div>
+            <div class="col-md-6 col-12 col-sm-12 mt-5">
+                <div class="contractTypeChart-container cards bg-light">
+                    <h3>Contract Type Status</h3>
+                    <!-- Date Range Filter -->
+                    <div class="date-filter-container" >
+                      
+                        <div class="row">
+                            <div class="col-md-6 col-6">
+                                <label for="start_date_service" >Start Date:</label>
+                                <input type="date" id="start_date_service" name="start_date_service" >
+                            </div>
+
+                            <div class="col-md-6 col-6">
+                                <label for="end_date_service" >End Date:</label>
+                            <input type="date" id="end_date_service" name="end_date_service" >
+                            </div>
+                        </div>
+                    </div>
+                    <div style="text-align: center; margin-bottom: 15px;">
+                        <button class="mt-4"
+                            id="filter_contract_type_button" 
+                            onclick="filterByContractTypeDate()" 
+                            style="padding: 7px 15px; background-color: #3498db; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                            Filter by Service Date
+                        </button>
+                    </div>
+    
+                    <!-- Display Selected Date Range -->
+                    <div id="selected-service-range" style="margin-bottom: 20px; font-weight: bold; text-align: center; color: #4BC0C0;">
+                        <!-- Date range will be dynamically added here -->
+                    </div>
+                    
+                    <canvas id="contractTypeChart"></canvas>
+                    <script>
+                        function filterByContractTypeDate() {
+                        const startDate = document.getElementById('start_date_service').value;
+                        const endDate = document.getElementById('end_date_service').value;
+    
+                        if (!startDate || !endDate) {
+                            alert("Please select both start and end dates.");
+                            return;
+                        }
+    
+                        // Redirect with selected date range for contract type filtering
+                        window.location.href = `?start_date_service=${startDate}&end_date_service=${endDate}`;
+                    }
+    
+                    function displaySelectedContractTypeDateRange() {
+                        const urlParams = new URLSearchParams(window.location.search);
+                        const startDate = urlParams.get('start_date_service');
+                        const endDate = urlParams.get('end_date_service');
+    
+                        const rangeElement = document.getElementById('selected-service-range');
+                        if (startDate && endDate) {
+                            rangeElement.textContent = `Showing Contract Type data from ${startDate} to ${endDate}`;
+                        } else {
+                            rangeElement.textContent = "Showing Contract Type data for all dates";
+                        }
+                    }
+    
+                    // Initialize chart and display the selected range
+                    document.addEventListener("DOMContentLoaded", () => {
+                        displaySelectedContractTypeDateRange();
+    
+                        const contractTypeData = JSON.parse('{{ countlist|safe }}');
+                        renderContractTypeChart(contractTypeData);
+                    });
+    
+                    let contractTypeChart;
+                    function renderContractTypeChart(data) {
+                        const ctx = document.getElementById('contractTypeChart').getContext('2d');
+                        if (contractTypeChart) {
+                            contractTypeChart.destroy();
+                        }
+                        contractTypeChart = new Chart(ctx, {
+                            type: 'pie',
+                            data: {
+                                labels: JSON.parse('{{ labellist|escapejs }}'),
+                                datasets: [{
+                                    label: 'Contract Type Distribution',
+                                    data: data,
+                                    backgroundColor: [
+                                        'rgba(75, 192, 192, 0.2)',
+                                        'rgba(255, 205, 86, 0.2)',
+                                        'rgba(54, 162, 235, 0.2)',
+                                    ],
+                                    borderColor: [
+                                        'rgba(75, 192, 192, 1)',
+                                        'rgba(255, 205, 86, 1)',
+                                        'rgba(54, 162, 235, 1)',
+                                    ],
+                                    borderWidth: 1
+                                }]
+                            },
+                            options: {
+                                responsive: true,
+                                plugins: {
+                                    legend: {
+                                        position: 'top',
+                                    },
+                                    title: {
+                                        display: true,
+                                        text: 'Contract Type Distribution'
+                                    }
+                                },
+    
+                                onClick: function (evt, elements) {
+                                    if (elements.length > 0) {
+                                        const index = elements[0].index;
+                                        const contractType = this.data.labels[index];
+                                        // Correctly encode the contract type and construct the URL
+                                        window.location.href = `/display_service_management?contract_type=${encodeURIComponent(contractType)}`;
                                     }
                                 }
                             }
-                            
-                        }
-                    });
-                }
-                </script>
-
+                        });
+                    }
+                    </script>        
+                </div> 
             </div>
-
-
-            <div class="contractTypeChart-container classs">
-                <h3>Contract Type Distribution</h3>
-                <!-- Date Range Filter -->
-                <div class="date-filter-container" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; margin-bottom: 15px;">
-                    <div style="display: flex; align-items: center; gap: 10px; flex-grow: 1;">
-                        <label for="start_date_service" style="font-weight: bold;font-size: 11px;">Start Date:</label>
-                        <input type="date" id="start_date_service" name="start_date_service" style="padding: 2px; border: 1px solid #ccc; border-radius: 5px;">
-                        <label for="end_date_service" style="font-weight: bold;font-size: 11px;">End Date:</label>
-                        <input type="date" id="end_date_service" name="end_date_service" style="padding: 2px; border: 1px solid #ccc; border-radius: 5px;">
-                    </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-12 col-sm-12 mt-5">
+                <div class="bar-chart-container cards bg-light">
+                    <!-- Bar Chart for Product Categories -->
+                    <h3>Products by Category</h3>
+                    <canvas id="barChart"></canvas>
+                    <script>
                     
-                </div>
-                <div style="text-align: center; margin-bottom: 15px;">
-                    <button 
-                        id="filter_contract_type_button" 
-                        onclick="filterByContractTypeDate()" 
-                        style="padding: 7px 15px; background-color: #3498db; color: white; border: none; border-radius: 5px; cursor: pointer;">
-                        Filter by Service Date
-                    </button>
-                </div>
-
-                <!-- Display Selected Date Range -->
-                <div id="selected-service-range" style="margin-bottom: 20px; font-weight: bold; text-align: center; color: #4BC0C0;">
-                    <!-- Date range will be dynamically added here -->
-                </div>
-                
-                <canvas id="contractTypeChart"></canvas>
-                <script>
-                    function filterByContractTypeDate() {
-                    const startDate = document.getElementById('start_date_service').value;
-                    const endDate = document.getElementById('end_date_service').value;
-
-                    if (!startDate || !endDate) {
-                        alert("Please select both start and end dates.");
-                        return;
-                    }
-
-                    // Redirect with selected date range for contract type filtering
-                    window.location.href = `?start_date_service=${startDate}&end_date_service=${endDate}`;
-                }
-
-                function displaySelectedContractTypeDateRange() {
-                    const urlParams = new URLSearchParams(window.location.search);
-                    const startDate = urlParams.get('start_date_service');
-                    const endDate = urlParams.get('end_date_service');
-
-                    const rangeElement = document.getElementById('selected-service-range');
-                    if (startDate && endDate) {
-                        rangeElement.textContent = `Showing Contract Type data from ${startDate} to ${endDate}`;
-                    } else {
-                        rangeElement.textContent = "Showing Contract Type data for all dates";
-                    }
-                }
-
-                // Initialize chart and display the selected range
-                document.addEventListener("DOMContentLoaded", () => {
-                    displaySelectedContractTypeDateRange();
-
-                    const contractTypeData = JSON.parse('{{ countlist|safe }}');
-                    renderContractTypeChart(contractTypeData);
-                });
-
-                let contractTypeChart;
-                function renderContractTypeChart(data) {
-                    const ctx = document.getElementById('contractTypeChart').getContext('2d');
-                    if (contractTypeChart) {
-                        contractTypeChart.destroy();
-                    }
-                    contractTypeChart = new Chart(ctx, {
-                        type: 'pie',
-                        data: {
-                            labels: JSON.parse('{{ labellist|escapejs }}'),
-                            datasets: [{
-                                label: 'Contract Type Distribution',
-                                data: data,
-                                backgroundColor: [
-                                    'rgba(75, 192, 192, 0.2)',
-                                    'rgba(255, 205, 86, 0.2)',
-                                    'rgba(54, 162, 235, 0.2)',
-                                ],
-                                borderColor: [
-                                    'rgba(75, 192, 192, 1)',
-                                    'rgba(255, 205, 86, 1)',
-                                    'rgba(54, 162, 235, 1)',
-                                ],
-                                borderWidth: 1
-                            }]
-                        },
-                        options: {
-                            responsive: true,
-                            plugins: {
-                                legend: {
-                                    position: 'top',
+                        // Product Categories Bar Chart
+                        const barChartData = JSON.parse('{{ bar_chart_data|escapejs }}');
+                        const barCtx = document.getElementById('barChart').getContext('2d');
+                        new Chart(barCtx, {
+                            type: 'bar',
+                            data: barChartData,
+                            options: {
+                                responsive: true,
+                                plugins: {
+                                    legend: {
+                                        display: true,
+                                        position: 'top',
+                                    },
                                 },
-                                title: {
-                                    display: true,
-                                    text: 'Contract Type Distribution'
-                                }
-                            },
-
-                            onClick: function (evt, elements) {
+                                scales: {
+                                    x: {
+                                        title: {
+                                            display: true,
+                                            text: 'Categories',
+                                        },
+                                    },
+                                    y: {
+                                        title: {
+                                            display: true,
+                                            text: 'Number of Products',
+                                        },
+                                        beginAtZero: true,
+                                    },
+                                },
+        
+                                onClick: (event, elements) => {
                                 if (elements.length > 0) {
                                     const index = elements[0].index;
-                                    const contractType = this.data.labels[index];
-                                    // Correctly encode the contract type and construct the URL
-                                    window.location.href = `/display_service_management?contract_type=${encodeURIComponent(contractType)}`;
+                                    const selectedCategory = barChartData.labels[index];
+                                    // Redirect to product_list with the selected category as a query parameter
+                                    window.location.href = `/products/?category=${encodeURIComponent(selectedCategory)}`;
                                 }
-                            }
-                        }
-                    });
-                }
-                </script>        
-            </div> 
-
-
-            
-        <div class="bar-chart-container classs">
-            <!-- Bar Chart for Product Categories -->
-            <h3>Products by Category</h3>
-            <canvas id="barChart"></canvas>
-            <script>
-            
-                // Product Categories Bar Chart
-                const barChartData = JSON.parse('{{ bar_chart_data|escapejs }}');
-                const barCtx = document.getElementById('barChart').getContext('2d');
-                new Chart(barCtx, {
-                    type: 'bar',
-                    data: barChartData,
-                    options: {
-                        responsive: true,
-                        plugins: {
-                            legend: {
-                                display: true,
-                                position: 'top',
                             },
-                        },
-                        scales: {
-                            x: {
-                                title: {
-                                    display: true,
-                                    text: 'Categories',
-                                },
                             },
-                            y: {
-                                title: {
-                                    display: true,
-                                    text: 'Number of Products',
-                                },
-                                beginAtZero: true,
-                            },
-                        },
-
-                        onClick: (event, elements) => {
-                        if (elements.length > 0) {
-                            const index = elements[0].index;
-                            const selectedCategory = barChartData.labels[index];
-                            // Redirect to product_list with the selected category as a query parameter
-                            window.location.href = `/products/?category=${encodeURIComponent(selectedCategory)}`;
-                        }
-                    },
-                    },
-                });
-            </script>
+                        });
+                    </script>
+                </div>
+            </div>
+            <div class="col-md-6 col-12"></div>
         </div>
-    
-                    
-            
     </div>
 
     <div class="overlay" id="overlay"></div>
@@ -1371,10 +1467,9 @@ button {
             document.body.classList.remove('open-sidebar');
         });
     </script>
-
-    <div class="container-fluid footer  mt-5" style="background-color: #f7f7f7; width:100%;">
+    <div class="container-fluid footer  " style="background-color: #f7f7f7; width:100%;">
         <div class="row p-3">
-            <div class="col-md-12 text-center"> <p style="margin: 0; font-weight: 600; word-wrap: break-word;">
+            <div class="col-md-12 text-center"> <p style="margin: 0; font-weight: 600; word-wrap: break-word;color:#000000">
                 © 2025. Powered by
                 <img src="{% static 'images/crono.png' %}" alt="Chronoanalytics Logo"
                     style="height: 20px; vertical-align: middle;">
@@ -1384,7 +1479,7 @@ button {
                 All Rights Reserved.
             </p>
           </div>
-            <div class="col-md-12 text-center">  <p style="font-weight: 600; word-wrap: break-word; ">
+            <div class="col-md-12 text-center">  <p style="font-weight: 600; word-wrap: break-word;color:#000000 ">
                 © 2025. Marketed by
                 <img src="{% static 'images/TeimLogo.png' %}" alt="Teim Logo" style="height: 20px; vertical-align: middle;">
                 <a href="http://teim.in/" style="text-decoration: none;  background: linear-gradient(to right, #2575fc, #6a11cb); /* Gradient definition */
@@ -1393,8 +1488,8 @@ button {
                 All Rights Reserved.
             </p></div>
         </div>
-    </div>
+
 
 </body>
-</html>
 
+</html>
