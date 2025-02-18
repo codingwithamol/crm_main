@@ -356,12 +356,11 @@
             border-bottom: 3px solid rgb(80, 16, 177);
             /*Script MT */
         }
-        .linarbtn :hover{
-           box-shadow: 0px 10px 10px linear-gradient(to right, #2575fc, #6a11cb) !important ;
-
-        }
         
-
+        a#linarbtn:hover {
+            box-shadow: 0px 0px 10px #6a11cb;
+        }
+         
     </style>
 </head>
 <body>
@@ -437,7 +436,7 @@
                                         <td>{{ x.primarycontact }}</td>
                                         <td><a href="/edit_customer/{{ x.id }}" class="btn btn-outline-success" style="width: 100px;" role="button">Edit</a></td>
                                         <td><a href="/delete_customer/{{ x.id }}" class="btn btn-outline-danger delete-link" role="button">Delete</a></td>
-                                        <td><a href="/quotation_history/{{ x.id }}/" class="btn linarbtn " role="button" style=" background: linear-gradient(to right, #2575fc, #6a11cb); color:white;  border-radius:20px;">Quotation History</a></td>
+                                        <td><a href="/quotation_history/{{ x.id }}/" id="linarbtn" class="btn linarbtn " role="button" style=" background: linear-gradient(to right, #2575fc, #6a11cb); color:white;  border-radius:20px;">Quotation History</a></td>
                                     </tr>
                                     {% endfor %}
                                 </tbody>
