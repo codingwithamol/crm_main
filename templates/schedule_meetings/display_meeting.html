@@ -67,7 +67,7 @@
             width: calc(100%); /* Adjust width to account for scrollbar */
             margin: auto;
             max-width: 100%;
-            padding: 0 20px; /* Add padding for spacing */
+            padding:0px 6px 42px 0px; /* Add padding for spacing */
             
         }
 
@@ -161,10 +161,10 @@
         }
 
         .form-inline .form-control {
-            border: 1px solid #075efe;
-            color: #000000;
-            border-radius: 20px;
-            background-color: #ddd;
+            border: 1px solid #124ab1;
+            color: #0c0101;
+            border-radius: 7px;
+            background-color: #ffffff;
         }
         
         .form-inline .btn-outline-success {
@@ -369,7 +369,12 @@
            /
         
         }
-         
+        .form-group input{
+            width:200px !important;
+        }
+        .one-150-buttons{
+            width: 150px;
+        }
     </style>
 </head>
 <body>
@@ -378,25 +383,25 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12 ">
-                <div class="col-12 ">
-                    <div class="table-wrapper">
+                <div class="col-12 mb-5">
+                    <div class="table-wrapper ">
 
                         <h1>Meeting Log Records</h1>
                     
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-12 mb-5">
                                 <form method="GET" action="{% url 'schedule_meetings:display_meeting' %}" class="form-inline" style="margin-bottom: 20px;">
                                     <div class="form-group">
-                                        <label for="customer_id" class="innernlinearnames">Search by Customer ID:</label>
-                                        <input type="text" name="customer_id" id="customer_id" class="form-control ml-sm-2 mt-3" placeholder="Enter Customer ID" value="{{ customer_id }}">
+                                        <label for="customer_id" class="innernlinearnames ">Search by Customer ID:</label>
+                                        <input type="text" name="customer_id" id="customer_id" class="form-control ml-sm-2 mt-3 " placeholder="Enter Customer ID" value="{{ customer_id }}">
                                     </div>
                                     <div class="form-group ml-sm-3">
-                                        <label for="meeting_date" class="innernlinearnames">Search by Date:</label>
-                                        <input type="date" name="meeting_date" id="meeting_date" class="form-control ml-sm-2" value="{{ meeting_date }}">
+                                        <label for="meeting_date" class="innernlinearnames ">Search by Date:</label>
+                                        <input type="date" name="meeting_date" id="meeting_date" class="form-control ml-sm-2 mt-3 " value="{{ meeting_date }}">
                                     </div>&nbsp;
                                     <div class="col- ">
-                                        <button type="submit" class="btn btn-primary ml-sm-2 ml-2">Search</button>
-                                        <a href="{% url 'schedule_meetings:display_meeting' %}" class="btn btn-secondary ml-sm-2 ml-5">Reset</a>
+                                        <button type="submit" class="btn btn-outline-success  ml-2 one-150-buttons mt-3 ml-4" >Search</button>
+                                        <a href="{% url 'schedule_meetings:display_meeting' %}" class="btn  btn-outline-danger  ml-4 one-150-buttons mt-3">Reset</a>
                                     </div>
                                   
                                 </form>
