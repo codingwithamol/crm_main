@@ -9,7 +9,15 @@
     <link rel="stylesheet" href="{% static 'css\customer.css' %}">
     <script src="{% static 'js/script.js' %}"></script>
 
-    <title>Customer Details</title>
+    <title>TEIM CRM</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="{% static 'images/crono.png' %}" type="image/png">
+
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -17,7 +25,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Cardo:ital@0;1&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+
+
     <style>
+        /* Body Styling */
         body {
             font-family: 'Roboto', sans-serif;
             background-color: #dedede;
@@ -38,12 +49,20 @@
 
         /* Content Layout */
         .table-wrapper {
-            margin-left: 285px; /* Offset for sidebar */
-            max-width: calc(100% - 250px); /* Account for sidebar */
+        
+           
+            background-color: white;
+            border: 1px solid black;
             padding: 20px;
             /* border: 1px solid black ; */
+            margin-top: 150px !important;
+            border-radius: 15px;
+            box-shadow: 0px 0px 10px rgb(125, 93, 93);
+            box-shadow: inset 0px 0px 3px rgb(28, 17, 239);
         }
         .container-table {
+            margin-top: 10px !important;
+
             overflow-x: auto; /* Horizontal scrollbar */
             width: calc(100%); /* Adjust width to account for scrollbar */
             margin: auto;
@@ -113,8 +132,6 @@
             margin-bottom: 20px;
         }
 
-
-
         .pagination {
             margin-top: 20px;
             display: flex;
@@ -143,21 +160,23 @@
             color: white;
         }
 
-
         .form-inline .form-control {
-            border: 1px solid #000000;
+            border: 1px solid #075efe;
             color: #000000;
+            border-radius: 20px;
+            background-color: #ddd;
         }
         
         .form-inline .btn-outline-success {
             color: #000000;
-            border: 1px solid #000000;
+          
         }
 
         .form-inline .btn-outline-success:hover {
-            background-color: #707070;
+            background-color: #01ca29;
             color: #ffffff;
         }
+
         .edit-delete-buttons {
             white-space: nowrap; /* Prevent wrapping for buttons */
             text-align: center; /* Center align buttons */
@@ -170,65 +189,67 @@
 
         
         .btn-like {
-        display: inline-block;
-        padding: 0.5rem 1rem;
-        font-size: 1rem;
-        text-align: center;
-        vertical-align: middle;
-        cursor: pointer;
-        background-color: #28a745;
-        border: 1px solid transparent;
-        color: #fff;
-        border-radius: 0.25rem;
-        text-decoration: none; /* Remove underline */
-    }
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            text-align: center;
+            vertical-align: middle;
+            cursor: pointer;
+            background-color: #28a745;
+            border: 1px solid transparent;
+            color: #fff;
+            border-radius: 0.25rem;
+            text-decoration: none; /* Remove underline */
+        }
 
-    .btn-like.delete-link {
-        background-color: #dc3545;
-    }
+        .btn-like.delete-link {
+            background-color: #dc3545;
+        }
 
-    .btn-like:hover,
-    .btn-like.delete-link:hover {
-        background-color: #218838;
-    }
+        .btn-like:hover,
+        .btn-like.delete-link:hover {
+            background-color: #218838;
+        }
 
 
-        
         .modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.4);
-}
+        display: none; /* Hidden by default */
+        position: fixed; /* Fixed position ensures it remains relative to the viewport */
+        z-index: 1; /* High z-index to overlay other content */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width for the overlay */
+        height: 100%; /* Full height for the overlay */
+        overflow: hidden; /* Prevent scrolling of background content */
+        background-color: rgba(0,0,0,0.6); /* Dark overlay */
+    }
 
-.modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 500px;
-    text-align: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-}
+    .modal-content {
+        position: fixed; /* Fix the modal's position */
+        left: 50%; /* Center horizontally */
+        top: 50%; /* Center vertically */
+        transform: translate(-50%, -50%); /* Adjust for modal's own dimensions */
+        background-color: #ffffff; /* White background for content */
+        width: 50%; /* Adjust modal size */
+        max-width: 600px; /* Restrict maximum width */
+        padding: 30px; /* Padding inside the modal */
+        border-radius: 10px; /* Rounded corners for aesthetics */
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Subtle shadow for prominence */
+        text-align: center; /* Center-align text */
+        animation: fadeIn 0.3s ease-in-out; /* Smooth fade-in animation */
+    }
 
-        .modal-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-        }
-        .modal-buttons button {
-            padding: 10px 20px;
-        }
+    .modal-buttons {
+        display: flex; /* Use flexbox for buttons */
+        justify-content: center; /* Center-align buttons */
+        gap: 15px; /* Spacing between buttons */
+    }
+
+    .modal-buttons button {
+        padding: 12px 25px; /* Larger buttons for better UI */
+        font-size: 1rem; /* Readable font size */
+        border-radius: 5px; /* Rounded button edges */
+    }
 
         .view-btn {
             background-color: #303030;
@@ -244,7 +265,7 @@
             top: 0;
             z-index: 1000;
             right: -100%;
-            width: 50%;
+            width: 40%;
             height: 100%;
             background-color: white;
             box-shadow: -2px 0 7px rgba(0, 0, 0, 0.2);
@@ -279,14 +300,14 @@
         position: absolute;
         background-color: #f9f9f9;
         /* box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); */
-        min-width: 100px;
+        min-width: 50px;
         z-index: 1;
         border-radius: 30px;
     }
 
     .dropdown-content a {
-        color: rgb(0, 128, 255);
-        padding: 8px 12px;
+        color: rgb(0, 0, 0);
+        padding: 6px 10px;
         text-decoration: none;
         display: block;
     }
@@ -297,12 +318,23 @@
         display: block;
     }
 
-        /* On small screens, set margin to 0 when sidebar is hidden */
+    /* Smooth fade-in animation */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+
+/* On small screens, set margin to 0 when sidebar is hidden */
         @media (max-width: 768px) {
             .table-wrapper {
                 margin-left: 0;
-                margin-top: 10px;
-                max-width: 100%;
+                margin-top: 150px !important;
+               
                 padding: 20px; /* Add some padding for better appearance */
             }
 
@@ -315,12 +347,30 @@
             }
 
         }
+        h1{
+            background: linear-gradient(to right, #2575fc, #6a11cb);
+            /* Gradient definition */
+            -webkit-background-clip: text;
+            /* Clip the gradient to the text boundaries */
+            -webkit-text-fill-color: transparent;
+            border-bottom: 3px solid rgb(80, 16, 177);
+            /*Script MT */
+        }
+        
+        a#linarbtn:hover {
+            box-shadow: 0px 0px 10px #6a11cb;
+        }
+         
     </style>
 </head>
 <body>
     {% include 'sidebar.html' %}
 
-
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 ">
+                <div class="col-12 ">
+                   
 <div class="table-wrapper">
     <h1> Reschedule Log</h1>
     <div class="navbar">
@@ -332,7 +382,7 @@
                 placeholder="Search by Customer ID or Service ID" 
                 aria-label="Search" 
                 value="{{ search_query }}">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="width: 150px;">Search</button>
         </form>
     </div>
     <div class="container-table">
@@ -398,76 +448,106 @@
         {% endif %}
     </div>
 </div>
-<div id="confirmationModal" class="modal">
-    <div class="modal-content">
-        <p>Are you sure you want to delete this record?</p>
-        <div class="modal-buttons">
-            <button id="confirmDeleteButton" class="btn btn-danger">Yes</button>
-            <button id="cancelDeleteButton" class="btn btn-secondary">Cancel</button>
+                </div>
+            </div>
         </div>
     </div>
-</div>
 
-<script>
-   document.addEventListener("DOMContentLoaded", function() {
-            const menuItems = document.querySelectorAll('.sidebar ul li.has-submenu');
-            menuItems.forEach(item => {
-                item.addEventListener('click', function() {
-                    const submenu = this.querySelector('.submenu');
-                    const arrow = this.querySelector('.arrow-down');
-                    
-                    // Hide all other submenus
-                    menuItems.forEach(otherItem => {
-                        if (otherItem !== this) {
-                            const otherSubmenu = otherItem.querySelector('.submenu');
-                            const otherArrow = otherItem.querySelector('.arrow-down');
-                            if (otherSubmenu) {
-                                otherSubmenu.style.display = 'none';
-                                if (otherArrow.classList.contains('arrow-up')) {
-                                    otherArrow.classList.remove('arrow-up');
+
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <p>Are you sure you want to delete this record?</p>
+            <div class="modal-buttons">
+                <button id="confirmDeleteButton" class="btn btn-danger">Yes</button>
+                <button id="cancelDeleteButton" class="btn btn-secondary">Cancel</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+       document.addEventListener("DOMContentLoaded", function() {
+                const menuItems = document.querySelectorAll('.sidebar ul li.has-submenu');
+                menuItems.forEach(item => {
+                    item.addEventListener('click', function() {
+                        const submenu = this.querySelector('.submenu');
+                        const arrow = this.querySelector('.arrow-down');
+                        
+                        // Hide all other submenus
+                        menuItems.forEach(otherItem => {
+                            if (otherItem !== this) {
+                                const otherSubmenu = otherItem.querySelector('.submenu');
+                                const otherArrow = otherItem.querySelector('.arrow-down');
+                                if (otherSubmenu) {
+                                    otherSubmenu.style.display = 'none';
+                                    if (otherArrow.classList.contains('arrow-up')) {
+                                        otherArrow.classList.remove('arrow-up');
+                                    }
                                 }
                             }
+                        });
+    
+                        // Toggle current submenu
+                        if (submenu) {
+                            submenu.style.display = (submenu.style.display === 'block' ? 'none' : 'block');
+                            arrow.classList.toggle('arrow-up');
                         }
                     });
-
-                    // Toggle current submenu
-                    if (submenu) {
-                        submenu.style.display = (submenu.style.display === 'block' ? 'none' : 'block');
-                        arrow.classList.toggle('arrow-up');
-                    }
                 });
             });
-        });
-    const deleteLinks = document.querySelectorAll('.delete-link');
-        const confirmationModal = document.getElementById('confirmationModal');
-        const confirmDeleteButton = document.getElementById('confirmDeleteButton');
-        const cancelDeleteButton = document.getElementById('cancelDeleteButton');
-        let deleteUrl = '';
-
-        deleteLinks.forEach(link => {
-            link.addEventListener('click', function(event) {
-                event.preventDefault();
-                deleteUrl = this.getAttribute('href');
-                confirmationModal.style.display = 'block';
+        const deleteLinks = document.querySelectorAll('.delete-link');
+            const confirmationModal = document.getElementById('confirmationModal');
+            const confirmDeleteButton = document.getElementById('confirmDeleteButton');
+            const cancelDeleteButton = document.getElementById('cancelDeleteButton');
+            let deleteUrl = '';
+    
+            deleteLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    deleteUrl = this.getAttribute('href');
+                    confirmationModal.style.display = 'block';
+                });
             });
-        });
-
-        confirmDeleteButton.addEventListener('click', function() {
-            if (deleteUrl) {
-                window.location.href = deleteUrl;
-            }
-        });
-
-        cancelDeleteButton.addEventListener('click', function() {
-            confirmationModal.style.display = 'none';
-        });
-
-        window.addEventListener('click', function(event) {
-            if (event.target == confirmationModal) {
+    
+            confirmDeleteButton.addEventListener('click', function() {
+                if (deleteUrl) {
+                    window.location.href = deleteUrl;
+                }
+            });
+    
+            cancelDeleteButton.addEventListener('click', function() {
                 confirmationModal.style.display = 'none';
-            }
-        });
-</script>
+            });
+    
+            window.addEventListener('click', function(event) {
+                if (event.target == confirmationModal) {
+                    confirmationModal.style.display = 'none';
+                }
+            });
+    </script>
+    
+    <div class="container-fluid footer  " style="background-color: #f7f7f7; width:100%; margin-top:200px;">
+        <div class="row p-3">
+            <div class="col-md-12 text-center"> <p style="margin: 0; font-weight: 600; word-wrap: break-word;color:#000000">
+                © 2025. Powered by
+                <img src="{% static 'images/crono.png' %}" alt="Chronoanalytics Logo"
+                    style="height: 20px; vertical-align: middle;">
+                <a href="http://www.chronoanalytics.in/"
+                    style="text-decoration: none;  background: linear-gradient(to right, #2575fc, #6a11cb);-webkit-background-clip: text;-webkit-text-fill-color: transparent; font-size: 1.1rem;">Chronoanalytics
+                    Solution</a>
+                All Rights Reserved.
+            </p>
+          </div>
+            <div class="col-md-12 text-center">  <p style="font-weight: 600; word-wrap: break-word;color:#000000 ">
+                © 2025. Marketed by
+                <img src="{% static 'images/TeimLogo.png' %}" alt="Teim Logo" style="height: 20px; vertical-align: middle;">
+                <a href="http://teim.in/" style="text-decoration: none;  background: linear-gradient(to right, #2575fc, #6a11cb); /* Gradient definition */
+        -webkit-background-clip: text; 
+        -webkit-text-fill-color: transparent; font-size: 1.1rem;">TEIM</a>
+                All Rights Reserved.
+            </p></div>
+        </div>
+</div>
+
 
 </body>
 </html>

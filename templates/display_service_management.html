@@ -357,7 +357,24 @@
             /*Script MT */
         }
         
+.Selecttag{
+    
+    width: 150px;
+    padding: 3px;
+    border-radius: 7px;
+    border: none;
+    box-shadow: inset 0px 0px 3px blue !important;
 
+}
+.innernlinearnames{
+    background: linear-gradient(to right, #2575fc, #6a11cb);
+    /* Gradient definition */
+    -webkit-background-clip: text;
+    /* Clip the gradient to the text boundaries */
+    -webkit-text-fill-color: transparent;
+   /
+
+}
     </style>
 </head>
 <body>
@@ -372,13 +389,18 @@
                         <div class="navbar">
                             <form class="form-inline" method="get">
                                 <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search by Cust.ID/Phone no." aria-label="Search" value="{{ request.GET.search }}">
-                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="width: 150px;">Search</button>
                                 
                             </form>
                             <div class="filter-container">
                                 <form method="get" action="">
-                                    <label for="contract_type">Filter by Contract Type:</label>
-                                    <select name="contract_type" id="contract_type" onchange="this.form.submit()">
+                                    <label for="contract_type" class="innernlinearnames">Filter by Contract Type:</label>
+                                    <select name="contract_type" id="contract_type" onchange="this.form.submit()" id="Selecttag" style=" width: 150px;
+    padding: 3px;
+    border-radius: 7px;
+    border: none;
+    box-shadow: inset 0px 0px 3px blue !important;
+">
                                         <option value="">All</option>
                                         <option value="AMC" {% if contract_type == 'AMC' %}selected{% endif %}>AMC</option>
                                         <option value="One Time" {% if contract_type == 'One Time' %}selected{% endif %}>One Time</option>
