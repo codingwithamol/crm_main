@@ -20,11 +20,9 @@
             color: #333;
         }
         .main-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
+           margin-top: 100px;
+           padding: 10px;
+           
 
         }
         .card-registration {
@@ -34,7 +32,8 @@
             width: 100%;
             max-width: 800px;
             margin-left: 250px;
-            margin-top: 30px;
+            margin-top: 30px;box-shadow: 0px 0px 5px rgb(255, 255, 255);
+            margin-bottom: 100px;
         }
         h3 {
             text-align: center;
@@ -80,7 +79,7 @@
 
         @media (max-width: 768px) {
             .main-container{
-                margin-top: 30px;
+                margin-top: 100px;
             }
             .card {
                 margin-left: 0;
@@ -280,6 +279,28 @@
             });
         });
   </script>
+  <div class="container-fluid footer  " style="background-color: #f7f7f7; width:100%; margin-top:200px;">
+    <div class="row p-3">
+        <div class="col-md-12 text-center"> <p style="margin: 0; font-weight: 600; word-wrap: break-word;color:#000000">
+            © 2025. Powered by
+            <img src="{% static 'images/crono.png' %}" alt="Chronoanalytics Logo"
+                style="height: 20px; vertical-align: middle;">
+            <a href="http://www.chronoanalytics.in/"
+                style="text-decoration: none;  background: linear-gradient(to right, #2575fc, #6a11cb);-webkit-background-clip: text;-webkit-text-fill-color: transparent; font-size: 1.1rem;">Chronoanalytics
+                Solution</a>
+            All Rights Reserved.
+        </p>
+      </div>
+        <div class="col-md-12 text-center">  <p style="font-weight: 600; word-wrap: break-word;color:#000000 ">
+            © 2025. Marketed by
+            <img src="{% static 'images/TeimLogo.png' %}" alt="Teim Logo" style="height: 20px; vertical-align: middle;">
+            <a href="http://teim.in/" style="text-decoration: none;  background: linear-gradient(to right, #2575fc, #6a11cb); /* Gradient definition */
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; font-size: 1.1rem;">TEIM</a>
+            All Rights Reserved.
+        </p></div>
+    </div>
+</div>
 
 </body>
 </html>
