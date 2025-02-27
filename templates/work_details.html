@@ -12,7 +12,7 @@
     <title>Work Details</title>
     <style>
         body {
-            display: flex;
+            
             background-color: #f8f9fa;
         }
     
@@ -22,15 +22,16 @@
             font-size: 18px;
             color: white;
             display: block;
+            margin-top: 100px;
         }
         .sidebar a:hover {
             background-color: #575d63;
         }
 
         .new1-container {
-            margin-left: 290px; /* Offset for sidebar */
             max-width: calc(100% - 250px); /* Account for sidebar */
             padding: 20px;
+            margin-top: 100px;
         }
         h1 {
             color: #333;
@@ -185,7 +186,7 @@
 </head>
 <body>
     {% include 'sidebar.html' %}
-    <div class="sidebar">
+    <div class="sidebar" style="margin-top: 100px;">
         <div class="logo">
             <img src="{% static 'images/logo.png' %}" alt="Logo">
         </div>

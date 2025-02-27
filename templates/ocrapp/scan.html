@@ -1,3 +1,4 @@
+{% load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,36 +9,32 @@
         /* General Styling */
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f7f7f7;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+           
+          
             height: 100vh;
             margin: 0;
         }
+.row{
+   
 
-        .container {
-            background-color: white;
-            width: 400px;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            text-align: center;
+    border-radius: 10px;
+}
+        .container-fluid {
+          
+            margin-top: 120px;
+          
         }
 
-        h1 {
-            font-size: 26px;
-            margin-bottom: 20px;
-            color: #333;
-            font-weight: 600;
+        h2 {
+            background: linear-gradient(to right, #2575fc, #6a11cb);
+            /* Gradient definition */
+            -webkit-background-clip: text;
+            /* Clip the gradient to the text boundaries */
+            -webkit-text-fill-color: transparent;
+            border-bottom: 3px solid rgb(80, 16, 177);
         }
 
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            align-items: center;
-        }
+       
 
         /* Styling the file input */
         input[type="file"] {
@@ -82,20 +79,23 @@
 
         /* Responsive Design */
         @media (max-width: 500px) {
-            .container {
-                width: 90%;
-                padding: 20px;
-            }
+           
 
-            h1 {
-                font-size: 22px;
-            }
+          
+        }
+        .mainnn{
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: inset 0px 0px 5px blue !important;
+            box-shadow:  0px 0px 5px rgb(255, 255, 255) !important;
+           
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
+    {% include 'sidebar.html' %}
+    <!-- <div class="container">
         <h1>Scan Visiting Card</h1>
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
@@ -103,7 +103,47 @@
             <button type="submit">Upload & Scan</button>
         </form>
         <p class="supported-formats">Supported formats: JPG, PNG, PDF</p>
-    </div>
+    </div> -->
 
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 col-1 col-sm-2"></div>
+            <div class="col-md-6 col-10 col-sm-8 bg-light mainnn">
+               
+                    <h2>Scan Visiting Card</h2>
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit">Upload & Scan</button>
+                    </form>
+                    <p class="supported-formats">Supported formats: JPG, PNG, PDF</p>
+                 
+            </div>
+            <div class="col-md-3 col-1 col-sm-2"></div>
+        </div>
+    </div>
+    
+    <div class="container-fluid footer  " style="background-color: #f7f7f7; width:100%; margin-top:200px;">
+        <div class="row p-3">
+            <div class="col-md-12 text-center"> <p style="margin: 0; font-weight: 600; word-wrap: break-word;color:#000000">
+                © 2025. Powered by
+                <img src="{% static 'images/crono.png' %}" alt="Chronoanalytics Logo"
+                    style="height: 20px; vertical-align: middle;">
+                <a href="http://www.chronoanalytics.in/"
+                    style="text-decoration: none;  background: linear-gradient(to right, #2575fc, #6a11cb);-webkit-background-clip: text;-webkit-text-fill-color: transparent; font-size: 1.1rem;">Chronoanalytics
+                    Solution</a>
+                All Rights Reserved.
+            </p>
+          </div>
+            <div class="col-md-12 text-center">  <p style="font-weight: 600; word-wrap: break-word;color:#000000 ">
+                © 2025. Marketed by
+                <img src="{% static 'images/TeimLogo.png' %}" alt="Teim Logo" style="height: 20px; vertical-align: middle;">
+                <a href="http://teim.in/" style="text-decoration: none;  background: linear-gradient(to right, #2575fc, #6a11cb); /* Gradient definition */
+        -webkit-background-clip: text; 
+        -webkit-text-fill-color: transparent; font-size: 1.1rem;">TEIM</a>
+                All Rights Reserved.
+            </p></div>
+        </div>
+</div>
 </body>
 </html>
