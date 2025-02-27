@@ -571,7 +571,6 @@ box-shadow: 0px 0px 1px rgb(57, 54, 54);            padding: 5px;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0px 0px 10px rgb(125, 93, 93);
-            box-shadow: inset 0px 0px 3px rgb(28, 17, 239);
           
 
         }
@@ -660,209 +659,17 @@ label{
   .logoutbtn:hover .arrow:before {
     right: 0;
   }
+  .cards{
+    height: 590px;
+  }
+ 
+  
+ 
     </style>
 </head>
 
 <body>
-    <div class="header">
-
-        <div class="hamburger" id="hamburger">
-            <i class="fas fa-bars"></i>
-
-        </div>
-        <div class="navbar-header ">
-            <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>                        
-            </button> -->
-            <a class="navbar-brand " href="#">
-                <img src="{% static 'images/Logo.png' %}" alt="Logo" style="height: 120px;   margin-bottom: 10px; "
-                    class="navbar-header_logo">
-            </a>
-        </div>
-        <div class="teimlms">
-            <span>Dashboard</span>
-        </div>
-
-        <div class="navbar-header tem">
-            <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>                        
-            </button> -->
-            <a class="navbar-brand mt-3" href="https://chronoanalytics.in/">
-                <img src="{% static 'images/crono.png' %}" alt="Logo" style="height: 70px;   margin-bottom: 10px; "
-                    class="imgg">
-            </a>
-        </div>
-    </div>
-
-    <div class="sidebar">
-
-        <div class="close-button" id="closeButton">
-            <i class="fas fa-times" ></i>
-        </div>
-
-        <div class="logo">
-            <img src="{% static 'images/Logo.png' %}" alt="Logo">
-        </div>
-        <ul>
-            <a href="/index" style="text-decoration: none;">
-                <li><i class="fas fa-home"></i> Dashboard</li>
-            </a>
-            <li class="has-submenu"><i class="fas fa-info-circle"></i> Display Information <span
-                    class="arrow-down"></span>
-                <div class="submenu">
-                    <ul>
-                        <a href="/display_customer">
-                            <li>1. Customer Details</li>
-                        </a>
-                        <a href="/display_service_management">
-                            <li>2. Service Management</li>
-                        </a>
-                        <a href="/display_quotation">
-                            <li>3. Quotation</li>
-                        </a>
-                        <a href="/display_invoice">
-                            <li>4. Invoice</li>
-                        </a>
-                        <a href="/display_lead_management">
-                            <li>5. Lead Management</li>
-                        </a>
-                        <a href="/display_followup">
-                            <li>6. List of Follow ups</li>
-                        </a>
-                        <a href="/display_reschedule">
-                            <li>7. Reschedule log</li>
-                        </a>
-                        <a href="/schedule_meetings/display_meeting">
-                            <li>8. Meeting Records Log</li>
-                        </a>
-                    </ul>
-                </div>
-            </li>
-            <li class="has-submenu"><i class="fas fa-folder-open"></i> Master<span class="arrow-down"></span>
-                <div class="submenu">
-                    <ul>
-                        <a href="/customer_details_create">
-                            <li>1. Customer Details</li>
-                        </a>
-                        <a href="/service_management_create">
-                            <li>2. Service Management</li>
-                        </a>
-                        <a href="/quotation_create">
-                            <li>3. Quotation</li>
-                        </a>
-                        <a href="/invoice_create">
-                            <li>4. Invoice</li>
-                        </a>
-                        <a href="/lead_management_create">
-                            <li>5. Lead Management</li>
-                        </a>
-                    </ul>
-                </div>
-            </li>
-            <li class="has-submenu"><i class="fas fa-box"></i> Products<span class="arrow-down"></span>
-                <div class="submenu">
-                    <ul>
-                        <a href="/add_product">
-                            <li>1. Add Products</li>
-                        </a>
-                        <a href="/update_product">
-                            <li>2. Update Products</li>
-                        </a>
-                        <a href="/products">
-                            <li>3. All Products</li>
-                        </a>
-                    </ul>
-                </div>
-            </li>
-            <li class="has-submenu"><i class="fas fa-cogs"></i> Services<span class="arrow-down"></span>
-                <div class="submenu">
-                    <ul>
-                        <a href="/inventory_service">
-                            <li>1. Inventory Service</li>
-                        </a>
-                        <a href="/inventory_summary">
-                            <li>2. Inventory Summary / History</li>
-                        </a>
-                    </ul>
-                </div>
-            </li>
-            <li class="has-submenu"><i class="fas fa-user-cog"></i> Technicians<span class="arrow-down"></span>
-                <div class="submenu">
-                    <ul>
-                        <a href="/create">
-                            <li>1. Create Technician</li>
-                        </a>
-                        <a href="/technician_work_list">
-                            <li>2. Work History</li>
-                        </a>
-                        <a href="/completed_work">
-                            <li>3. Completed Work List</li>
-                        </a>
-                    </ul>
-                </div>
-            </li>
-            <li class="has-submenu" onclick="window.location.href='/display_allocation'"><i class="fas fa-tasks"></i>
-                Allocate Work</li>
-            <li class="has-submenu" onclick="window.location.href='/ocrapp/scan/'"><i class="fas fa-id-card"></i> Scan
-                Card</li>
-            <li class="has-submenu" onclick="window.location.href='/schedule_meetings/schedule/'"><i
-                    class="fas fa-calendar-plus"></i> Schedule Meet</li>
-            <li class="has-submenu" onclick="window.location.href='/schedule_meetings/meeting_list/'"><i
-                    class="fas fa-book"></i> Meet Notes</li>
-            <li class="has-submenu" onclick="window.location.href='/open_ai/chatbot/'"><i class="fas fa-book"></i> Chat
-                Bot</li>
-        </ul>
-
-        <!-- <div class="button-container">
-            <button class="btn-custom" onclick="window.location.href='/ocrapp/scan/'">
-                <i class="fas fa-id-card"></i> Scan Card
-            </button>
-            <button class="btn-custom" onclick="window.location.href='/schedule_meetings/schedule/'">
-                <i class="fas fa-calendar-plus"></i> Schedule Meet
-            </button>
-            <button class="btn-custom" onclick="window.location.href='/schedule_meetings/meeting_list/'">
-                <i class="fas fa-book"></i> Meet Notes
-            </button>
-        </div> -->
-
-        <div class="notification" id="notification">
-            Meeting successfully scheduled!
-        </div>
-
-
-        <script>
-            // Check if the URL contains the schedule_success parameter
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.get('schedule_success') === '1') {
-                // Show the notification for 3 seconds
-                const notification = document.getElementById('notification');
-                notification.style.display = 'block';
-                setTimeout(() => {
-                    notification.style.display = 'none';
-                }, 3000); // Hide after 3 seconds
-            }
-        </script>
-
-        <!-- 
-        <div class="logout-container">
-            <button style="transform: scale(1.0); max-width: 200px" type="submit" class="logout-button">
-                <a href="/logout" style="text-decoration: none; color: black;;"><i class="fa-sharp fa-solid fa-right-from-bracket fa-flip-horizontal" style="color: #fa0000;"></i> Logout</a>
-            </button>
-        
-        -->
-
-        <center> <button class="mb-5 mt-3 logoutbtn">
-                <a href="/logout">Logout</a>
-                <div class="arrow-wrapper">
-                    <div class="arrow"></div>
-
-                </div>
-            </button></center>
-    </div>
+    {% include 'sidebar.html' %}
 
 
     </div>
@@ -911,8 +718,8 @@ label{
     <!-- Flexbox container to hold both calendar and pie chart -->
 
     <div class="container cardsmaincontainer " style="margin-top: 80px;">
-        <div class="row">
-            <div class="col-md-6 col-12 col-sm-12 mt-5 ">
+        <div class="row" >
+            <div class="col-md-4 col-12 col-sm-12 mt-3 jgssgh">
                 <div class="pie-chart-container bg-light cards">
                     <!-- Pie Chart for Lead Distribution -->
                     <h3 class="ml-5">Lead Status</h3>
@@ -945,7 +752,7 @@ label{
                         style="text-align: center; margin-bottom: 20px; font-weight: bold; color: #4BC0C0;">
                         <!-- Date range will be dynamically added here -->
                     </div>
-                    <canvas id="leadChart"></canvas>
+                    <canvas id="leadChart" class="canvass"></canvas>
                     <script>
                         // Lead Distribution Pie Chart
                         let leadChart; // Reference to the chart instance
@@ -1013,7 +820,7 @@ label{
                     </script>
                 </div>
             </div>
-            <div class="col-md-6 col-12 col-sm-12 mt-5">
+            <div class="col-md-4 col-12 col-sm-12 mt-3">
                 <div class="followupchart-container bg-light cards">
                     <h3>Follow-Up Status</h3>
                     <!-- Date Range Filter -->
@@ -1043,7 +850,7 @@ label{
                         <!-- Date range will be dynamically added here -->
                     </div>
 
-                    <canvas id="followUpPolarAreaChart"></canvas>
+                    <canvas id="followUpPolarAreaChart" class="canvass"></canvas>
 
                     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
                     <script>
@@ -1123,9 +930,7 @@ label{
                     </script>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6 col-12 col-sm-12 mt-5">
+            <div class="col-md-4 col-12 col-sm-12 mt-3">
                 <div class="quote-vs-order-container cards bg-light">
                     <h3>Quotation vs Order </h3>
                     <!-- Date Range Filter -->
@@ -1270,7 +1075,10 @@ label{
                 </div>
     
             </div>
-            <div class="col-md-6 col-12 col-sm-12 mt-5">
+        </div>
+        <div class="row" >
+           
+            <div class="col-md-4 col-12 col-sm-12 mt-3">
                 <div class="contractTypeChart-container cards bg-light">
                     <h3>Contract Type Status</h3>
                     <!-- Date Range Filter -->
@@ -1390,9 +1198,7 @@ label{
                     </script>        
                 </div> 
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6 col-12 col-sm-12 mt-5">
+            <div class="col-md-4 col-12 col-sm-12 mt-3">
                 <div class="bar-chart-container cards bg-light">
                     <!-- Bar Chart for Product Categories -->
                     <h3>Products by Category</h3>
@@ -1442,7 +1248,10 @@ label{
                     </script>
                 </div>
             </div>
-            <div class="col-md-6 col-12"></div>
+            <div class="col-md-4 col-12"></div>
+        </div>
+        <div class="row">
+        
         </div>
     </div>
 
