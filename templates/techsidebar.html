@@ -64,7 +64,7 @@
             /* Ensure sidebar is above overlay */
 
             /* Curved bottom-right corner */
-            box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.5);
+            box-shadow: 2px 0px 10px rgba(30, 8, 158, 0.5);
             /* Optional for better aesthetics */
         }
 
@@ -713,19 +713,18 @@
             <img src="{% static 'images/Logo.png' %}" alt="Logo">
         </div>
         <ul>
-            <a href="#" style="text-decoration: none;">
-                <li><i class="fas fa-home"></i> Dashboard</li>
-            </a>
+            <li onclick="window.location.href='/technician_dashboard'" style="cursor: pointer;">
+                <i class="fas fa-home"></i> Dashboard
+            </li>
 
 
 
 
             <li class="has-submenu" onclick="window.location.href='/pending_work'"><i class="fas fa-tasks"></i> Pending
                 Work</li>
-            <li class="has-submenu" onclick="window.location.href='/work_list'"><i class="fas fa-id-card"></i> Work List
+            <li class="has-submenu" onclick="window.location.href='/work_list'"><i class="far fa-list-alt"></i></i> Work List
             </li>
-            <li class="has-submenu" onclick="window.location.href='/completed_work_list'"><i
-                    class="fas fa-calendar-plus"></i>Completed Work List</li>
+            <li class="has-submenu" onclick="window.location.href='/completed_work_list'"><i class="fa-solid fa-check-double"></i>Completed Work List</li>
         </ul>
 
         <!-- <div class="button-container">
