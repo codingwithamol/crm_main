@@ -8,6 +8,14 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <title>Pending Work</title>
     <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
         .work-card {
             border: 1px solid #ddd;
             border-radius: 8px;
@@ -15,7 +23,7 @@
             padding: 20px;
             margin: 20px auto;
             max-width: 600px;
-            background-color: #fff;
+         
         }
         .work-card h2 {
             margin-top: 0;
@@ -34,46 +42,31 @@
             font-size: 18px;
             font-weight: bold;
         }
-        .btn-container {
-            display: flex;
-            justify-content: center;
+         .cccccc{
+            margin-top: 150px;
+            min-height: 300px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px white;
+
+         }
+         h1 {
+            background: linear-gradient(to right, #2575fc, #6a11cb);
+            /* Gradient definition */
+            -webkit-background-clip: text;
+            /* Clip the gradient to the text boundaries */
+            -webkit-text-fill-color: transparent;
+            border-bottom: 1px solid rgb(80, 16, 177);
+            /*Script MT */
+            font-weight: 400;
         }
-        .btn-container form {
-            margin: 10px;
-        }
-        .sidebar {
-            height: 100vh;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 200px;
-            background-color: #343a40;
-            padding-top: 20px;
-        }
-        .sidebar a {
-            padding: 10px 15px;
-            text-decoration: none;
-            font-size: 18px;
-            color: white;
-            display: block;
-        }
-        .sidebar a:hover {
-            background-color: #575d63;
-        }
+
     </style>
 </head>
 <body>
-    <div class="sidebar">
-        <a href="{% url 'technician_dashboard' %}">Dashboard</a>
-        <a href="{% url 'pending_work' %}">Pending Work</a>
-        <a href="{% url 'work_list' %}">Work List</a>
-        <a href="{% url 'completed_work_list' %}">Completed Work List</a>
-        <button type="submit" class="logout-button">
-            <a href="/logout" style="text-decoration: none; color: black;"><i class="fa-sharp fa-solid fa-right-from-bracket fa-flip-horizontal" style="color: #fa0000;"></i> Logout</a>
-        </button>
-    </div>
+    
+    {% include 'techsidebar.html' %}
 
-    <div class="container" style="margin-left: 220px;">
+    <div class="container-fluid cccccc bg-light text-dark"  >
         <h1 class="my-4 text-center">Pending Work</h1>
         {% for work in pending_works %}
         <div class="work-card">
@@ -98,5 +91,27 @@
         <p class="text-center">No pending work available.</p>
         {% endfor %}
     </div>
+    <div class="container-fluid footer  " style="background-color: #f7f7f7; width:100%; margin-top:400px;">
+        <div class="row p-3">
+            <div class="col-md-12 text-center"> <p style="margin: 0; font-weight: 600; word-wrap: break-word;color:#000000">
+                © 2025. Powered by
+                <img src="{% static 'images/crono.png' %}" alt="Chronoanalytics Logo"
+                    style="height: 20px; vertical-align: middle;">
+                <a href="http://www.chronoanalytics.in/"
+                    style="text-decoration: none;  background: linear-gradient(to right, #2575fc, #6a11cb);-webkit-background-clip: text;-webkit-text-fill-color: transparent; font-size: 1.1rem;">Chronoanalytics
+                    Solution</a>
+                All Rights Reserved.
+            </p>
+          </div>
+            <div class="col-md-12 text-center">  <p style="font-weight: 600; word-wrap: break-word;color:#000000 ">
+                © 2025. Marketed by
+                <img src="{% static 'images/TeimLogo.png' %}" alt="Teim Logo" style="height: 20px; vertical-align: middle;">
+                <a href="http://teim.in/" style="text-decoration: none;  background: linear-gradient(to right, #2575fc, #6a11cb); /* Gradient definition */
+        -webkit-background-clip: text; 
+        -webkit-text-fill-color: transparent; font-size: 1.1rem;">TEIM</a>
+                All Rights Reserved.
+            </p></div>
+        </div>
+</div>
 </body>
 </html>

@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,19 +11,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Cardo:ital@0;1&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Cardo:ital@0;1&display=swap"
+        rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Cardo:ital@0;1&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Cardo:ital@0;1&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Outfit:wght@100..900&display=swap"
+        rel="stylesheet">
     <title>Sidebar</title>
     <style>
         body {
-            background-color: rgb(46, 50, 50) !important;
+            background-color: rgba(24, 24, 24, 1) !important; /* Dark gray, almost black */
             color: #F4F4F5 !important;
 
         }
 
-  .header {
+        .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -57,7 +62,7 @@
             transition: left 0.3s ease-in-out;
             z-index: 2000;
             /* Ensure sidebar is above overlay */
-            
+
             /* Curved bottom-right corner */
             box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.5);
             /* Optional for better aesthetics */
@@ -149,7 +154,7 @@
             border-radius: 5px;
         }
 
-      
+
 
         .submenu ul {
             list-style-type: none;
@@ -169,7 +174,8 @@
         .submenu ul li:hover {
             background-color: #fdfdfd;
             color: black;
-box-shadow: 0px 0px 1px rgb(57, 54, 54);            padding: 5px;
+            box-shadow: 0px 0px 1px rgb(57, 54, 54);
+            padding: 5px;
             /* Slightly darker shade for hover */
         }
 
@@ -185,13 +191,15 @@ box-shadow: 0px 0px 1px rgb(57, 54, 54);            padding: 5px;
             border-top: 10px solid #acabab;
             /* Adjusted arrow color */
         }
+
         .arrow-down:hover {
-          color: rgb(255, 255, 255);
+            color: rgb(255, 255, 255);
         }
-            
+
         .arrow-up:hover {
             color: rgb(255, 255, 255);
-          }
+        }
+
         .arrow-up {
             position: absolute;
             right: 10px;
@@ -299,7 +307,7 @@ box-shadow: 0px 0px 1px rgb(57, 54, 54);            padding: 5px;
                 /* Show the button on small screens */
             }
         }
-        
+
 
         @media (min-width: 769px) {
             .sidebar {
@@ -388,7 +396,8 @@ box-shadow: 0px 0px 1px rgb(57, 54, 54);            padding: 5px;
             z-index: 2100;
             /* Ensure it's above the sidebar content */
         }
-        .close-button :hover{
+
+        .close-button :hover {
             color: rgb(255, 0, 0);
             text-shadow: 0px 0px 5px rgb(255, 2, 2);
             z-index: 1;
@@ -549,107 +558,115 @@ box-shadow: 0px 0px 1px rgb(57, 54, 54);            padding: 5px;
 
         /* Cards Style*/
 
-        .cards{
+        .cards {
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0px 0px 10px rgb(125, 93, 93);
             box-shadow: inset 0px 0px 3px rgb(28, 17, 239);
-          
+
 
         }
-        .cardsmaincontainer{
+
+        .cardsmaincontainer {
             margin-bottom: 200px;
         }
- h3{
-    background: linear-gradient(to right, #2575fc, #6a11cb);
-    /* Gradient definition */
-    -webkit-background-clip: text;
-    /* Clip the gradient to the text boundaries */
-    -webkit-text-fill-color: transparent;
-    border-bottom: 1px solid rgb(80, 16, 177);
-    /*Script MT */
-    font-weight: 400;
-}
-label{
-    margin-top: 20px;
-    color: #3498db;
-   
-}/* From Uiverse.io by satyamchaudharydev */ 
-/* From Uiverse.io by satyamchaudharydev */ 
-.logoutbtn {
-    --primary-color: #b4b4b8;
-    --secondary-color: #fff;
-    --hover-color: #111;
-    --arrow-width: 10px;
-    --arrow-stroke: 2px;
-    box-sizing: border-box;
-    border: 0;
-    border-radius: 20px;
-    color: var(--secondary-color);
-    padding: 0.5em 1.3em;
-    background: var(--primary-color);
-    display: flex;
-    transition: 0.2s background;
-    align-items: center;
-    gap: 0.6em;
-    font-weight: bold;
-    background-color: #ff4646;
-    margin-top: 50px !important;
-  }
-  .logoutbtn a{
-    list-style-type: none;
-    text-decoration: none;
-    color:white;
-  }
-  
-  .logoutbtn .arrow-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .logoutbtn .arrow {
-    margin-top: 1px;
-    width: var(--arrow-width);
-    background: var(--primary-color);
-    height: var(--arrow-stroke);
-    position: relative;
-    transition: 0.2s;
-  }
-  
-  .logoutbtn .arrow::before {
-    content: "";
-    box-sizing: border-box;
-    position: absolute;
-    border: solid var(--secondary-color);
-    border-width: 0 var(--arrow-stroke) var(--arrow-stroke) 0;
-    display: inline-block;
-    top: -3px;
-    right: 2px;
-    transition: 0.2s;
-    padding: 3px;
-    transform: rotate(-45deg);
-  }
-  
-  .logoutbtn:hover {
-    background-color:red;
-    box-shadow:0px 10px 10px red;
-  }
-  
-  .logoutbtn:hover .arrow {
-    background: var(--secondary-color);
-  }
-  
-  .logoutbtn:hover .arrow:before {
-    right: 0;
-  }
-  .hamburger:hover{
 
-    color: #6a11cb;
-    text-shadow: 0px 0px 5px rgb(0, 0, 27);
-  }
+        h3 {
+            background: linear-gradient(to right, #2575fc, #6a11cb);
+            /* Gradient definition */
+            -webkit-background-clip: text;
+            /* Clip the gradient to the text boundaries */
+            -webkit-text-fill-color: transparent;
+            border-bottom: 1px solid rgb(80, 16, 177);
+            /*Script MT */
+            font-weight: 400;
+        }
+
+        label {
+            margin-top: 20px;
+            color: #3498db;
+
+        }
+
+        /* From Uiverse.io by satyamchaudharydev */
+        /* From Uiverse.io by satyamchaudharydev */
+        .logoutbtn {
+            --primary-color: #b4b4b8;
+            --secondary-color: #fff;
+            --hover-color: #111;
+            --arrow-width: 10px;
+            --arrow-stroke: 2px;
+            box-sizing: border-box;
+            border: 0;
+            border-radius: 20px;
+            color: var(--secondary-color);
+            padding: 0.5em 1.3em;
+            background: var(--primary-color);
+            display: flex;
+            transition: 0.2s background;
+            align-items: center;
+            gap: 0.6em;
+            font-weight: bold;
+            background-color: #ff4646;
+            margin-top: 50px !important;
+        }
+
+        .logoutbtn a {
+            list-style-type: none;
+            text-decoration: none;
+            color: white;
+        }
+
+        .logoutbtn .arrow-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logoutbtn .arrow {
+            margin-top: 1px;
+            width: var(--arrow-width);
+            background: var(--primary-color);
+            height: var(--arrow-stroke);
+            position: relative;
+            transition: 0.2s;
+        }
+
+        .logoutbtn .arrow::before {
+            content: "";
+            box-sizing: border-box;
+            position: absolute;
+            border: solid var(--secondary-color);
+            border-width: 0 var(--arrow-stroke) var(--arrow-stroke) 0;
+            display: inline-block;
+            top: -3px;
+            right: 2px;
+            transition: 0.2s;
+            padding: 3px;
+            transform: rotate(-45deg);
+        }
+
+        .logoutbtn:hover {
+            background-color: red;
+            box-shadow: 0px 10px 10px red;
+        }
+
+        .logoutbtn:hover .arrow {
+            background: var(--secondary-color);
+        }
+
+        .logoutbtn:hover .arrow:before {
+            right: 0;
+        }
+
+        .hamburger:hover {
+
+            color: #6a11cb;
+            text-shadow: 0px 0px 5px rgb(0, 0, 27);
+        }
     </style>
 </head>
+
 <body>
     <div class="header">
 
@@ -696,15 +713,20 @@ label{
             <img src="{% static 'images/Logo.png' %}" alt="Logo">
         </div>
         <ul>
-            <a href="#" style="text-decoration: none;"><li><i class="fas fa-home"></i> Dashboard</li></a>
-            
-            
-            
-        
-            <li class="has-submenu" onclick="window.location.href='/pending_work'"><i class="fas fa-tasks"></i> Pending Work</li>
-            <li class="has-submenu" onclick="window.location.href='/work_list'"><i class="fas fa-id-card"></i> Work List</li>
-            <li class="has-submenu" onclick="window.location.href='/completed_work_list'"><i class="fas fa-calendar-plus"></i>Completed Work List</li>
- </ul>
+            <a href="#" style="text-decoration: none;">
+                <li><i class="fas fa-home"></i> Dashboard</li>
+            </a>
+
+
+
+
+            <li class="has-submenu" onclick="window.location.href='/pending_work'"><i class="fas fa-tasks"></i> Pending
+                Work</li>
+            <li class="has-submenu" onclick="window.location.href='/work_list'"><i class="fas fa-id-card"></i> Work List
+            </li>
+            <li class="has-submenu" onclick="window.location.href='/completed_work_list'"><i
+                    class="fas fa-calendar-plus"></i>Completed Work List</li>
+        </ul>
 
         <!-- <div class="button-container">
             <button class="btn-custom" onclick="window.location.href='/ocrapp/scan/'">
@@ -735,24 +757,20 @@ label{
                 }, 3000); // Hide after 3 seconds
             }
         </script>
-    
+
         <!-- 
         
         
         -->
         <center> <button class="mb-5 mt-3 logoutbtn">
-            <a href="/logout">Logout</a>
-            <div class="arrow-wrapper">
-                <div class="arrow"></div>
+                <a href="/logout">Logout</a>
+                <div class="arrow-wrapper">
+                    <div class="arrow"></div>
+                </div>
+            </button></center>
 
-            </div>
-        </button></center>
-        
-        
     </div>
-
     <div class="overlay" id="overlay"></div>
-
     <script>
         const hamburger = document.getElementById('hamburger');
         const sidebar = document.getElementById('sidebar');
@@ -775,4 +793,5 @@ label{
     </script>
 
 </body>
+
 </html>
