@@ -22,11 +22,7 @@
 
         }
 
-
-
-
-
-        .header {
+  .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -700,64 +696,15 @@ label{
             <img src="{% static 'images/Logo.png' %}" alt="Logo">
         </div>
         <ul>
-            <a href="/index" style="text-decoration: none;"><li><i class="fas fa-home"></i> Dashboard</li></a>
-            <li class="has-submenu"><i class="fas fa-info-circle"></i> Display Information <span class="arrow-down"></span>
-                <div class="submenu">
-                    <ul>
-                        <a href="/display_customer"><li>1. Customer Details</li></a>
-                        <a href="/display_service_management"><li>2. Service Management</li></a>
-                        <a href="/display_quotation"><li>3. Quotation</li></a>
-                        <a href="/display_invoice"><li>4. Invoice</li></a>
-                        <a href="/display_lead_management"><li>5. Lead Management</li></a>
-                        <a href="/display_followup"><li>6. List of Follow ups</li></a>
-                        <a href="/display_reschedule"><li>7. Reschedule log</li></a>
-                        <a href="/schedule_meetings/display_meeting"><li>8. Meeting Records Log</li></a>
-                    </ul>
-                </div>
-            </li>
-            <li class="has-submenu"><i class="fas fa-folder-open"></i> Master<span class="arrow-down"></span>
-                <div class="submenu">
-                    <ul>
-                        <a href="/customer_details_create"><li>1. Customer Details</li></a>
-                        <a href="/service_management_create"><li>2. Service Management</li></a>
-                        <a href="/quotation_create"><li>3. Quotation</li></a>
-                        <a href="/invoice_create"><li>4. Invoice</li></a>
-                        <a href="/lead_management_create"><li>5. Lead Management</li></a>
-                    </ul>
-                </div>
-            </li>
-            <li class="has-submenu"><i class="fas fa-box"></i> Products<span class="arrow-down"></span>
-                <div class="submenu">
-                    <ul>
-                        <a href="/add_product"><li>1. Add Products</li></a>
-                        <a href="/update_product"><li>2. Update Products</li></a>
-                        <a href="/products"><li>3. All Products</li></a>
-                    </ul>
-                </div>
-            </li>
-            <li class="has-submenu"><i class="fas fa-cogs"></i> Services<span class="arrow-down"></span>
-                <div class="submenu">
-                    <ul>
-                        <a href="/inventory_service"><li>1. Inventory Service</li></a>
-                        <a href="/inventory_summary"><li>2. Inventory Summary / History</li></a>
-                    </ul>
-                </div>
-            </li>
-            <li class="has-submenu"><i class="fas fa-user-cog"></i> Technicians<span class="arrow-down"></span>
-                <div class="submenu">
-                    <ul>
-                        <a href="/create"><li>1. Create Technician</li></a>
-                        <a href="/technician_work_list"><li>2. Work History</li></a>
-                        <a href="/completed_work"><li>3. Completed Work List</li></a>
-                    </ul>
-                </div>
-            </li>
-            <li class="has-submenu" onclick="window.location.href='/display_allocation'"><i class="fas fa-tasks"></i> Allocate Work</li>
-            <li class="has-submenu" onclick="window.location.href='/ocrapp/scan/'"><i class="fas fa-id-card"></i> Scan Card</li>
-            <li class="has-submenu" onclick="window.location.href='/schedule_meetings/schedule/'"><i class="fas fa-calendar-plus"></i> Schedule Meet</li>
-            <li class="has-submenu" onclick="window.location.href='/schedule_meetings/meeting_list/'"><i class="fas fa-book"></i> Meet Notes</li>
-            <li class="has-submenu" onclick="window.location.href='/open_ai/chatbot/'"><i class="fas fa-book"></i> Chat Bot</li>
-        </ul>
+            <a href="#" style="text-decoration: none;"><li><i class="fas fa-home"></i> Dashboard</li></a>
+            
+            
+            
+        
+            <li class="has-submenu" onclick="window.location.href='/pending_work'"><i class="fas fa-tasks"></i> Pending Work</li>
+            <li class="has-submenu" onclick="window.location.href='/work_list'"><i class="fas fa-id-card"></i> Work List</li>
+            <li class="has-submenu" onclick="window.location.href='/completed_work_list'"><i class="fas fa-calendar-plus"></i>Completed Work List</li>
+ </ul>
 
         <!-- <div class="button-container">
             <button class="btn-custom" onclick="window.location.href='/ocrapp/scan/'">
