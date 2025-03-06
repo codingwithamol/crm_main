@@ -15,8 +15,23 @@
         /* General Styles */
         
         .container {
-            margin-left: 270px;
-            padding: 20px;
+             padding: 20px !important;
+             min-height: 300px;
+             margin-top: 100px !important;
+             border-radius: 5px;
+             box-shadow: 0px 0px 10px white;
+
+             
+        }
+        h2{
+            background: linear-gradient(to right, #2575fc, #6a11cb);
+            /* Gradient definition */
+            -webkit-background-clip: text;
+            /* Clip the gradient to the text boundaries */
+            -webkit-text-fill-color: transparent;
+            border-bottom: 3px solid rgb(80, 16, 177);
+            /*Script MT */
+            text-align: center;
         }
 
         h1 {
@@ -35,6 +50,11 @@
             border-collapse: collapse;
             background: #fff;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 10px;
+            min-height: 100px;
+        }
+        table:hover{
+            box-shadow: 0px 0px 10px rgb(206, 206, 206);
         }
 
         table th,
@@ -61,14 +81,20 @@
         table a:hover {
             text-decoration: underline;
         }
+        .table-responsive {
+            overflow-x: auto;
+            white-space: nowrap;
+
+        }
     </style>
 </head>
 <body>
     {% include 'sidebar.html' %}
 
-    <div class="container">
-        <h1>Completed Work List</h1>
-        <div class="table-container">
+    <div class="container bg-light ">
+        <h2>Completed Work List</h2>
+        <div class="table-responsive">
+        <div class="table-container mt-3">
             <table>
                 <thead>
                     <tr>
@@ -91,6 +117,7 @@
                     {% endfor %}
                 </tbody>
             </table>
+        </div>
         </div>
     </div>
 
@@ -125,5 +152,27 @@
             });
         });
     </script>
+    <div class="container-fluid footer  " style="background-color: #f7f7f7; width:100%; margin-top:300px;">
+        <div class="row p-3">
+            <div class="col-md-12 text-center"> <p style="margin: 0; font-weight: 600; word-wrap: break-word;color:#000000">
+                © 2025. Powered by
+                <img src="{% static 'images/crono.png' %}" alt="Chronoanalytics Logo"
+                    style="height: 20px; vertical-align: middle;">
+                <a href="http://www.chronoanalytics.in/"
+                    style="text-decoration: none;  background: linear-gradient(to right, #2575fc, #6a11cb);-webkit-background-clip: text;-webkit-text-fill-color: transparent; font-size: 1.1rem;">Chronoanalytics
+                    Solution</a>
+                All Rights Reserved.
+            </p>
+          </div>
+            <div class="col-md-12 text-center">  <p style="font-weight: 600; word-wrap: break-word;color:#000000 ">
+                © 2025. Marketed by
+                <img src="{% static 'images/TeimLogo.png' %}" alt="Teim Logo" style="height: 20px; vertical-align: middle;">
+                <a href="http://teim.in/" style="text-decoration: none;  background: linear-gradient(to right, #2575fc, #6a11cb); /* Gradient definition */
+        -webkit-background-clip: text; 
+        -webkit-text-fill-color: transparent; font-size: 1.1rem;">TEIM</a>
+                All Rights Reserved.
+            </p></div>
+        </div>
+</div>
 </body>
 </html>

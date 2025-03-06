@@ -121,7 +121,7 @@
         
 </style>
 
-    </style>
+    
 </head>
 
 <body>
@@ -141,7 +141,7 @@
                 Logout</a>
         </button>
     </div>
-    <div class="new-container">
+    <div class="new-container container bg-light  "  style="margin-top: 100px !important;">
         <h1 class="my-4 text-center">Complete Work for {{ tech_work.work.customer_fname }} {{ tech_work.work.customer_lname }}</h1>
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
