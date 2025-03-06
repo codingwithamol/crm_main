@@ -19,11 +19,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Cardo:ital@0;1&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
     <style>
         .center-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+           margin-top: 100px;
             height: 100vh; /* Adjust height as needed */
+            padding: 10px;
+            border-radius: 10px;
+            min-width: 200px !important;
         }
         .center-container a {
             margin: 10px;
@@ -38,6 +38,28 @@
             background-color: #007bff;
             color: white;
         }
+        h1 {
+            background: linear-gradient(to right, #2575fc, #6a11cb);
+            /* Gradient definition */
+            -webkit-background-clip: text;
+            /* Clip the gradient to the text boundaries */
+            -webkit-text-fill-color: transparent;
+             /*Script MT */
+            font-weight: 400;
+            margin-top: 100px !important;
+        }
+        .mbm{
+            text-decoration: none;
+             color: rgb(0, 0, 0);
+        }
+        .mbm:hover{
+            text-decoration: none;
+            color: rgb(0, 0, 0);
+
+        }
+        .btn:hover{
+            box-shadow: 0px 0px 10px rgb(0, 255, 234);
+        }
     </style>
 
 </head>
@@ -45,13 +67,50 @@
     
     {% include 'sidebar.html' %}
 
-<div class="center-container">
-    <h1 style="text-align: center;font-family: 'Playfair Display', serif;font-weight: 700;">Product added successfully!</h1>
-    <a style="font-family: 'Outfit', sans-serif;" href="{% url 'add_product' %}">Add Another Product</a>
-    <a style="font-family: 'Outfit', sans-serif;" href="{% url 'update_product' %}">Update Product</a>
+<div class="  container bg-light p-5" style="margin-top: 120px; border-radius: 10px;              box-shadow: 0px 0px 10px white;
+ " >
+   <h1 style="text-align: center;font-family: 'Playfair Display', serif;font-weight: 700; ">Product added successfully...!</h1>
+ 
+    <div class="row mt-5"> 
+        <div class="col-md-3"></div>
+       <div class="col-md-3 col-12"> 
+<button class="btn btn-outline-info mt-3 mb-3" style="width: 250px;">
+    <a style="font-family: 'Outfit', sans-serif;" class="mt-5 mbm" href="{% url 'add_product' %}">Add Another Product</a>
+
+</button>
+    </div>
+       <div class="col-md-3 col-12">    
+<button class="btn btn-outline-info mt-3 mb-3" style="width: 250px;">
+    <a style="font-family: 'Outfit', sans-serif;" class="mt-5 mbm" href="{% url 'update_product' %}">Update Product</a></div>
+
+</button>
+    </div>
+    <div class="col-md-3"></div>
+ 
 </div>
 
-
+<div class="container-fluid footer  p-4" style="background-color: #f7f7f7; width:100%; margin-top:400px; bottom: 0px;">
+    <div class="row ">
+        <div class="col-md-12 text-center"> <p style="margin: 0; font-weight: 600; word-wrap: break-word;color:#000000">
+            © 2025. Powered by
+            <img src="{% static 'images/crono.png' %}" alt="Chronoanalytics Logo"
+                style="height: 20px; vertical-align: middle;">
+            <a href="http://www.chronoanalytics.in/"
+                style="text-decoration: none;  background: linear-gradient(to right, #2575fc, #6a11cb);-webkit-background-clip: text;-webkit-text-fill-color: transparent; font-size: 1.1rem;">Chronoanalytics
+                Solution</a>
+            All Rights Reserved.
+        </p>
+      </div>
+        <div class="col-md-12 text-center">  <p style="font-weight: 600; word-wrap: break-word;color:#000000 ">
+            © 2025. Marketed by
+            <img src="{% static 'images/TeimLogo.png' %}" alt="Teim Logo" style="height: 20px; vertical-align: middle;">
+            <a href="http://teim.in/" style="text-decoration: none;  background: linear-gradient(to right, #2575fc, #6a11cb); /* Gradient definition */
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; font-size: 1.1rem;">TEIM</a>
+            All Rights Reserved.
+        </p></div>
+    </div>
+</div>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         const menuItems = document.querySelectorAll('.sidebar ul li.has-submenu');
