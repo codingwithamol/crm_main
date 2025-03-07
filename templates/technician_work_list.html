@@ -153,8 +153,9 @@
     
     <div class="technician-container">
         <h2 class="text-center">Technician Work List</h2>
+        <div>
         <table>
-            <thead>
+            <thead >
                 <tr>
                     <th>ID</th>
                     <th>Technician</th>
@@ -166,7 +167,7 @@
                     <th>Actions</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="text-dark">
                 {% for work in page_obj %}
                 <tr>
                     <td>{{ work.id }}</td>
@@ -177,10 +178,10 @@
                     <td>{{ work.payment_amount }}</td>
                     <td>{{ work.status }}</td>
                     <td class="actions">
-                        <a href="{% url 'edit_work' work.id %}" class="btn btn-edit">Edit</a>
+                        <a href="{% url 'edit_work' work.id %}" class="btn btn-edit btn-outline-info">Edit</a>
                         <form action="{% url 'delete_work' work.id %}" method="post" style="display:inline;">
                             {% csrf_token %}
-                            <button type="submit" class="btn btn-delete">Delete</button>
+                            <button type="submit" class="btn btn-delete  btn-outline-danger">Delete</button>
                         </form>
                     </td>
                 </tr>
@@ -191,7 +192,7 @@
                 {% endfor %}
             </tbody>
         </table>
-        
+    </div>
         <ul class="pagination">
             {% if page_obj.has_previous %}
                 <li><a href="?page=1">&laquo; First</a></li>

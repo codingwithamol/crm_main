@@ -13,11 +13,22 @@
             background-color: #f8f9fa;
             font-family: Arial, sans-serif;
         }
+        h2 {
+            background: linear-gradient(to right, #2575fc, #6a11cb);
+            /* Gradient definition */
+            -webkit-background-clip: text;
+            /* Clip the gradient to the text boundaries */
+            -webkit-text-fill-color: transparent;
+            border-bottom: 1px solid rgb(80, 16, 177);
+            /*Script MT */
+            font-weight: 400;
+        }
         .container {
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            margin-top: 90px;
         }
         .card {
             background: #ffffff;
@@ -83,7 +94,7 @@
 
     <div class="container">
         <div class="card">
-            <h1>Allocate Work to Technician</h1>
+            <h2>Allocate Work to Technician</h2>
             <form method="post">
                 {% csrf_token %}
                 <div class="row">
