@@ -40,6 +40,7 @@
             margin-left: 220px;
             padding: 20px;
             width: calc(100% - 220px);
+            border-radius: 10px;
         }
         h1 {
             color: #333;
@@ -116,14 +117,26 @@
         a.btn-secondary:hover {
             background-color: #5a6268;
         }
+        h1{
+            background: linear-gradient(to right, #2575fc, #6a11cb);
+             -webkit-background-clip: text;
+             -webkit-text-fill-color: transparent;
+            border-bottom: 3px solid rgb(80, 16, 177);
+         }
+        .card:hover{
+            box-shadow: 0px 0px 5px rgb(80, 77, 77);
+        }
+        .card{
+            box-shadow: 0px 0px 2px rgb(80, 77, 77,0.5);
+        }
     </style>
 </head>
 <body>
     {% include 'sidebar.html' %}
 
 
-    <div class="container bg-light">
-        <h1>Work Detail - ID: {{ work.id }}</h1>
+    <div class="container  p-5 bg-light " style="margin-top: 100px !important;">
+        <h1 class="mt--2 mb-3">Work Detail - ID: {{ work.id }}</h1>
         <div class="card">
             <div class="card-header">
                 <h2>Work Information</h2>
@@ -220,5 +233,27 @@
             });
         });
     </script>
+    <div class="container-fluid footer  p-4" style="background-color: #f7f7f7; width:100%; margin-top:400px; bottom: 0px;">
+        <div class="row ">
+            <div class="col-md-12 text-center"> <p style="margin: 0; font-weight: 600; word-wrap: break-word;color:#000000">
+                © 2025. Powered by
+                <img src="{% static 'images/crono.png' %}" alt="Chronoanalytics Logo"
+                    style="height: 20px; vertical-align: middle;">
+                <a href="http://www.chronoanalytics.in/"
+                    style="text-decoration: none;  background: linear-gradient(to right, #2575fc, #6a11cb);-webkit-background-clip: text;-webkit-text-fill-color: transparent; font-size: 1.1rem;">Chronoanalytics
+                    Solution</a>
+                All Rights Reserved.
+            </p>
+          </div>
+            <div class="col-md-12 text-center">  <p style="font-weight: 600; word-wrap: break-word;color:#000000 ">
+                © 2025. Marketed by
+                <img src="{% static 'images/TeimLogo.png' %}" alt="Teim Logo" style="height: 20px; vertical-align: middle;">
+                <a href="http://teim.in/" style="text-decoration: none;  background: linear-gradient(to right, #2575fc, #6a11cb); /* Gradient definition */
+        -webkit-background-clip: text; 
+        -webkit-text-fill-color: transparent; font-size: 1.1rem;">TEIM</a>
+                All Rights Reserved.
+            </p></div>
+        </div>
+    </div>
 </body>
 </html>

@@ -118,5 +118,63 @@
         </p></div>
     </div>
 </div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+            const menuItems = document.querySelectorAll('.sidebar ul li.has-submenu');
+            menuItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const submenu = this.querySelector('.submenu');
+                    const arrow = this.querySelector('.arrow-down');
+                    
+                    // Hide all other submenus
+                    menuItems.forEach(otherItem => {
+                        if (otherItem !== this) {
+                            const otherSubmenu = otherItem.querySelector('.submenu');
+                            const otherArrow = otherItem.querySelector('.arrow-down');
+                            if (otherSubmenu) {
+                                otherSubmenu.style.display = 'none';
+                                if (otherArrow.classList.contains('arrow-up')) {
+                                    otherArrow.classList.remove('arrow-up');
+                                }
+                            }
+                        }
+                    });
+
+                    // Toggle current submenu
+                    if (submenu) {
+                        submenu.style.display = (submenu.style.display === 'block' ? 'none' : 'block');
+                        arrow.classList.toggle('arrow-up');
+                    }
+                });
+            });
+        });
+
+    $(document).ready(function() {
+        function calculateTotalAmount() {
+            var quantity = parseFloat($("#uquantity").val()) || 0;
+            var price = parseFloat($("#uprice").val()) || 0;
+            var discount = parseFloat($("#discount").val()) || 0;
+            var total_amount = quantity * price;
+            $("#utotal_amount").val(total_amount.toFixed(2));
+            $("#hidden_total_amount").val(total_amount.toFixed(2)); // Update hidden input
+            
+            if ($("#gst").is(":checked")) {
+                var gst = total_amount * 0.18;
+                var total_amount_with_gst = total_amount + gst - discount;
+                $("#utotal_amount_with_gst").val(total_amount_with_gst.toFixed(2));
+                $("#hidden_total_amount_with_gst").val(total_amount_with_gst.toFixed(2)); // Update hidden input
+            } else {
+                var total_amount_with_gst = total_amount - discount;
+                $("#utotal_amount_with_gst").val(total_amount_with_gst.toFixed(2));
+                $("#hidden_total_amount_with_gst").val(total_amount_with_gst.toFixed(2)); // Update hidden input
+            }
+        }
+
+        $("#uquantity, #uprice, #discount, #gst").on("input change", calculateTotalAmount);
+        calculateTotalAmount();
+    });
+
+
+</script>
 </body>
 </html>
