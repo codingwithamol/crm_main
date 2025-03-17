@@ -31,6 +31,25 @@
             word-wrap: break-word;
             box-shadow: inset 0px 2px 5px rgba(0, 0, 0, 0.1);
         }
+        .boxcontaner::after
+        {
+            background-color:darkcyan;
+            background-size: contain;
+            font-waight:bold;
+            color:darkred;
+            min-height:500px;
+            min-width:fit-content;
+            display: contents;
+            direction: calc(9);
+            font-size: large;
+            inline-size: none;
+            justify-self: start;
+            gap: 10px;
+            display: block;
+            grid-template-columns: minmax(9mm);
+            flex-direction: row;
+
+        }
     </style>
 </head>
 <body>
