@@ -99,13 +99,18 @@
         }
 
         /* Table Styling */
+        .container-table {
+            width: 100%;
+            overflow-x: auto; /* Enables horizontal scrolling */
+            white-space: nowrap; /* Prevents text from wrapping */
+        }
+        
         table {
             width: 100%;
             border-collapse: collapse;
             border-radius: 8px;
-            overflow: hidden;
+            min-width: 800px; /* Ensures scrolling for small screens */
         }
-
         th,
         td {
             padding: 12px 15px;
@@ -231,7 +236,7 @@
 
         .btn-like:hover,
         .btn-like.delete-link:hover {
-            background-color: #218838;
+            background-color: #b9ffc8;
         }
 
         .modal {
@@ -423,12 +428,12 @@
                             <form method="get" class="form-inline">
                                 <input type="text" name="q" class="form-control"
                                     placeholder="Search by Customer Name or Email" value="{{ search_query }}">
-                                <button type="submit" class="btn btn-outline-success">Search</button>
+                                <button type="submit" class="btn btn-outline-success" style="width:150px;">Search</button>
                             </form>
                         </div>
 
                         <button class="collaps">First Follow-Up</button>
-                        <div class="container-table collapsible-content active">
+                        <div class="container-table collapsible-content active table-container">
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
@@ -471,7 +476,7 @@
                         </div>
 
                         <button class="collaps">Second Follow-Up</button>
-                        <div class="container-table collapsible-content">
+                        <div class="container-table collapsible-content table-container ">
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
