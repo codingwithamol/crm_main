@@ -1023,7 +1023,7 @@ def lead_management_create(request):
         secondarycontact = request.POST.get('secondarycontact')
         customeremail = request.POST.get('customeremail')
         customeraddress = request.POST.get('customeraddress')
-        location=request.POST.get('location')
+        location = request.POST.get('location', '')  # Allow empty value
         city=request.POST.get('city', 'Null')
         typeoflead = request.POST['typeoflead']
         firstfollowupdate = request.POST['firstfollowupdate']
@@ -1040,7 +1040,7 @@ def lead_management_create(request):
             subcategory=subcategory,
             primarycontact=primarycontact,
             secondarycontact=secondarycontact,
-            location=location,
+            location=location if location else None,  # Store None if empty
             city=city,
             typeoflead=typeoflead,
             customeremail=customeremail,

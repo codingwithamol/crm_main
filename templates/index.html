@@ -166,12 +166,13 @@
         /* Cards Style*/
 
         .cards {
-            padding: 20px;
+            padding: 15px !important;
             border-radius: 10px;
             box-shadow: 0px 0px 10px rgb(125, 93, 93);
 
 
         }
+         
 
         .cardsmaincontainer {
             margin-bottom: 200px;
@@ -319,18 +320,19 @@
 
     <!-- Flexbox container to hold both calendar and pie chart -->
 
-    <div class="container cardsmaincontainer " style="margin-top: 70px;">
+    <div class="container cardsmaincontainer " style="margin-top: 70px;  min-height: 100vh !important;">
         <div class="row">
-            <div class="col-md-4 col-12 col-sm-12 mt-3 jgssgh">
-                <div class="pie-chart-container bg-light cards">
+            <div class="col-md-4 col-12 col-sm-12 col-lg-4 col-xl-4 mt-3 jgssgh">
+                <div class="pie-chart-container bg-light cards car "  >
                     <!-- Pie Chart for Lead Distribution -->
-                    <h3 class="ml-5">Lead Status</h3>
+                    
+                    <h3 class="ml-5 mt-1">Lead Status</h3>
                     <!-- Date Range Filter with Styling -->
                     <div class="date-filter-container">
 
 
 
-                        <div class="row">
+                        <div class="row" style="padding-right:10px !important;">
                             <div class="col-md-6 col-6">
                                 <label for="start_date">Start Date:</label>
                                 <input type="date" id="start_date" name="start_date">
@@ -338,7 +340,7 @@
                             </div>
                             <div class="col-md-6 col-6">
                                 <label for="end_date">End Date:</label>
-                                <input type="date" id="end_date" name="end_date">
+                                <input type="date" id="end_date" name="end_date"  >
                             </div>
                         </div>
                     </div>
@@ -422,13 +424,13 @@
                     </script>
                 </div>
             </div>
-            <div class="col-md-4 col-12 col-sm-12 mt-3">
-                <div class="followupchart-container bg-light cards">
-                    <h3>Follow-Up Status</h3>
+            <div class="col-md-4 col-12 col-sm-12 col-lg-4 col-xl-4 mt-3">
+                <div class="followupchart-container bg-light cards car">
+                    <h3 class="mt-1">Follow-Up Status</h3>
                     <!-- Date Range Filter -->
                     <div class="date-filter-container">
 
-                        <div class="row">
+                        <div class="row" style="padding-right:10px !important;">
                             <div class="col-md-6 col-6">
                                 <label for="start_date_followup">Start Date:</label>
                                 <input type="date" id="start_date_followup" name="start_date_followup">
@@ -448,7 +450,7 @@
                     </div>
                     <!-- Display Selected Date Range -->
                     <div id="selected-followup-range"
-                        style="margin-bottom: 20px; font-weight: bold; text-align: center; color: #4BC0C0;">
+                        style="margin-bottom: 40px; font-weight: bold; text-align: center; color: #4BC0C0;">
                         <!-- Date range will be dynamically added here -->
                     </div>
 
@@ -532,13 +534,13 @@
                     </script>
                 </div>
             </div>
-            <div class="col-md-4 col-12 col-sm-12 mt-3">
+            <div class="col-md-4 col-12 col-sm-12 col-lg-4 col-xl-4 mt-3">
                 <div class="quote-vs-order-container cards bg-light">
-                    <h3>Quotation vs Order </h3>
+                    <h3 class="mt-1">Quotation vs Order </h3>
                     <!-- Date Range Filter -->
                     <div class="date-filter-container ">
 
-                        <div class="row">
+                        <div class="row" style="padding-right:10px !important;">
                             <div class="col-md-6 col-6">
                                 <label for="start_date_qo">Start Date:</label>
                                 <input type="date" id="start_date_qo" name="start_date_qo">
@@ -555,7 +557,7 @@
                                 Filter by Quotation Date
                             </button>
                             <button id="filter_invoice_button" onclick="filterByInvoiceDate()"
-                                style="padding: 7px ; background-color: #2ecc71; color: white; border: none; border-radius: 5px; cursor: pointer; height:50px"
+                                style="padding: 7px 15px ; background-color: #2ecc71; color: white; border: none; border-radius: 5px; cursor: pointer;padding-bottom: 2px !important;"
                                 class="mt-4">
                                 Filter by Invoice Date
                             </button>
@@ -670,13 +672,13 @@
         </div>
         <div class="row">
 
-            <div class="col-md-4 col-12 col-sm-12 mt-3">
+            <div class="col-md-4 col-12 col-sm-12 col-lg-4 col-xl-4 mt-3">
                 <div class="contractTypeChart-container cards bg-light">
-                    <h3>Contract Type Status</h3>
+                    <h3 class="mt-1">Contract Type Status</h3>
                     <!-- Date Range Filter -->
                     <div class="date-filter-container">
 
-                        <div class="row">
+                        <div class="row" style="padding-right:10px !important;">
                             <div class="col-md-6 col-6">
                                 <label for="start_date_service">Start Date:</label>
                                 <input type="date" id="start_date_service" name="start_date_service">
@@ -789,10 +791,10 @@
                     </script>
                 </div>
             </div>
-            <div class="col-md-4 col-12 col-sm-12 mt-3">
+            <div class="col-md-4 col-12 col-sm-12 col-lg-4 col-xl-4 mt-3">
                 <div class="bar-chart-container cards bg-light">
                     <!-- Bar Chart for Product Categories -->
-                    <h3>Products by Category</h3>
+                    <h3 class="mt-1">Products by Category</h3>
                     <canvas id="barChart"></canvas>
                     <script>
 
@@ -839,7 +841,7 @@
                     </script>
                 </div>
             </div>
-            <div class="col-md-4 col-12"></div>
+            <div class="col-md-4 col-12 col-lg-4 col-xl-4"></div>
         </div>
         <div class="row">
 

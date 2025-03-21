@@ -42,7 +42,7 @@ class AddProductForm(forms.ModelForm):
 
 
 class UpdateProductForm(forms.Form):
-    product = forms.ModelChoiceField(queryset=Product.objects.all(), label='Product', required=False)
+    product = forms.ModelChoiceField(queryset=Product.objects.all(), label='Product', required=False , widget=forms.Select(attrs={'class': 'product-select'}))
     price = forms.DecimalField(label='New Price per Unit', max_digits=10, decimal_places=2, required=False)
     add_quantity = forms.IntegerField(label='Add Quantity', required=False)
 
