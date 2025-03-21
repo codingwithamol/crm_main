@@ -26,7 +26,7 @@
             background-color: #f4f4f4;
         }
         .background-image {
-            background-image: url("{% static 'images/landing_background.jpg' %}");
+            background-image: url("{% static 'images/landing_background.webp' %}");
             background-repeat: no-repeat;
             background-size: cover;
             height: 100%;
@@ -228,47 +228,11 @@
                 right: 0px !important;
                 top: 0px !important;
             }
-            .footer p {
-                font-size: 1rem;
-                /* Smaller font for smaller devices */
-                word-wrap: break-word;
-                /* Ensures text does not overflow */
-                margin: 5px 0;
-                /* Adjust margin for compact view */
-            }
-
-            .footer img {
-                height: 16px;
-                /* Scale images for smaller devices */
-            }
+            
         }
 
-        @media screen and (max-width: 480px) {
-            .footer p {
-                font-size: 0.8rem;
-                /* Even smaller font for extra small devices */
-            }
-
-            .footer p a {
-                font-size: 0.8rem !important;
-                /* Even smaller font for extra small devices */
-            }
-
-            .footer img {
-                height: 10px;
-                /* Further scale down images */
-            }
-
-        }
-
-        .footer {
-
-            width: 100%;
-            font-size: 20px;
-            box-shadow: 0px -5px 10px rgb(0, 0, 0);
-
-
-        }
+        
+ 
 
         /*Footer Css End*/
     </style>
@@ -340,30 +304,28 @@
 <!-- Main Content End -->
 
 <!-- Footer Start -->
-<footer class="footer p-2 " style="background-color: #f7f7f7;  text-align: center; font-size: 1.1rem; color: #555;"
->
-<div class="container">
-    <!-- Footer Content -->
-    <p style="margin: 0; font-weight: 600; word-wrap: break-word;">
-        © 2025. Powered by
-        <img src="{% static 'images/crono.png' %}" alt="Chronoanalytics Logo"
-            style="height: 20px; vertical-align: middle;">
-        <a href="http://www.chronoanalytics.in/"
-            style="text-decoration: none;  background: linear-gradient(to right, #2575fc, #6a11cb);-webkit-background-clip: text;-webkit-text-fill-color: transparent; font-size: 1.1rem;">Chronoanalytics
-            Solution</a>
-        All Rights Reserved.
-    </p>
-    <p style="font-weight: 600; word-wrap: break-word; ">
-        © 2025. Marketed by
-        <img src="{% static 'images/TeimLogo.png' %}" alt="Teim Logo" style="height: 20px; vertical-align: middle;">
-        <a href="http://teim.in/" style="text-decoration: none;  background: linear-gradient(to right, #2575fc, #6a11cb); /* Gradient definition */
--webkit-background-clip: text; 
--webkit-text-fill-color: transparent; font-size: 1.1rem;">TEIM</a>
-        All Rights Reserved.
-    </p>
+<div class="container-fluid footer  " style="background-color: #f7f7f7; width:100%;  ">
+    <div class="row p-3">
+        <div class="col-md-12 text-center"> <p style="margin: 0; font-weight: 600; word-wrap: break-word;color:#000000">
+            © 2025. Powered by
+            <img src="{% static 'images/crono.png' %}" alt="Chronoanalytics Logo"
+                style="height: 20px; vertical-align: middle;">
+            <a href="http://www.chronoanalytics.in/"
+                style="text-decoration: none;  background: linear-gradient(to right, #2575fc, #6a11cb);-webkit-background-clip: text;-webkit-text-fill-color: transparent; font-size: 1.1rem;">Chronoanalytics
+                Solution</a>
+            All Rights Reserved.
+        </p>
+      </div>
+        <div class="col-md-12 text-center">  <p style="font-weight: 600; word-wrap: break-word;color:#000000 ">
+            © 2025. Marketed by
+            <img src="{% static 'images/TeimLogo.png' %}" alt="Teim Logo" style="height: 20px; vertical-align: middle;">
+            <a href="http://teim.in/" style="text-decoration: none;  background: linear-gradient(to right, #2575fc, #6a11cb); /* Gradient definition */
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; font-size: 1.1rem;">TEIM</a>
+            All Rights Reserved.
+        </p></div>
+    </div>
 </div>
-
-</footer>
 <!-- Footer End -->
 
 
