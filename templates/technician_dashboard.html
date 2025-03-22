@@ -97,8 +97,7 @@
          
 
         .content {
-             padding: 30px;
-             border-radius: 10px;
+              border-radius: 5px;
              margin-bottom: 100px;
              box-shadow: 0px 0px 10px rgb(179, 219, 206);
        
@@ -125,7 +124,7 @@
 
         @media (max-width: 768px) {
             .content {
-                margin-top: 30px;
+                margin-top: 10px;
                 margin-left: 0;
                 max-width: 100%;
             }
@@ -229,7 +228,8 @@
 
 <body>
      {% include 'techsidebar.html' %}
-    <div class="content container bg-light text-dark" style="margin-top: 100px;">
+     <div style="min-height:100vh;">
+    <div class="content container bg-light text-dark" style="margin-top: 100px; ">
         <div class="row">
             
             <!-- first -->
@@ -270,7 +270,7 @@
         </div>
 
     </div>
-    
+     </div>
 
         <script>
             function changeMonth(month, year) {
