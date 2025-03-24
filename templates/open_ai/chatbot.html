@@ -26,7 +26,7 @@
             /* Center the chat container */
             border: 1px solid #ccc;
             /* Optional: adds a border */
-            border-radius: 5px;
+            border-radius: 15px;
             /* Rounded corners */
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             /* Subtle shadow for depth */
@@ -117,11 +117,11 @@
     {% include 'sidebar.html' %}
 
     <div class="ddd mt-2" style="padding-top: 40px;background-color: rgb(46, 50, 50) !important; min-height: 100vh !important;">
-        <div class="chat-container text-dark mt-5" style="margin-top: 100px ;">
+        <div class="chat-container text-dark mt-5 " style="margin-top: 100px ;">
 
             <h2 class="text-center mt-5">Gemini AI Model - Chatbot</h2>
 
-            <div class="conversation-history">
+            <div class="conversation-history ">
                 {% for entry in conversation_history %}
                 <div class="message user-message">
                     <strong>You:</strong> {{ entry.prompt }}
