@@ -18,7 +18,7 @@
 
         .chat-container {
             display: flex;
-           
+
             flex-direction: column;
             max-width: 600px;
             /* Limit the width for better readability */
@@ -34,7 +34,8 @@
             /* White background for the chat */
             padding: 10px;
         }
-        .chat-container:hover{
+
+        .chat-container:hover {
             box-shadow: 0px 0px 10px rgb(255, 255, 255);
         }
 
@@ -94,7 +95,7 @@
         }
 
         .vvvv {
-            font-size: 10px;
+            font-size: 6px;
             background: linear-gradient(to right, #0006bd, #6a11cb);
             /* Gradient definition */
             -webkit-background-clip: text;
@@ -104,11 +105,15 @@
             font-weight: 400;
 
         }
+
         @media only screen and (max-width: 768px) {
-            .card-registration{
+            .card-registration {
                 margin: 10px !important;
             }
         }
+      .ask,.clr{
+        
+      }
     </style>
 </head>
 
@@ -116,7 +121,8 @@
 ">
     {% include 'sidebar.html' %}
 
-    <div class="ddd mt-2" style="padding-top: 40px;background-color: rgb(46, 50, 50) !important; min-height: 100vh !important;">
+    <div class="ddd mt-2"
+        style="padding-top: 40px;background-color: rgb(46, 50, 50) !important; min-height: 100vh !important;">
         <div class="chat-container text-dark mt-5 " style="margin-top: 100px ;">
 
             <h2 class="text-center mt-5">Gemini AI Model - Chatbot</h2>
@@ -133,25 +139,24 @@
                 {% endfor %}
             </div>
 
-            <div class="input-section">
+            <div class="input-section p-2">
                 <form method="POST">
                     {% csrf_token %}
                     <div class="mb-3">
                         <label for="prompt" class="form-label">Ask Gemini:</label>
                         <textarea name="prompt" class="form-control" id="prompt" rows="3"
-                          placeholder="Ask Gemini Your Question..." required></textarea>
+                            placeholder="Ask Gemini Your Question..." required></textarea>
                     </div>
-                    <button class="btn btn-outline-info" type="submit" style="width: 180px;">Ask Gemini</button>
+                    <button class="btn btn-outline-info ask" type="submit" style="width: 100%;">Ask Gemini</button>
                 </form>
-                <form method="GET" action="{% url 'clear_conversation' %}" class="mt-3">
-                <button class="btn btn-outline-danger" type="submit" style="width: 180px;">Clear
-                 Conversation</button>
+                <form method="GET" action="{% url 'clear_conversation' %}" class="mt-3 clr">
+                    <button class="btn btn-outline-danger  " type="submit" style="width: 100%;">Clear
+                        Conversation</button>
                 </form>
-                </div>
-                <p class="text-center vvvv mb-3">This is a simple chatbot using the Gemini AI model.</p>
-
-        </div>
-        <div class="container-fluid footer  " style="background-color: #f7f7f7; width:100%; margin-top:300px;">
+            </div>
+            <p class="text-center vvvv mb-3 mt-3">This is a simple chatbot using the Gemini AI model.</p>
+       </div>
+        <div class="container-fluid footer" style="background-color: #f7f7f7; width:100%; margin-top:300px;">
             <div class="row p-3">
                 <div class="col-md-12 text-center">
                     <p style="margin: 0; font-weight: 600; word-wrap: break-word;color:#000000">
@@ -177,6 +182,7 @@
                 </div>
             </div>
         </div>
+
     </div>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
