@@ -275,7 +275,7 @@
                 <form method="POST" id="service-management-form">      
                     {% csrf_token %}
                     <div class="row">
-                        <div class="col-md-6 mb-4">
+                        <div class="col-md-6  ">
                             <div data-mdb-input-init class="form-outline">
                                 <select id="customer_id" class="form-control form-control-lg" name="customer_id" onchange="updateCustomerDetails()">
                                     <option value="" disabled selected>Select Customer</option>
@@ -291,13 +291,13 @@
                           </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6 mb-4">
+                        <div class="col-md-6  ">
                             <div data-mdb-input-init class="form-outline">
                                 <label for="customer_contact">Customer Contact:</label>
                             <input type="text" id="customer_contact" name="customer_contact" value="" required readonly class="form-control"><br>
                             </div>
                           </div>
-                          <div class="col-md-6 mb-4">
+                          <div class="col-md-6  ">
                             <div data-mdb-input-init class="form-outline">
                                 <label for="customer_email">Customer Email:</label>
                                 <input type="text" id="customer_email" name="customer_email" class="form-control" value="" required readonly><br>
