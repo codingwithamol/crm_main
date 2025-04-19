@@ -432,6 +432,9 @@
                             </div> -->
                             
                         </div>
+                        <div class="p">
+                            <p class="scroll-instruction">Scroll to view more content</p>
+                        </div>
                         <div class="pagination text-info">
                             <button id="prev-btn" disabled style="background-color: #007BFF; border-radius:2px; width:80px;border:none;">Previous</button>
                             <span id="page-info" style="border:none;">Page 1 of {{ total_pages }}</span>
@@ -444,6 +447,8 @@
                                 window.location.href = `/products/?category=${encodeURIComponent(selectedCategory)}`;
                             }
                         </script>
+                        {% include 'buttons.html' %}
+
                     </div>
                 </div>
             </div>

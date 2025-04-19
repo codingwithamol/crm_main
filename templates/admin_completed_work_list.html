@@ -87,35 +87,42 @@
 <body>
     {% include 'sidebar.html' %}
 
-    <div class="container bg-light ">
-        <h2>Completed Work List</h2>
-        <div class="table-responsive">
-        <div class="table-container mt-3">
-            <table>
-                <thead>
+  <div class="main">  <div class="container bg-light ">
+    <h2>Completed Work List</h2>
+    <div class="table-responsive">
+    <div class="table-container mt-3">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Customer Name</th>
+                    <th>Technician Name</th>
+                    <th>Completion Date and Time</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody class="text-dark">
+                {% for work in completed_work_list %}
                     <tr>
-                        <th>ID</th>
-                        <th>Customer Name</th>
-                        <th>Technician Name</th>
-                        <th>Completion Date and Time</th>
-                        <th>Actions</th>
+                        <td>{{ work.id }}</td>
+                        <td>{{ work.work.customer_fname }} {{ work.work.customer_lname }}</td> <!-- Adjust based on your actual model -->
+                        <td>{{ work.technician.first_name }} {{ work.technician.last_name }}</td>
+                        <td>{{ work.completion_datetime }}</td>
+                        <td><a href="{% url 'admin_work_details' work.pk %}">View More</a></td>
                     </tr>
-                </thead>
-                <tbody class="text-dark">
-                    {% for work in completed_work_list %}
-                        <tr>
-                            <td>{{ work.id }}</td>
-                            <td>{{ work.work.customer_fname }} {{ work.work.customer_lname }}</td> <!-- Adjust based on your actual model -->
-                            <td>{{ work.technician.first_name }} {{ work.technician.last_name }}</td>
-                            <td>{{ work.completion_datetime }}</td>
-                            <td><a href="{% url 'admin_work_details' work.pk %}">View More</a></td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
-        </div>
+                {% endfor %}
+            </tbody>
+        </table>
+        
     </div>
+  
+    </div>
+    <div class="p">
+        <p class="scroll-instruction">Scroll to view more content</p>
+    </div>
+    {% include 'buttons.html' %}
+
+</div></div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {

@@ -196,7 +196,9 @@
                     </table>
                 </div>
             </div>
-            
+            <div class="p">
+                <p class="scroll-instruction">Scroll to view more content</p>
+            </div>
             <!-- Pagination -->
             <ul class="pagination">
                 {% if page_obj.has_previous %}
@@ -212,7 +214,7 @@
                 {% endif %}
             </ul>
             
-            <a href="/index" class="btn btn-primary">Go Back</a>
+            {% include 'buttons.html' %}
         </div>
     </div>
     

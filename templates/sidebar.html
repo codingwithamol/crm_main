@@ -482,6 +482,9 @@ box-shadow: 0px 0px 1px rgb(57, 54, 54);            padding: 5px;
             border-radius: 5px;
             display: none;
         }
+        .main{
+            min-height:100vh;
+        }
 
         /* Make it responsive for smaller screens */
         @media (max-width: 768px) {
@@ -630,6 +633,14 @@ label{
     color: #6a11cb;
     text-shadow: 0px 0px 5px rgb(0, 0, 27);
   }
+  .scroll-instruction {
+    text-align: center;
+    font-size: 16px;
+    color: #333;
+    margin: 10px;
+    font-weight: bold;
+}
+
     </style>
 </head>
 <body>
@@ -679,7 +690,7 @@ label{
         </div>
         <ul>
             <a href="/index" style="text-decoration: none;"><li><i class="fas fa-home"></i> Dashboard</li></a>
-            <li class="has-submenu"><i class="fas fa-info-circle"></i> Display Information <span class="arrow-down"></span>
+            <li class="has-submenu"><i class="fas fa-info-circle"></i>View Records<span class="arrow-down"></span>
                 <div class="submenu">
                     <ul>
                         <a href="/display_customer"><li>1. Customer Details</li></a>

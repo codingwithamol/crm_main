@@ -82,9 +82,11 @@ box-sizing: inherit;
         }
 
         /* Responsive Design */
-        @media (max-width: 500px) {
+        @media (min-width: 500px) {
            
-
+.spann{
+    margin-left: 100px;
+}
           
         }
         .mainnn{
@@ -122,9 +124,11 @@ box-sizing: inherit;
                         <button type="submit">Upload & Scan</button>
                     </form>
                     <p class="supported-formats">Supported formats: JPG, PNG, PDF</p>
-                 
+<div class="spann  mt-5"  >                        {% include 'buttons.html' %}
+</div>
             </div>
             <div class="col-md-3 col-1 col-sm-2"></div>
+            
         </div>
     </div>
 </div>

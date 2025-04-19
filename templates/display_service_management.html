@@ -476,19 +476,26 @@
                             </table>
                         </div>
                         
-                        <div class="pagination">
-                            {% if page_obj.has_previous %}
-                                <li><a href="?page=1">&laquo; First</a></li>
-                                <li><a href="?page={{ page_obj.previous_page_number }}">&lsaquo; Previous</a></li>
-                            {% endif %}
-                            
-                            <span class="current">{{ page_obj.number }}</span>
-                            
-                            {% if page_obj.has_next %}
-                                <li><a href="?page={{ page_obj.next_page_number }}">Next &rsaquo;</a></li>
-                                <li><a href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a></li>
-                            {% endif %}
+                        <div class="p">
+                            <p class="scroll-instruction">Scroll to view more content</p>
                         </div>
+                        <div class="pagination">
+
+                            {% if page_obj.has_previous %}
+                            <li><a href="?page=1">&laquo; First</a></li>
+                            <li><a href="?page={{ page_obj.previous_page_number }}">&lsaquo; Previous</a></li>
+                            {% endif %}
+
+                            <span class="current">{{ page_obj.number }}</span>
+
+                            {% if page_obj.has_next %}
+                            <li><a href="?page={{ page_obj.next_page_number }}">Next &rsaquo;</a></li>
+                            <li><a href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a></li>
+                            {% endif %}
+
+                        </div>
+                        {% include 'buttons.html' %}
+
                     </div>
                 </div>
             </div>

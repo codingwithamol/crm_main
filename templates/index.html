@@ -266,7 +266,7 @@
         }
 
         .cards {
-            min-height: 610px;
+            min-height: 690px !important;
         }
     </style>
 </head>
@@ -332,15 +332,15 @@
 
 
 
-                        <div class="row" style="padding-right:10px !important;">
+                        <div class="row" >
                             <div class="col-md-6 col-6">
                                 <label for="start_date">Start Date:</label>
-                                <input type="date" id="start_date" name="start_date">
+                                <input type="date" id="start_date" name="start_date" class="form-control">
 
                             </div>
                             <div class="col-md-6 col-6">
                                 <label for="end_date">End Date:</label>
-                                <input type="date" id="end_date" name="end_date"  >
+                                <input type="date" id="end_date" name="end_date" class="form-control" >
                             </div>
                         </div>
                     </div>
@@ -430,15 +430,15 @@
                     <!-- Date Range Filter -->
                     <div class="date-filter-container">
 
-                        <div class="row" style="padding-right:10px !important;">
+                        <div class="row" >
                             <div class="col-md-6 col-6">
                                 <label for="start_date_followup">Start Date:</label>
-                                <input type="date" id="start_date_followup" name="start_date_followup">
+                                <input type="date" id="start_date_followup" name="start_date_followup" class="form-control">
                             </div>
 
                             <div class="col-md-6 col-6">
                                 <label for="end_date_followup">End Date:</label>
-                                <input type="date" id="end_date_followup" name="end_date_followup">
+                                <input type="date" id="end_date_followup" name="end_date_followup" class="form-control">
                             </div>
                         </div>
                     </div>
@@ -540,18 +540,18 @@
                     <!-- Date Range Filter -->
                     <div class="date-filter-container ">
 
-                        <div class="row" style="padding-right:10px !important;">
+                        <div class="row" >
                             <div class="col-md-6 col-6">
                                 <label for="start_date_qo">Start Date:</label>
-                                <input type="date" id="start_date_qo" name="start_date_qo">
+                                <input type="date" id="start_date_qo" name="start_date_qo" class="form-control">
 
                             </div>
                             <div class="col-md-6 col-6">
                                 <label for="end_date_qo">End Date:</label>
-                                <input type="date" id="end_date_qo" name="end_date_qo">
+                                <input type="date" id="end_date_qo" name="end_date_qo" class="form-control">
                             </div>
                         </div>
-                        <div style="display: flex; gap: 10px; margin-top: 10px; flex-grow: 0;" class="mb-4">
+                        <div style="display: flex; gap: 10px; flex-grow: 0;" class="mb-4">
                             <button id="filter_quotation_button" onclick="filterByQuotationDate()" class="mt-4"
                                 style="padding: 7px 15px; background-color: #3498db; color: white; border: none; border-radius: 5px; cursor: pointer;">
                                 Filter by Quotation Date
@@ -672,21 +672,21 @@
         </div>
         <div class="row">
 
-            <div class="col-md-4 col-12 col-sm-12 col-lg-4 col-xl-4 mt-3">
+            <div class="col-md-6 col-12 col-sm-12 col-lg-6 col-xl-6 mt-3">
                 <div class="contractTypeChart-container cards bg-light">
                     <h3 class="mt-1">Contract Type Status</h3>
                     <!-- Date Range Filter -->
                     <div class="date-filter-container">
 
-                        <div class="row" style="padding-right:10px !important;">
+                        <div class="row" >
                             <div class="col-md-6 col-6">
                                 <label for="start_date_service">Start Date:</label>
-                                <input type="date" id="start_date_service" name="start_date_service">
+                                <input type="date" id="start_date_service" name="start_date_service" class="form-control">
                             </div>
 
                             <div class="col-md-6 col-6">
                                 <label for="end_date_service">End Date:</label>
-                                <input type="date" id="end_date_service" name="end_date_service">
+                                <input type="date" id="end_date_service" name="end_date_service" class="form-control">
                             </div>
                         </div>
                     </div>
@@ -791,7 +791,7 @@
                     </script>
                 </div>
             </div>
-            <div class="col-md-4 col-12 col-sm-12 col-lg-4 col-xl-4 mt-3">
+            <div class="col-md-6 col-12 col-sm-12 col-lg-6 col-xl-6 mt-3">
                 <div class="bar-chart-container cards bg-light">
                     <!-- Bar Chart for Product Categories -->
                     <h3 class="mt-1">Products by Category</h3>
@@ -841,8 +841,7 @@
                     </script>
                 </div>
             </div>
-            <div class="col-md-4 col-12 col-lg-4 col-xl-4"></div>
-        </div>
+         </div>
         <div class="row">
 
         </div>
