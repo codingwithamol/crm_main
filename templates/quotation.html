@@ -74,9 +74,7 @@
         .container {
             margin-top: 30px;
         }
-        .card-body {
-            padding: 40px;
-        }
+        
         .switch {
             position: relative;
             display: inline-block;
@@ -148,7 +146,12 @@
                 max-width: 100%;
                 padding: 20px; /* Add some padding for better appearance */
             }
-
+            .flaxxxx {
+                display: flex !important;
+           
+                justify-content: space-around !important;
+                align-items: center !important;
+            }
             .open-sidebar .card {
                 margin-left: 300px; /* Adjust content when sidebar is open */
             }
@@ -163,7 +166,10 @@
     <div class="main-container">
         <div class="card shadow-2-strong card-registration">
             <div class="card-body">
-                <h3 style="font-size: 40px; margin-top: 5px;font-weight: 600;">Quotation</h3>
+                <span onclick="window.location.href='/index'" style="float: left; cursor: pointer; color:rgb(75, 162, 255); font-size:20px;" class="mb-4"><i class="fas fa-house-chimney"></i></span>
+                <span onclick="window.history.back()" style="float: right; cursor: pointer; color:red; font-size:20px;" class="mb-4">X</span>
+              
+                <h3 style="  margin-top: 5px;font-weight: 600;" class="mt-5"> Quotation</h3>
                 <form method="POST">
                     {% csrf_token %}
                     <div class="row">
@@ -229,6 +235,8 @@
                     <div class="row">
                         <div class="col-md-6 mb-4">
                             <div data-mdb-input-init class="form-outline">
+                                <label  style="font-size: 14px;">Company Contact No</label>
+
                                 <input type="text" 
                                        id="company_contact_no" 
                                        class="form-control form-control-lg" 
@@ -242,33 +250,43 @@
 
                         <div class="col-md-6 mb-4">
                             <div data-mdb-input-init class="form-outline">
-                                <input type="date" id="quotation_date" class="form-control form-control-lg" placeholder="Quotation Date" name="quotation_date" required />
                                 <label  style="font-size: 14px;">Quotation Date </label>
+
+                                <input type="date" id="quotation_date" class="form-control form-control-lg" placeholder="Quotation Date" name="quotation_date" required />
                             </div>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="col-md-6 mb-4">
-                            <div data-mdb-input-init class="form-outline">
+                        <div class="col-md-6 ">
+                            <div data-mdb-input-init class="form-outline mt-3">
                                 <input type="text" id="company_address" class="form-control form-control-lg" placeholder="Company Address" name="company_address" required />
                             </div>
                         </div>
 
-                        <div class="col-md-6 mb-4">
-                            <div data-mdb-input-init class="form-outline" style="margin-left: 80px;">
-                                <label class="switch">
-                                    <input type="checkbox" id="gst_checkbox" class="form-check-input" name="gst_checkbox" />
-                                    <span class="slider round"></span>
-                                </label>
-                                <label class="form-check-label gst-toggle-label" for="gst_checkbox" style="margin-left: 5px;">Apply GST</label>
+                        <div class="col-md-6  ">
+                            <div data-mdb-input-init class="form-outline" >
+                               
+                               <div class="row">
+                                <div class="col-md-12 flaxxxx">
+                                    <label class="switch">
+                                        <input type="checkbox" id="gst_checkbox" class="form-check-input" name="gst_checkbox" />
+                                        <span class="slider round "></span>
+                                    </label>
+                                    <label class="form-check-label gst-toggle-label mb-5" for="gst_checkbox"  >Apply GST</label>
+
+                                   </div> 
+                                 
+                               </div> 
+                              
                             </div>
                         </div>
-                    </div>
+                    </div> 
 
                     <div class="row">
                         <div class="col-md-6 mb-4">
                             <div data-mdb-input-init class="form-outline">
+                                <label  style="font-size: 14px;">Discount </label>
                                 <input type="number" step="0.01" id="discount" class="form-control form-control-lg" placeholder="Discount (%)" name="discount" required />
                             </div>
                         </div>
@@ -306,8 +324,7 @@
                         <input class="btn btn-info btn-lg" type="submit" name="submit" value="Submit" / style="width: 200px;">
                     </div>
                      
-                    {% include 'buttons.html' %}
-
+ 
                 </form>
             </div>
         </div>
