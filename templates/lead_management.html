@@ -110,7 +110,7 @@
         <div class="card shadow-2-strong card-registration">
             <div class="card-body">
                 <span onclick="window.location.href='/index'" style="float: left; cursor: pointer; color:rgb(75, 162, 255); font-size:20px;" class="mb-4"><i class="fas fa-house-chimney"></i></span>
-                <span onclick="window.history.back()" style="float: right; cursor: pointer; color:red; font-size:20px;" class="mb-4">X</span>
+                <span onclick="goBackAndRefresh()" style="float: right; cursor: pointer; color:red; font-size:20px;" class="mb-4">X</span>
               
                 <h3 class="mt-4 mb-3" style=" margin-top: 5px;font-weight: 600;">Lead Management</h3>
                 <form method="POST">
@@ -118,6 +118,7 @@
                     <div class="row">
                         <div class="col-md-6 mb-4">
                             <div data-mdb-input-init class="form-outline">
+                                <label>Please Select Source of Lead<span class="star">*</span></label>
                                 
                                 <select style="height:15px !important;" id="sourceoflead" class="form-control form-control-lg" name="sourceoflead" placeholder="Please Select" required>
                                     <option value="" disabled selected>Source of Lead</option>
@@ -135,6 +136,8 @@
                         </div>
                         <div class="col-md-6 mb-4">
                             <div data-mdb-input-init class="form-outline">
+                                <label>Sales Person<span class="star">*</span></label>
+
                                 <input type="text" id="salesperson" class="form-control form-control-lg" placeholder="Salesperson" name="salesperson" required />
                             </div>
                         </div>
@@ -143,13 +146,16 @@
                     <div class="row">
                         <div class="col-md-6 mb-4">
                             <div data-mdb-input-init class="form-outline">
-                                <input type="text" id="customername" class="form-control form-control-lg" placeholder="Customer Name" name="customername" />
+                                <label>Customer Name<span class="star">*</span></label>
+
+                                <input type="text" id="customername" class="form-control form-control-lg" required placeholder="Customer Name" name="customername" />
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
                             <div data-mdb-input-init class="form-outline">
+                                <label>Please Select Customer Segment<span class="star">*</span></label>
                                 
-                                <select style="height:15px !important;" id="customersegment" class="form-control form-control-lg" name="customersegment" placeholder="Please Select" required>
+                                <select style="height:15px !important;" id="customersegment" class="form-control form-control-lg" name="customersegment" required placeholder="Please Select" required>
                                     <option value="" disabled selected>Customer Segment</option>
                                     <option value="Resedential">Resedential</option>
                                     <option value="Industrial">Industrial</option>
@@ -164,7 +170,7 @@
                     <div class="row">
                         <div class="col-md-6 mb-4">
                             <div data-mdb-input-init class="form-outline">
-                                <label  style="font-size: 14px;">Type of Lead </label>
+                                <label>Type Of Lead<span class="star">*</span></label>
                                 <select style="height:15px !important;" id="typeoflead" class="form-control form-control-lg" name="typeoflead">
                                     <option value="" disabled selected>Type of Lead</option>
                                     <option value="Hot">Hot</option>
@@ -177,7 +183,7 @@
                         </div>
                         <div class="col-md-6 mb-4">
                           <div data-mdb-input-init class="form-outline">
-                            <label  style="font-size: 14px;">Enquiry Date </label>
+                            <label>Enquiry Date<span class="star">*</span></label>
                             <input type="date" id="enquirydate" class="form-control form-control-lg" name="enquirydate"  />
                           </div>
                       </div>
@@ -186,12 +192,16 @@
                     <div class="row">
                       <div class="col-md-6 mb-4">
                           <div data-mdb-input-init class="form-outline">
-                            <input type="text" id="contactedby" class="form-control form-control-lg" placeholder="Contacted By" name="contactedby" />
+                            <label>Contacted By<span class="star">*</span></label>
+                            
+                            <input type="text" id="contactedby" class="form-control form-control-lg" required placeholder="Contacted By" name="contactedby" />
                           </div>
                       </div>
                         <div class="col-md-6 mb-4">
                           <div data-mdb-input-init class="form-outline">
-                              <input type="text" id="maincategory" class="form-control form-control-lg" placeholder="Main Category" name="maincategory" />
+                            <label>Main Category<span class="star">*</span></label>
+
+                              <input type="text" id="maincategory" class="form-control form-control-lg" required placeholder="Main Category" name="maincategory" />
                           </div>
                       </div>
                     </div>
@@ -199,15 +209,19 @@
                     <div class="row">
                       <div class="col-md-6 mb-4">
                           <div data-mdb-input-init class="form-outline">
-                            <input type="text" id="subcategory" class="form-control form-control-lg" placeholder="Sub Category" name="subcategory" />
+                            <label> Sub Category<span class="star">*</span></label>
+
+                            <input type="text" id="subcategory" class="form-control form-control-lg" required placeholder="Sub Category" name="subcategory" />
                           </div>
                       </div>
                       <div class="col-md-6 mb-4">
                           <div data-mdb-input-init class="form-outline">
+                            <label>Phone Number<span class="star">*</span></label>
+
                              <input type="text" 
                                    id="primarycontact" 
                                    class="form-control form-control-lg" 
-                                   placeholder="Contact No." 
+                                   required placeholder="Contact No." 
                                    name="primarycontact" 
                                    pattern="\d{10}" 
                                    title="Please enter a valid 10-digit phone number" 
@@ -219,10 +233,12 @@
                     <div class="row">
                         <div class="col-md-6 mb-4">
                             <div data-mdb-input-init class="form-outline">
+                                <label>Secondary Phone Number </label>
+
                                  <input type="text" 
                                    id="secondarycontact" 
                                    class="form-control form-control-lg" 
-                                   placeholder="Contact No." 
+                                     placeholder="Contact No." 
                                    name="secondarycontact" 
                                    pattern="\d{10}" 
                                    title="Please enter a valid 10-digit phone number" 
@@ -231,7 +247,9 @@
                         </div>
                         <div class="col-md-6 mb-4">
                             <div data-mdb-input-init class="form-outline">
-                                <input type="email" id="customeremail" class="form-control form-control-lg" placeholder="Customer Email" name="customeremail" />
+                                <label> Customer Email<span class="star">*</span></label>
+
+                                <input type="email" id="customeremail" class="form-control form-control-lg"   placeholder="Customer Email" name="customeremail" />
                             </div>
                         </div>
                       </div>
@@ -239,13 +257,14 @@
                     <div class="row">
                       <div class="col-md-6 mb-4">
                           <div data-mdb-input-init class="form-outline">
-                            <label  style="font-size: 14px;">First followup Date:</label>
-                            <input type="date" id="firstfollowupdate" class="form-control form-control-lg" name="firstfollowupdate"  />
+                            <label>First followup Date<span class="star">*</span></label>
+
+                             <input type="date" id="firstfollowupdate" class="form-control form-control-lg" name="firstfollowupdate"  />
                           </div>
                       </div>
                       <div class="col-md-6 mb-4">
                         <div data-mdb-input-init class="form-outline">
-                            <label  style="font-size: 14px;"> </label>
+                            <label>Customer Address<span class="star">*</span></label>
 
                             <textarea id="customeraddress" class="form-control form-control-lg" placeholder="Customer Address" name="customeraddress">{{ x.customeraddress }}</textarea>
                         </div>
@@ -255,17 +274,22 @@
                     <div class="row">
                         <div class="col-md-6 mb-4">
                             <div data-mdb-input-init class="form-outline">
+                                <label>Location<span class="star">*</span></label>
+
                               <input type="url" id="location" class="form-control form-control-lg" placeholder="Location" name="location" />
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
                             <div data-mdb-input-init class="form-outline">
+                                <label>City<span class="star">*</span></label>
+
                               <input type="text" id="city" class="form-control form-control-lg" placeholder="City" name="city" />
                             </div>
                         </div>
                       </div>
 
                     <div class="mt-4 pt-2 text-center">
+ 
                       <input class="btn btn-info btn-lg" type="submit" name="submit" value="Submit" style="width: 150px;" /><br>
                       <a class="btn btn-outline-info   mt-3" style="width: 150px;">Viwe Lead</a>
 

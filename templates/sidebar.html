@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,10 +11,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Cardo:ital@0;1&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Cardo:ital@0;1&display=swap"
+        rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Cardo:ital@0;1&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Cardo:ital@0;1&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Outfit:wght@100..900&display=swap"
+        rel="stylesheet">
     <title>Sidebar</title>
     <style>
         body {
@@ -61,7 +66,7 @@
             transition: left 0.3s ease-in-out;
             z-index: 2000;
             /* Ensure sidebar is above overlay */
-            
+
             /* Curved bottom-right corner */
             box-shadow: 2px 0px 10px rgba(101, 117, 255, 0.984);
             border-radius: 1px !important;
@@ -153,7 +158,8 @@
             padding-left: 20px;
             border-radius: 5px;
         }
-  .submenu ul {
+
+        .submenu ul {
             list-style-type: none;
             padding: 0;
             margin: 0;
@@ -171,7 +177,8 @@
         .submenu ul li:hover {
             background-color: #fdfdfd;
             color: black;
-box-shadow: 0px 0px 1px rgb(57, 54, 54);            padding: 5px;
+            box-shadow: 0px 0px 1px rgb(57, 54, 54);
+            padding: 5px;
             /* Slightly darker shade for hover */
         }
 
@@ -187,13 +194,15 @@ box-shadow: 0px 0px 1px rgb(57, 54, 54);            padding: 5px;
             border-top: 10px solid #acabab;
             /* Adjusted arrow color */
         }
+
         .arrow-down:hover {
-          color: rgb(255, 255, 255);
+            color: rgb(255, 255, 255);
         }
-            
+
         .arrow-up:hover {
             color: rgb(255, 255, 255);
-          }
+        }
+
         .arrow-up {
             position: absolute;
             right: 10px;
@@ -264,7 +273,7 @@ box-shadow: 0px 0px 1px rgb(57, 54, 54);            padding: 5px;
             }
 
 
-          
+
 
 
             .sidebar {
@@ -292,7 +301,7 @@ box-shadow: 0px 0px 1px rgb(57, 54, 54);            padding: 5px;
                 /* Show the button on small screens */
             }
         }
- 
+
         @media (min-width: 769px) {
             .sidebar {
                 left: -300px;
@@ -380,7 +389,8 @@ box-shadow: 0px 0px 1px rgb(57, 54, 54);            padding: 5px;
             z-index: 2100;
             /* Ensure it's above the sidebar content */
         }
-        .close-button :hover{
+
+        .close-button :hover {
             color: rgb(255, 0, 0);
             text-shadow: 0px 0px 5px rgb(255, 2, 2);
             z-index: 1;
@@ -482,8 +492,9 @@ box-shadow: 0px 0px 1px rgb(57, 54, 54);            padding: 5px;
             border-radius: 5px;
             display: none;
         }
-        .main{
-            min-height:100vh;
+
+        .main {
+            min-height: 100vh;
         }
 
         /* Make it responsive for smaller screens */
@@ -520,7 +531,7 @@ box-shadow: 0px 0px 1px rgb(57, 54, 54);            padding: 5px;
             top: 0px;
         }
 
-     
+
 
         .teimlms {
             display: inline-block;
@@ -534,115 +545,126 @@ box-shadow: 0px 0px 1px rgb(57, 54, 54);            padding: 5px;
 
         /* Cards Style*/
 
-        .cards{
+        .cards {
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0px 0px 10px rgb(125, 93, 93);
             box-shadow: inset 0px 0px 3px rgb(28, 17, 239);
-          
+
 
         }
-        .cardsmaincontainer{
+
+        .cardsmaincontainer {
             margin-bottom: 200px;
         }
- h3{
-    background: linear-gradient(to right, #2575fc, #6a11cb);
-    /* Gradient definition */
-    -webkit-background-clip: text;
-    /* Clip the gradient to the text boundaries */
-    -webkit-text-fill-color: transparent;
-    border-bottom: 1px solid rgb(80, 16, 177);
-    /*Script MT */
-    font-weight: 400;
-}
-label{
-    margin-top: 20px;
-    color: #3498db;
-   
-}/* From Uiverse.io by satyamchaudharydev */ 
-/* From Uiverse.io by satyamchaudharydev */ 
-.logoutbtn {
-    --primary-color: #b4b4b8;
-    --secondary-color: #fff;
-    --hover-color: #111;
-    --arrow-width: 10px;
-    --arrow-stroke: 2px;
-    box-sizing: border-box;
-    border: 0;
-    border-radius: 20px;
-    color: var(--secondary-color);
-    padding: 0.5em 1.3em;
-    background: var(--primary-color);
-    display: flex;
-    transition: 0.2s background;
-    align-items: center;
-    gap: 0.6em;
-    font-weight: bold;
-    background-color: #ff4646;
-    margin-top: 50px !important;
-  }
-  .logoutbtn a{
-    list-style-type: none;
-    text-decoration: none;
-    color:white;
-  }
-  
-  .logoutbtn .arrow-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .logoutbtn .arrow {
-    margin-top: 1px;
-    width: var(--arrow-width);
-    background: var(--primary-color);
-    height: var(--arrow-stroke);
-    position: relative;
-    transition: 0.2s;
-  }
-  
-  .logoutbtn .arrow::before {
-    content: "";
-    box-sizing: border-box;
-    position: absolute;
-    border: solid var(--secondary-color);
-    border-width: 0 var(--arrow-stroke) var(--arrow-stroke) 0;
-    display: inline-block;
-    top: -3px;
-    right: 2px;
-    transition: 0.2s;
-    padding: 3px;
-    transform: rotate(-45deg);
-  }
-  
-  .logoutbtn:hover {
-    background-color:red;
-    box-shadow:0px 10px 10px red;
-  }
-  
-  .logoutbtn:hover .arrow {
-    background: var(--secondary-color);
-  }
-  
-  .logoutbtn:hover .arrow:before {
-    right: 0;
-  }
-  .hamburger:hover{
 
-    color: #6a11cb;
-    text-shadow: 0px 0px 5px rgb(0, 0, 27);
-  }
-  .scroll-instruction {
-    text-align: right;
-    font-size: 16px;
-     margin: 10px;
-    font-weight: bold;
-    color:	#E53935;
-}
+        h3 {
+            background: linear-gradient(to right, #2575fc, #6a11cb);
+            /* Gradient definition */
+            -webkit-background-clip: text;
+            /* Clip the gradient to the text boundaries */
+            -webkit-text-fill-color: transparent;
+            border-bottom: 1px solid rgb(80, 16, 177);
+            /*Script MT */
+            font-weight: 400;
+        }
 
+        label {
+            margin-top: 20px;
+            color: #3498db;
+
+        }
+
+        /* From Uiverse.io by satyamchaudharydev */
+        /* From Uiverse.io by satyamchaudharydev */
+        .logoutbtn {
+            --primary-color: #b4b4b8;
+            --secondary-color: #fff;
+            --hover-color: #111;
+            --arrow-width: 10px;
+            --arrow-stroke: 2px;
+            box-sizing: border-box;
+            border: 0;
+            border-radius: 20px;
+            color: var(--secondary-color);
+            padding: 0.5em 1.3em;
+            background: var(--primary-color);
+            display: flex;
+            transition: 0.2s background;
+            align-items: center;
+            gap: 0.6em;
+            font-weight: bold;
+            background-color: #ff4646;
+            margin-top: 50px !important;
+        }
+
+        .logoutbtn a {
+            list-style-type: none;
+            text-decoration: none;
+            color: white;
+        }
+
+        .logoutbtn .arrow-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logoutbtn .arrow {
+            margin-top: 1px;
+            width: var(--arrow-width);
+            background: var(--primary-color);
+            height: var(--arrow-stroke);
+            position: relative;
+            transition: 0.2s;
+        }
+
+        .logoutbtn .arrow::before {
+            content: "";
+            box-sizing: border-box;
+            position: absolute;
+            border: solid var(--secondary-color);
+            border-width: 0 var(--arrow-stroke) var(--arrow-stroke) 0;
+            display: inline-block;
+            top: -3px;
+            right: 2px;
+            transition: 0.2s;
+            padding: 3px;
+            transform: rotate(-45deg);
+        }
+
+        .logoutbtn:hover {
+            background-color: red;
+            box-shadow: 0px 10px 10px red;
+        }
+
+        .logoutbtn:hover .arrow {
+            background: var(--secondary-color);
+        }
+
+        .logoutbtn:hover .arrow:before {
+            right: 0;
+        }
+
+        .hamburger:hover {
+
+            color: #6a11cb;
+            text-shadow: 0px 0px 5px rgb(0, 0, 27);
+        }
+
+        .scroll-instruction {
+            text-align: right;
+            font-size: 16px;
+            margin: 10px;
+            font-weight: bold;
+            color: #E53935;
+        }
+        .star{
+            color: red;
+        }
     </style>
 </head>
+
 <body>
     <div class="header">
 
@@ -665,15 +687,15 @@ label{
             <span>Dashboard</span>
         </div> -->
 
-        <div class="navbar-header tem" >
+        <div class="navbar-header tem">
             <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>                        
             </button> -->
             <a class="navbar-brand " href="https://chronoanalytics.in/">
-                <img src="{% static 'images/crono.png' %}" alt="Logo" 
-                    class="imgg" style="height: 50px;   margin-bottom: 8px; ">
+                <img src="{% static 'images/crono.png' %}" alt="Logo" class="imgg"
+                    style="height: 50px;   margin-bottom: 8px; ">
             </a>
         </div>
     </div>
@@ -689,38 +711,75 @@ label{
             <img src="{% static 'images/Logo.webp' %}" alt="Logo">
         </div>
         <ul>
-            <a href="/index" style="text-decoration: none;"><li><i class="fas fa-home"></i> Dashboard</li></a>
+            <a href="/index" style="text-decoration: none;">
+                <li><i class="fas fa-home"></i> Dashboard</li>
+            </a>
             <li class="has-submenu"><i class="fas fa-info-circle"></i>View Records<span class="arrow-down"></span>
                 <div class="submenu">
                     <ul>
-                        <a href="/display_customer"><li>1. Customer Details</li></a>
-                        <a href="/display_service_management"><li>2. Service Management</li></a>
-                        <a href="/display_quotation"><li>3. Quotation</li></a>
-                        <a href="/display_invoice"><li>4. Invoice</li></a>
-                        <a href="/display_lead_management"><li>5. Lead Management</li></a>
-                        <a href="/display_followup"><li>6. List of Follow ups</li></a>
-                        <a href="/display_reschedule"><li>7. Reschedule log</li></a>
-                        <a href="/schedule_meetings/display_meeting"><li>8. Meeting Records Log</li></a>
+                        <a href="/display_lead_management">
+                            <li>1. Lead Management</li>
+                        </a>
+
+                        <a href="/display_customer">
+                            <li>2. Customer Details</li>
+                        </a>
+                        <a href="/display_followup">
+                            <li>3. List of Follow ups</li>
+                        </a>
+
+                        <a href="/display_service_management">
+                            <li>4. Service Management</li>
+                        </a>
+                        <a href="/display_quotation">
+                            <li>5. Quotation</li>
+                        </a>
+                        <a href="/display_invoice">
+                            <li>6. Invoice</li>
+                        </a>
+                        <a href="/display_reschedule">
+                            <li>7. Reschedule log</li>
+                        </a>
+                        <a href="/schedule_meetings/display_meeting">
+                            <li>8. Meeting Records Log</li>
+                        </a>
                     </ul>
                 </div>
             </li>
             <li class="has-submenu"><i class="fas fa-folder-open"></i> Master<span class="arrow-down"></span>
                 <div class="submenu">
                     <ul>
-                        <a href="/customer_details_create"><li>1. Customer Details</li></a>
-                        <a href="/service_management_create"><li>2. Service Management</li></a>
-                        <a href="/quotation_create"><li>3. Quotation</li></a>
-                        <a href="/invoice_create"><li>4. Invoice</li></a>
-                        <a href="/lead_management_create"><li>5. Lead Management</li></a>
+                        <a href="/lead_management_create">
+                            <li>1. Lead Management</li>
+                        </a>
+                        <a href="/customer_details_create">
+                            <li>2. Customer Details</li>
+                        </a>
+                        <a href="/service_management_create">
+                            <li>3. Service Management</li>
+                        </a>
+                        <a href="/quotation_create">
+                            <li>4. Quotation</li>
+                        </a>
+                        <a href="/invoice_create">
+                            <li>5. Invoice</li>
+                        </a>
+                       
                     </ul>
                 </div>
             </li>
             <li class="has-submenu"><i class="fas fa-box"></i> Products<span class="arrow-down"></span>
                 <div class="submenu">
                     <ul>
-                        <a href="/add_product"><li>1. Add Products</li></a>
-                        <a href="/update_product"><li>2. Update Products</li></a>
-                        <a href="/products"><li>3. All Products</li></a>
+                        <a href="/add_product">
+                            <li>1. Add Products</li>
+                        </a>
+                        <a href="/update_product">
+                            <li>2. Update Products</li>
+                        </a>
+                        <a href="/products">
+                            <li>3. All Products</li>
+                        </a>
                     </ul>
                 </div>
             </li>
@@ -735,17 +794,28 @@ label{
             <li class="has-submenu"><i class="fas fa-user-cog"></i> Technicians<span class="arrow-down"></span>
                 <div class="submenu">
                     <ul>
-                        <a href="/create"><li>1. Create Technician</li></a>
-                        <a href="/technician_work_list"><li>2. Work History</li></a>
-                        <a href="/completed_work"><li>3. Completed Work List</li></a>
+                        <a href="/create">
+                            <li>1. Create Technician</li>
+                        </a>
+                        <a href="/technician_work_list">
+                            <li>2. Work History</li>
+                        </a>
+                        <a href="/completed_work">
+                            <li>3. Completed Work List</li>
+                        </a>
                     </ul>
                 </div>
             </li>
-            <li class="has-submenu" onclick="window.location.href='/display_allocation'"><i class="fas fa-tasks"></i> Allocate Work</li>
-            <li class="has-submenu" onclick="window.location.href='/ocrapp/scan/'"><i class="fas fa-id-card"></i> Scan Card</li>
-            <li class="has-submenu" onclick="window.location.href='/schedule_meetings/schedule/'"><i class="fas fa-calendar-plus"></i> Schedule Meet</li>
-            <li class="has-submenu" onclick="window.location.href='/schedule_meetings/meeting_list/'"><i class="fas fa-book"></i> Meet Notes</li>
-            <li class="has-submenu" onclick="window.location.href='/open_ai/chatbot/'"><i class="fa-solid fa-comments"></i> Chat Bot</li>
+            <li class="has-submenu" onclick="window.location.href='/display_allocation'"><i class="fas fa-tasks"></i>
+                Allocate Work</li>
+            <li class="has-submenu" onclick="window.location.href='/ocrapp/scan/'"><i class="fas fa-id-card"></i> Scan
+                Card</li>
+            <li class="has-submenu" onclick="window.location.href='/schedule_meetings/schedule/'"><i
+                    class="fas fa-calendar-plus"></i> Schedule Meet</li>
+            <li class="has-submenu" onclick="window.location.href='/schedule_meetings/meeting_list/'"><i
+                    class="fas fa-book"></i> Meet Notes</li>
+            <li class="has-submenu" onclick="window.location.href='/open_ai/chatbot/'"><i
+                    class="fa-solid fa-comments"></i> Chat Bot</li>
         </ul>
 
         <!-- <div class="button-container">
@@ -777,20 +847,20 @@ label{
                 }, 3000); // Hide after 3 seconds
             }
         </script>
-    
+
         <!-- 
         
         
         -->
         <center> <button class="mb-5 mt-3 logoutbtn">
-            <a href="/logout">Logout</a>
-            <div class="arrow-wrapper">
-                <div class="arrow"></div>
+                <a href="/logout">Logout</a>
+                <div class="arrow-wrapper">
+                    <div class="arrow"></div>
 
-            </div>
-        </button></center>
-        
-        
+                </div>
+            </button></center>
+
+
     </div>
 
     <div class="overlay" id="overlay"></div>
@@ -815,6 +885,12 @@ label{
             document.body.classList.remove('open-sidebar');
         });
     </script>
+    <script>
+        function goBackAndRefresh() {
+          window.location.href = document.referrer;
+        }
+      </script>
 
 </body>
+
 </html>

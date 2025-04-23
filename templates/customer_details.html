@@ -99,6 +99,7 @@
             }
 
         }
+      
     </style>
 </head>
 <body>
@@ -108,7 +109,10 @@
     <div class="main-container">
         <div class="card shadow-2-strong card-registration">
             <div class="card-body">
-                <h3 style="font-size: 40px; margin-top: 5px;">Customer Details</h3>
+                <span onclick="window.location.href='/index'" style="float: left; cursor: pointer; color:rgb(75, 162, 255); font-size:20px;" class="mb-4"><i class="fas fa-house-chimney"></i></span>
+                <span onclick="goBackAndRefresh()" style="float: right; cursor: pointer; color:red; font-size:20px;" class="mb-4">X</span>
+              
+                <h3 class="mt-4 mb-3">Customer Details</h3>
                 <div class="col-md-12"> 
                     <p style="color: red; text-align: center;">{{msg1}}</p>
                 </div>
@@ -117,12 +121,14 @@
                     <div class="row">
                         <div class="col-md-6 mb-4">
                             <div class="form-outline">
-                                <input type="text" class="form-control form-control-lg" placeholder="First Name" name="firstname" />
+                                <label>First Name <span class="star">*</span></label>
+                                <input type="text" class="form-control form-control-lg" placeholder="First Name" name="firstname" required />
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
                             <div class="form-outline">
-                                <input type="text" class="form-control form-control-lg" placeholder="Last Name" name="lastname" />
+                                <label>Last Name <span class="star">*</span></label>
+                                <input type="text" class="form-control form-control-lg" placeholder="Last Name" name="lastname" required/>
                             </div>
                         </div>
                     </div>
@@ -130,11 +136,15 @@
                     <div class="row">
                         <div class="col-md-6 mb-4">
                             <div class="form-outline">
-                                <input type="email" class="form-control form-control-lg" placeholder="Primary Email" name="primaryemail" />
+                                <label>Primary Email <span class="star">*</span></label>
+
+                                <input type="email required" class="form-control form-control-lg" placeholder="Primary Email" name="primaryemail" />
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
                             <div class="form-outline">
+                                <label>Secondary Email  </label>
+
                                 <input type="email" class="form-control form-control-lg" placeholder="Secondary Email" name="secondaryemail" />
                             </div>
                         </div>
@@ -143,7 +153,9 @@
                     <div class="row">
                         <div class="col-md-6 mb-4">
                             <div class="form-outline">
-                                <input type="text" 
+                                <label>Phone Number<span class="star">*</span></label>
+
+                                <input type="te requiredxt" 
                                        class="form-control form-control-lg" 
                                        placeholder="Primary Contact No" 
                                        name="primarycontact" 
@@ -154,6 +166,8 @@
                         </div>
                         <div class="col-md-6 mb-4">
                             <div class="form-outline">
+                                <label>Secondary Contact No </label>
+
                                 <input type="text" 
                                        class="form-control form-control-lg" 
                                        placeholder="Secondary Contact No" 
@@ -168,12 +182,16 @@
                     <div class="row">
                         <div class="col-md-6 mb-4">
                             <div class="form-outline">
-                                <input type="text" class="form-control form-control-lg" placeholder="Contact person name" name="contactperson" />
+                                <label>Contact Person Name<span class="star">*</span></label>
+                                
+                                <input type="text" required class="form-control form-control-lg" placeholder="Contact person name" name="contactperson" />
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
                             <div class="form-outline">
-                                <input type="text" class="form-control form-control-lg" placeholder="Designation" name="customersegment" />
+                                <label>Designation<span class="star">*</span></label>
+                                
+                                <input type="text" required class="form-control form-control-lg" placeholder="Designation" name="customersegment" />
                             </div>
                         </div>
                     </div>
@@ -181,7 +199,9 @@
                     <div class="row">
                         <div class="col-md-6 mb-4">
                             <div class="form-outline">
-                                <input type="text" class="form-control form-control-lg" placeholder="Customer ID" name="customerid" value="{{ customerid }}" readonly />
+                                <label>Customer ID<span class="star">*</span></label>
+
+                                <input type="text" required class="form-control form-control-lg" placeholder="Customer ID" name="customerid" value="{{ customerid }}" readonly />
                             </div>
                         </div>
                     </div>
@@ -191,12 +211,16 @@
                     <div class="row">
                         <div class="col-md-6 mb-4">
                             <div class="form-outline">
-                                <input type="text" class="form-control form-control-lg" placeholder="Shift To Party Address" name="shifttopartyaddress" />
+                                <label>Shift To Party Address<span class="star">*</span></label>
+
+                                <input type="text" required class="form-control form-control-lg" placeholder="Shift To Party Address" name="shifttopartyaddress" />
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
                             <div class="form-outline">
-                                <input type="text" class="form-control form-control-lg" placeholder="City" name="shifttopartycity" />
+                                <label>City<span class="star">*</span></label>
+
+                                <input type="text" required class="form-control form-control-lg" placeholder="City" name="shifttopartycity" />
                             </div>
                         </div>
                     </div>
@@ -204,12 +228,16 @@
                     <div class="row">
                         <div class="col-md-6 mb-4">
                             <div class="form-outline">
-                                <input type="text" class="form-control form-control-lg" placeholder="State / Province" name="shifttopartystate" />
+                                <label>State / Province<span class="star">*</span></label>
+
+                                <input type="text" required class="form-control form-control-lg" placeholder="State / Province" name="shifttopartystate" />
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
                             <div class="form-outline">
-                                <input type="text" class="form-control form-control-lg" placeholder="Postal / Zip Code" name="shifttopartypostal" />
+                                <label>Postal / Zip Code<span class="star">*</span></label>
+
+                                <input type="text" required class="form-control form-control-lg" placeholder="Postal / Zip Code" name="shifttopartypostal" />
                             </div>
                         </div>
                     </div>
@@ -219,12 +247,16 @@
                     <div class="row">
                         <div class="col-md-6 mb-4">
                             <div class="form-outline">
-                                <input type="text" class="form-control form-control-lg" placeholder="Sold To Party Address" name="soldtopartyaddress" />
+                                <label>Sold To Party Address<span class="star">*</span></label>
+
+                                <input type="text" required class="form-control form-control-lg" placeholder="Sold To Party Address" name="soldtopartyaddress" />
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
                             <div class="form-outline">
-                                <input type="text" class="form-control form-control-lg" placeholder="City" name="soldtopartycity" />
+                                <label>Sold To Party City<span class="star">*</span></label>
+
+                                <input type="text" required class="form-control form-control-lg" placeholder="City" name="soldtopartycity" />
                             </div>
                         </div>
                     </div>
@@ -232,12 +264,16 @@
                     <div class="row">
                         <div class="col-md-6 mb-4">
                             <div class="form-outline">
-                                <input type="text" class="form-control form-control-lg" placeholder="State / Province" name="soldtopartystate" />
+                                <label>State / Province<span class="star">*</span></label>
+
+                                <input type="text" required class="form-control form-control-lg" placeholder="State / Province" name="soldtopartystate" />
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
                             <div class="form-outline">
-                                <input type="text" class="form-control form-control-lg" placeholder="Postal / Zip Code" name="soldtopartypostal" />
+                                <label>Postal / Zip Code<span class="star">*</span></label>
+
+                                <input type="text" required class="form-control form-control-lg" placeholder="Postal / Zip Code" name="soldtopartypostal" />
                             </div>
                         </div>
                     </div>
